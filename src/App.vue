@@ -1,33 +1,84 @@
 <template lang="pug">
   #app
-    img(:src="vue.path", :alt="vue.label")
-
-    //- 직접 에셋 속성을 설정하는 경우, assets/ 디렉토리에서 찾아야 이미지 출력
-    //- file-loader를 통해 아래와 같이 처리되기 때문
-    //- /dist/logo.png?82b9c7a5a3f405032b1db71a25f67021
-    //- img(src="./assets/logo.png", :alt="vue.label")
+    .box.is-1
+    .box.is-2
+    .box.is-3
+    .box.is-4
+    .box.is-5
+    .box.is-6
+    .box.is-7
+    .box.is-8
+    .box.is-9
+    .box.is-10
+    .box.is-11
+    .box.is-12
+   
 </template>
 
 <script>
-export default {
-  name: 'app',
-  data () {
-    return {
-      vue: {
-        // 동적 속성 바인딩 시에는 src/ 디렉토리에서 찾아야 이미지 출력
-        // file-loader를 사용하지 않고, 직접 속성 값을 설정하기 때문
-        path: './src/assets/logo.png',
-        label: 'Vue.js'
+  export default {
+    data() {
+      return {
+
       }
     }
   }
-}
 </script>
 
 <style lang="sass">
-  html
-    font-size: 100%
-    background: #fff
-  body
-    margin: 0
+
+@import "~config"
+
+// body
+//   margin: 0
+//   padding: 0
+//   width: 100%
+// #app
+//   margin: 0 15%
+//   padding: 0
+//   // width: 100%
+//   display: flex
+//   align-items: center
+//   justify-content: center
+.box
+  // margin: 0 50px
+  width: 100%
+  height: 100vh
+  &.is-1
+    +span(1)
+    background: rgba(50, 80, 180, 0.3)
+  &.is-2
+    +span(1)
+    background: rgba(50, 80, 180, 0.3)
+  &.is-3
+    +span(1)
+    background: rgba(50, 80, 180, 0.3)
+  &.is-4
+    +span(1)
+    background: rgba(50, 80, 180, 0.3)
+  &.is-5
+    +span(1)
+    background: rgba(50, 80, 180, 0.3)
+  &.is-6
+    +span(1)
+    background: rgba(50, 80, 180, 0.3)
+  &.is-7
+    +span(1)
+    background: rgba(50, 80, 180, 0.3)
+  &.is-8
+    +span(1)
+    background: rgba(50, 80, 180, 0.3)
+  &.is-9
+    +span(1)
+    background: rgba(50, 80, 180, 0.3)
+  &.is-10
+    +span(1)
+    background: rgba(50, 80, 180, 0.3)
+  &.is-11
+    +span(1)
+    background: rgba(50, 80, 180, 0.3)
+  &.is-12
+    +span(1)
+    background: rgba(50, 80, 180, 0.3)
+
 </style>
