@@ -9,6 +9,7 @@
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
   },
   "dependencies": {
+    "susy": "2.2.12",
     "vue": "^2.4.1"
   },
   "devDependencies": {
@@ -28,5 +29,15 @@
     "vuex": "^2.3.1",
     "webpack": "^2.6.1",
     "webpack-dev-server": "^2.4.5"
-  }
+  },
+  "main": "webpack.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Soyeon1128/Foolog.git"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Soyeon1128/Foolog/issues"
+  },
+  "homepage": "https://github.com/Soyeon1128/Foolog#readme"
 }

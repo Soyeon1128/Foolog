@@ -2,10 +2,9 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 
 import Home from './components/Home'
-import SignIn from './components/SignIn'
-import SignUp from './components/SignUp'
-import Calendar from './components/Calendar'
-import Post from './components/Post'
+import User from './components/User/User'
+import Calendar from './components/Calendar/Calendar'
+import Post from './components/Post/Post'
 import Search from './components/Search'
 import Statistics from './components/Statistics'
 
@@ -20,15 +19,9 @@ export const routes = [
     }
   },
   {
-    path: '/signin',
+    path: '/user',
     components: {
-      default: SignIn
-    }
-  },
-  {
-    path: '/signup',
-    components: {
-      default: SignUp
+      default: User
     }
   },
   {
