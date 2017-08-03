@@ -1,0 +1,49 @@
+@import "../susy/_susy";
+@import "config";
+
+.susy-post-photo {
+  background: rgba(0, 141, 0, 0.45);
+  // height: 100vh
+}
+.susy-post-diary {
+  background: rgba(0, 59, 165, 0.45);
+  // height: 100vh
+}
+.susy-main {
+  background: rgba(160, 0, 0, 0.45);
+  height: 100vh
+}
+
+@include susy-breakpoint(320px, 6) {
+  .susy-main {
+    @include span(6);
+  }
+  .susy-post-photo {
+    @include span(6);
+  }
+  .susy-post-diary {
+    @include span(6);
+  }
+}
+@include susy-breakpoint(768px, 8) {
+  .susy-main {
+    @include span(isolate 6 at 2);
+  }
+  .susy-post-photo {
+    @include span(isolate 3 at 2);
+  }
+  .susy-post-diary {
+    @include span(isolate 3 at 5);
+  }
+}
+@include susy-breakpoint(1200px, 12) {
+  .susy-main {
+    @include span(isolate 8 at 3);
+  }
+  .susy-post-photo {
+    @include span(isolate 4 at 3);
+  }
+  .susy-post-diary {
+    @include span(isolate 4 at 7);
+  }
+}
