@@ -1,0 +1,94 @@
+body{
+  /* font-family: ‘Ubuntu’, sans-serif; */
+  font-family: ‘NanumSquare’, sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+h1,h2,h3,h4,h5{
+  padding: 0;
+  margin: 0;
+}
+
+/* header 영역 */
+.header{
+  background-color: #fe836d ;
+  width: 100%;
+  height: 60px;
+  color: #fff;
+}
+.foolog-logo{
+  font-weight: 300;
+  padding-top: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap; 
+}
+
+/* calendar 영역 */
+.wrapper {
+  /*text-align: center;*/
+}
+/* cal-header 영역 */
+.cal-header {
+  height: 100px;
+  text-align: center;
+  font-size: 40px;
+  font-weight: 100;
+  padding-top: 25px;
+  box-sizing: border-box;
+  margin-top: 10px;
+} 
+.current-month-header {
+  margin: 0 20px;
+  vertical-align: middle;
+  /*background: blue; */
+}
+.btn-prev-month, .btn-next-month {
+  border: none;
+  background: none;
+  font-size: 20px;
+  font-weight: 100;
+  vertical-align: middle;
+}
+/* cal-table 영역 */
+table {
+  border-collapse: collapse;
+  border-top: 1px solid #666;
+  margin: 0 auto;
+}
+table thead, table tbody {
+  font-size: 20px;
+}
+table thead {
+  text-align: center;
+}
+table tbody {
+  color: #333;
+  font-weight: 100;
+  text-align: center;  
+}
+table td {
+  height: 80px;
+}
+.not-this-month {
+  color: #ccc;
+}
+.date-img {
+  width: 30px;
+  height: 30px;
+  overflow: hidden;
+  float: right;
+}
+.date-img img {
+  width: 100%;
+  height: auto;
+}
+.date-img.height-bigger img {
+  width: auto;
+  height: 100%;
+
+}
