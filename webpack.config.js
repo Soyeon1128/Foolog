@@ -46,7 +46,8 @@ module.exports = {
       // .vue 파일 <style lang="sass"> 내에 @import "~yamoo9" 를 호출하면 사용 가능합니다.
       'susy': path.resolve(__dirname, './src/lib/susy/_susy.scss'),
       'config': path.resolve(__dirname, './src/lib/config/_config.scss'),
-      'index': path.resolve(__dirname, './src/lib/config/index.scss'),
+      'grid': path.resolve(__dirname, './src/lib/config/grid.scss'),
+      'reset': path.resolve(__dirname, './src/sass/reset.sass'),
     }
   },
   devServer: {
