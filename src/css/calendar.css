@@ -19,6 +19,12 @@ h1,h2,h3,h4,h5{
   height: 60px;
   color: #fff;
 }
+.header i {
+  position: absolute;
+  top: 20px;
+  left: 30px;
+  color: #fff;
+}
 .foolog-logo{
   font-weight: 300;
   padding-top: 12px;
