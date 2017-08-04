@@ -1,0 +1,212 @@
+body{
+  /* font-family: 'Ubuntu', sans-serif; */
+  font-family: 'NanumSquare', sans-serif;
+  font-weight: 300;
+  font-style: normal; 
+  /*overflow: hidden;*/
+}
+body, p, button, fieldset{
+  margin: 0;
+  padding: 0;
+}
+h1,h2,h3,h4,h5{
+  padding: 0;
+  margin: 0;
+}
+
+/* header 영역 */
+.header{
+  background-color: #fe836d;
+  width: 100%;
+  height: 60px;
+  color: #fff;
+}
+.foolog-logo{
+  font-weight: 300;
+  padding-top: 12px;
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  flex-wrap: wrap; 
+}
+.header-img{
+  background: yellow; 
+  height: 240px;
+}
+
+/* slogan 영역 */
+.slogan-group{
+  position: absolute;
+  top: 170px;
+  left: 420px;
+}
+.foolog-slogan-1{
+  font-size: 75px;
+  color: #fff;
+}
+.foolog-slogan-2{
+  display: inline-block;        
+  font-size: 75px;
+  color: #fe836d;
+}
+.slogan-date-box{
+  display: inline-block;    
+  background: #fe836d;
+  margin-left: 20px;
+  height: 55px;
+  width: 145px;
+}
+.slogan-date{
+  display: inline-block;    
+  padding: 5px;
+  font-size: 45px;
+  color: #fff;
+}
+
+/* add-btn 영역 */
+.add-diary{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.add-btn{
+  margin-top: 70px;
+  background: none;
+  border: none;
+  color: #303030;
+  font-weight: lighter;
+  font-size: 28px;
+  cursor: pointer;
+}
+.plus{
+  font-size: 35px;
+  color: #fe836d;
+  padding-right: 10px;
+}
+
+/*post 영역*/
+.post {
+  /*background: lightsteelblue;*/
+  /*display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;*/
+  /*height: 100vh;*/
+  width: 900px;
+  /*height: 100vh;*/
+  margin: 30px auto;
+  
+}
+.post-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.post-item {
+  background: #f9f8f8;
+  /*height: auto;*/
+  display: flex;
+  position: relative;
+  margin-bottom: 50px;
+}
+.post-photo {
+  width: 50%;
+  /*background: #f9f8f8;*/
+  /*height: 600px;*/
+  
+}
+.post-photo img {
+  width: 100%;
+}
+.post-diary {
+  /*float: left;*/
+  width: 50%;
+  height: auto;
+  /*background: #f9f8f8;*/
+  font-size: 15px;
+  padding: 30px;
+  box-sizing: border-box;
+  /*display: flex;*/
+  display: flex;  
+  flex-wrap: wrap;
+  /*flex-direction: column;*/
+  align-content: flex-start;  
+}
+
+.diary-today {
+  margin-bottom: 7%;
+  color: #fe836d;
+  font-weight: 400;
+  /*height: auto;*/
+  /*height: auto;*/
+  /*margin-bottom: 5%;*/
+  /*display: flex;*/
+  /*align-items: flex-start;*/
+  /*justify-content: flex-start;*/
+  /*flex-wrap: wrap;*/
+  /*align-content: space-between;*/
+}
+.diary-location {
+  margin-left: 30%;
+  /*height: auto;*/
+  
+  /*margin-right: 10px;*/
+  /*display: flex;*/
+  /*align-content: space-between;*/
+  /*align-items: flex-end;*/
+  /*justify-content: flex-end;*/
+  /*align-self: flex-end;*/
+  /*flex-wrap: wrap;*/
+  /*display: flex;
+  align-items: center;
+  justify-content: center;*/
+}
+.diary-text {
+  /*letter-spacing: 1px;*/
+  word-spacing: 1.5px;
+  line-height: 20px;
+  margin-bottom: 7%;
+  
+  /*display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;*/
+  /*flex-wrap: wrap;*/
+  /*align-content: space-between;*/
+  /*display: flex;
+  align-items: center;
+  justify-content: center;*/
+}
+.diary-tags {
+  display: flex;
+}
+.tag-type-of-food {
+  margin-right: 10px;
+
+}
+.tag-taste-of-food {
+  margin-right: 10px;
+
+}
+.diary-share {
+  margin-right: 10px;
+  color: blue;
+}
+.diary-modify {
+  margin-right: 10px;
+}
+.post-delete {
+
+}
+.delete-btn {
+  width: 30px;
+  height: 30px;
+  border: none;
+  border-radius: 20px;
+  background: #fe836d;
+  color: #fff;
+  font-size: 15px;
+  position: absolute;
+  top: -10px;
+  right: -10px;
+}
