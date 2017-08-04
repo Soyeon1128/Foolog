@@ -2,61 +2,87 @@
 @import "config";
 
 .susy-header {
-  background: red;
-  height: 200px;
+  background: pink;
+  // height: 200px;
+}
+.susy-home {
+  background: yellow;
+  height: 100vh;
+}
+.susy-user {
+  background: aqua;
+  height: 100vh;
 }
 .susy-main {
-  background: rgba(160, 0, 0, 0.45);
-  height: 100vh
+  background: green;
+  height: 100vh;
 }
 .susy-post-photo {
   background: rgba(0, 141, 0, 0.45);
-  // height: 100vh
+  height: 100vh
 }
 .susy-post-diary {
   background: rgba(0, 59, 165, 0.45);
-  // height: 100vh
+  height: 100vh
 }
 
-@include susy-breakpoint(320px, 6) {
+@include susy-breakpoint(320px, 4) {
   .susy-header {
-    @include span(6)
+    @include container();
+  }
+  .susy-home {
+    @include span(4);
+  }
+  .susy-user {
+    @include span(4);
   }
   .susy-main {
-    @include span(6);
+    @include span(4);
   }
   .susy-post-photo {
-    @include span(6);
+    @include span(4);
   }
   .susy-post-diary {
-    @include span(6);
+    @include span(4);
   }
 }
 @include susy-breakpoint(768px, 8) {
   .susy-header {
-    @include span(8)
+    @include container();
+  }
+  .susy-home {
+    @include span(isolate 4 at 3);
+  }
+  .susy-user {
+    @include span(isolate 4 at 3);
   }
   .susy-main {
     @include span(isolate 6 at 2);
   }
   .susy-post-photo {
-    @include span(isolate 3 at 2);
+    @include span(isolate 3 at 2 nest);
   }
   .susy-post-diary {
-    @include span(isolate 3 at 5);
+    @include span(isolate 3 at 5 nest);
   }
 }
 @include susy-breakpoint(1200px, 12) {
   .susy-header {
-    @include span(12)
+    @include container();
+  }
+  .susy-home {
+    @include span(isolate 6 at 4);
+  }
+  .susy-user {
+    @include span(isolate 4 at 5);
   }
   .susy-main {
     @include span(isolate 8 at 3);
   }
   .susy-post-photo {
-    @include span(isolate 4 at 3);
+    @include span(isolate 4 at 3 nest);
   }
   .susy-post-diary {
-    @include span(isolate 4 at 7);
+    @include span(isolate 4 at 7 nest);
   }
 }
