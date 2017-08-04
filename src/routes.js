@@ -1,8 +1,5 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
-
 import Home from './components/Home'
-import User from './components/User/User'
+// import User from './components/User/User'
 import Calendar from './components/Calendar/Calendar'
 import Post from './components/Post/Post'
 import Search from './components/Search'
@@ -18,12 +15,12 @@ export const routes = [
       default: Home
     }
   },
-  {
-    path: '/user',
-    components: {
-      default: User
-    }
-  },
+  // {
+  //   path: '/user',
+  //   components: {
+  //     default: User
+  //   }
+  // },
   {
     path: '/calendar',
     components: {
