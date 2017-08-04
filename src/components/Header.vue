@@ -1,23 +1,26 @@
 <template lang="pug">
-  header.header
-    button(type="button")
-      span.icon-bars.fa.fa-bars.fa-2x
-    h1.header-logo Foolog
+  .container.susy-header
+    header.header
+      button(type="button")
+        span.icon-bars.fa.fa-bars.fa-2x
+      h1.header-logo Foolog
 </template>
 
 <script>
 export default {
   name: 'HeaderLogo',
+  components: {
+  }
 }
 </script>
 
 <style lang="sass">
 
+@import '~grid'
 @import '~reset'
 
 .header
   position: relative
-
 .header button 
   width: 60px
   height: 60px
@@ -38,7 +41,7 @@ export default {
   margin: 0
   color: #fff
   font-size: 26px
-  
+
 </style>
 
 
