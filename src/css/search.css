@@ -83,14 +83,14 @@ legend{
   top: 16px;
   right: 20px;
   cursor: pointer;
+  background: none;
+  border: none;
+  color: #303030;
 }
 
 /* search 영역 */
 .search-notice{
    margin-top: 55px; 
-}
-.search-result, .search-total{
-  /* margin: 0 auto; */
 }
 .search-notice p{
   font-size: 38px;
@@ -108,8 +108,10 @@ legend{
   border-radius: 18px;
   background: #f9f8f8;
   width: 590px;
-  height: 170px;
+  height: 200px;
   padding: 35px 0;
+  word-spacing: 1.5px;
+  line-height: 20px;
 }
 .search-post span{
   color: #fe836d;
