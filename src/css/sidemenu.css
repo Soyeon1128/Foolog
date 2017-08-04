@@ -63,6 +63,9 @@ h1,h2,h3,h4,h5{
   top: 60px;
   right: 55px;
   cursor: pointer;
+  background: none;
+  border: none;
+  color: #303030;
 }
 .side-menu-calendar{
   margin-top: 50px;
@@ -149,14 +152,14 @@ legend{
   top: 16px;
   right: 20px;
   cursor: pointer;
+  background: none;
+  border: none;
+  color: #303030;
 }
 
 /* search 영역 */
 .search-notice{
    margin-top: 55px; 
-}
-.search-result, .search-total{
-  /* margin: 0 auto; */
 }
 .search-notice p{
   font-size: 38px;
