@@ -3,7 +3,6 @@ body{
   font-family: 'NanumSquare', sans-serif;
   font-weight: 300;
   font-style: normal; 
-  overflow: hidden;
 }
 body, p, button, fieldset{
   margin: 0;
@@ -30,15 +29,19 @@ h1,h2,h3,h4,h5{
   flex-wrap: wrap; 
 }
 .header-img{
-  background: yellow; 
+  background: url("../assets/header-img/header-img-1.png"); 
   height: 240px;
+  margin-bottom: 84px;
 }
 
 /* slogan 영역 */
 .slogan-group{
   position: absolute;
-  top: 170px;
-  left: 420px;
+  top: 32%;
+  left: 50%;
+  width: 460px;
+  height: 80px;
+  margin: -40px 0 0 -230px;
 }
 .foolog-slogan-1{
   font-size: 75px;
@@ -71,7 +74,6 @@ h1,h2,h3,h4,h5{
   flex-wrap: wrap;
 }
 .add-btn{
-  margin-top: 70px;
   background: none;
   border: none;
   color: #303030;
@@ -98,6 +100,7 @@ h1,h2,h3,h4,h5{
   color: #fe836d;
   font-size: 50px;
   font-weight: 300;
+  line-height: 1.6;   
 }
 .plz-text-2{
   font-size: 40px;
