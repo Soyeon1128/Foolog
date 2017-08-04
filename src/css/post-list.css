@@ -20,6 +20,13 @@ h1,h2,h3,h4,h5{
   width: 100%;
   height: 60px;
   color: #fff;
+  position: relative;
+}
+.header i {
+  position: absolute;
+  top: 20px;
+  left: 30px;
+  color: #fff;
 }
 .foolog-logo{
   font-weight: 300;
@@ -147,8 +154,13 @@ h1,h2,h3,h4,h5{
   /*flex-wrap: wrap;*/
   /*align-content: space-between;*/
 }
+.diary-today i {
+  color: #a6a6a6;
+  
+}
 .diary-location {
-  margin-left: 30%;
+  margin-left: 20%;
+  color: #a6a6a6;
   /*height: auto;*/
   
   /*margin-right: 10px;*/
@@ -167,7 +179,7 @@ h1,h2,h3,h4,h5{
   word-spacing: 1.5px;
   line-height: 20px;
   margin-bottom: 7%;
-  
+  color: #303030;
   /*display: flex;
   align-items: flex-start;
   justify-content: flex-start;*/
@@ -179,21 +191,32 @@ h1,h2,h3,h4,h5{
 }
 .diary-tags {
   display: flex;
+  margin-right: 30px;
 }
 .tag-type-of-food {
   margin-right: 10px;
-
+  color: #a6a6a6;  
+}
+.tag-type-of-food i {
+  color: green;
 }
 .tag-taste-of-food {
   margin-right: 10px;
-
+  color: #a6a6a6;
+}
+.tag-taste-of-food i {
+  color: purple;
 }
 .diary-share {
-  margin-right: 10px;
-  color: blue;
+  margin-right: 30px;
+  /*color: blue;*/
+}
+.diary-share i {
+  color: #3b5998;
 }
 .diary-modify {
   margin-right: 10px;
+  color: #a6a6a6;
 }
 .post-delete {
 
