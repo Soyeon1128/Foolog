@@ -1,5 +1,5 @@
 <template lang="pug">
-  .header-container.susy-header 
+  .header-container.susy-header
     header.header
       button(type="button")
         span.icon-bars.fa.fa-bars.fa-2x
