@@ -10,6 +10,7 @@
 export default {
   name: 'HeaderLogo',
   components: {
+    
   }
 }
 </script>
