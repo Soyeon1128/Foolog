@@ -5,7 +5,7 @@
       v-show='signIn'
     )
     sign-up(
-      v-show='signUp'
+      v-show='signUp'   
     )
     video-bg
     .home-slogan.susy-home(
