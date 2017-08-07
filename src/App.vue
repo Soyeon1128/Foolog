@@ -17,5 +17,4 @@
 
 @import './sass/app'
 
-
 </style>
