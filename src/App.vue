@@ -15,4 +15,6 @@
 
 <style lang="sass">
 
+@import './sass/app'
+
 </style>

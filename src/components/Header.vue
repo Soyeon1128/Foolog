@@ -18,10 +18,11 @@ export default {
 <style lang="sass">
 
 @import '~grid'
-@import '~reset'
+@import '../sass/reset'
 
 .header
   position: relative
+  
 .header button 
   width: 60px
   height: 60px
