@@ -47,7 +47,6 @@ module.exports = {
       'susy': path.resolve(__dirname, './src/lib/susy/_susy.scss'),
       'config': path.resolve(__dirname, './src/lib/config/_config.scss'),
       'grid': path.resolve(__dirname, './src/lib/config/grid.scss'),
-      'reset': path.resolve(__dirname, './src/sass/reset.sass'),
     }
   },
   devServer: {
