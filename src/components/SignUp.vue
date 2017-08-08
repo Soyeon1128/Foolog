@@ -56,7 +56,7 @@ export default {
   },
   data() {
     return{
-      email: '',
+      email:    '',
       nickname: '',
       password: '',
       // email_error: '',
@@ -79,20 +79,20 @@ export default {
     ]),
     validateEmail() {
       // let url = this.$store.state.url + '/api/member/'; 
-      this.$http.get(this.$store.state.url_users, function(response) {
-        // if(response.data !== )
-      })
-      .then(reponse => {
+      // this.$http.get(this.$store.state.url_users, function(response) {
+      //   if(response.data !== )
+      // })
+      // .then(reponse => {
 
         
-      })
+      // })
     },
     submitSignUp() {
       // let url = this.$store.state.url + '/api/member/';
       console.log(this.$store.state.url_users);
       this.$http.post(this.$store.state.url_users, {
-        email: this.email,
-        nickname: this.nickname,
+        email:     this.email,
+        nickname:  this.nickname,
         password1: this.password,
         password2: this.password
       })
@@ -103,15 +103,10 @@ export default {
       })
       .catch(error => {
         let error_data = error.response.data;
-
-        // if( error_data.email ) {
-        //   window.alert(error_data.email[0])
-        // }
-        
-        let props = Object.keys(error_data);
+        let props      = Object.keys(error_data);
         console.log(props);
 
-        for(let i = 0, length = props.length; i < length; i++) {
+        for (let i = 0, length = props.length; i < length; i++) {
           console.log(props[i] + ' : ' + error_data[props[i]][0]);
           window.alert(props[i] + ' : ' + error_data[props[i]][0]);
           break;
@@ -120,7 +115,9 @@ export default {
         console.log(error_data)
         console.log(error.response);
       });
-      this.email = '', this.nickname = '', this.password = '';
+      this.email    = '', 
+      this.nickname = '', 
+      this.password = '';
     }
   }
 }
