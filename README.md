@@ -39,14 +39,13 @@
 #### 4. Statistic
 
 ## 사용 기술
-- Vue framework
-- Sass
-- Pug
+- Vue.js
+- sass
+- pug
 - Vue-cli
 - axios
-- Vuex
 - webpack
-- grid 라이브러리
+- Susy
 - 데이터시각화 라이브러리 (예정)
 
 ## 서비스 환경
@@ -55,10 +54,22 @@
 - 접근성
 
 ## 업무 분담 방식 (프론트)
-- 컴포넌트 단위로 분담 및 작업
+- 라우팅 페이지 단위, 컴포넌트 단위로 분담 및 작업
 
 ## 협업 방식 (프론트)
-- Git을 이용한 중앙집권 공동 작업
+- git을 이용한 centralized workflow
 
 ## 타 스쿨과의 협업 방식
 - Back-end, Android, IOS 팀원들과 대면 미팅 및 슬랙 이용
+
+## 라우팅 테이블
+| 1DEPTH    	| 2DEPTH        | PATH                   	|
+|------------	|-------------	|------------------------	|
+| 메인        |              	| /                       	|
+| 유저      	|              	| /user                	|
+|          	 | 회원가입       	| /user/signup        	|
+|          	 | 로그인         	| /user/signin         	|
+| 달력      	|              	| /calendar                	|
+| 포스팅       |              	| /post                   	|
+| 검색 	      |              	| /search                 	|
+| 통계       	|              	| /statistics             	|
