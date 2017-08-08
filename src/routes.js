@@ -1,5 +1,5 @@
 import Home from './components/Home'
-import Calendar from './components/Calendar/Calendar'
+import Calendar from './components/Calendar'
 import Post from './components/Post/Post'
 import Search from './components/Search'
 import Statistics from './components/Statistics'

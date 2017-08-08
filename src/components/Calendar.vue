@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import HeaderLogo from '../Header'
+import HeaderLogo from './Header'
 
 export default {
   name: 'Calendar',
