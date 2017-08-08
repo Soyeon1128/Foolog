@@ -27,7 +27,7 @@ import VideoBg from './Video'
 import HeaderLogo from './Header'
 import SignIn from './SignIn'
 import SignUp from './SignUp'
-import Calendar from './Calendar/Calendar'
+import Calendar from './Calendar'
 
 export default {
   name: 'Home',
