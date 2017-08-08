@@ -10,6 +10,14 @@ export const routes = [
   {
     path: '/',
     name: 'Home',
+    beforeEnter(to, from, next){
+      let tk = window.localStorage.getItem('token');
+      if (!tk) {
+        next('/calendar');
+      } else {
+        next();
+      }
+    },
     components: {
       default: Home
     }

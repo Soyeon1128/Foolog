@@ -14,28 +14,34 @@
           form
             legend 로그인 및 회원가입 폼
             fieldset
-              label(for='email')
+              label(for='signup-email')
                 //- p {{ email_error }}
                 input(v-model.trim='email' 
                   @input='validateEmail'
-                  id='email' 
+                  id='signup-email' 
                   type='email' 
                   value='email_error'
                   placeholder='이메일을 입력해 주세요.' 
                   required='required'
-                  autofocus='autofocus')
-              label(for='nickname')
+                  autofocus='autofocus'
+                  @keydown.enter='submitSignUp'
+                  )
+              label(for='signup-nickname')
                 input(v-model.trim='nickname' 
-                  id='nickname' 
+                  id='signup-nickname' 
                   type='text' 
                   placeholder='닉네임을 입력해 주세요.' 
-                  required='required')
-              label(for='password')
+                  required='required'
+                  @keydown.enter='submitSignUp'
+                  )
+              label(for='signup-password')
                 input(v-model.trim='password'
-                  id='password'
+                  id='signup-password'
                   type='password'
                   placeholder='비밀번호는 8자 이상, 영어와 숫자를 혼용해서 입력해 주세요.' 
-                  required='required')
+                  required='required'                  
+                  @keydown.enter='submitSignUp'
+                  )
           .signup-buttons-signup
             button.signup-btn(
               type='button'
@@ -56,7 +62,7 @@ export default {
   },
   data() {
     return{
-      email: '',
+      email:    '',
       nickname: '',
       password: '',
       // email_error: '',
@@ -79,20 +85,20 @@ export default {
     ]),
     validateEmail() {
       // let url = this.$store.state.url + '/api/member/'; 
-      this.$http.get(this.$store.state.url_users, function(response) {
-        // if(response.data !== )
-      })
-      .then(reponse => {
+      // this.$http.get(this.$store.state.url_users, function(response) {
+      //   if(response.data !== )
+      // })
+      // .then(reponse => {
 
         
-      })
+      // })
     },
     submitSignUp() {
       // let url = this.$store.state.url + '/api/member/';
       console.log(this.$store.state.url_users);
       this.$http.post(this.$store.state.url_users, {
-        email: this.email,
-        nickname: this.nickname,
+        email:     this.email,
+        nickname:  this.nickname,
         password1: this.password,
         password2: this.password
       })
@@ -103,15 +109,10 @@ export default {
       })
       .catch(error => {
         let error_data = error.response.data;
-
-        // if( error_data.email ) {
-        //   window.alert(error_data.email[0])
-        // }
-        
-        let props = Object.keys(error_data);
+        let props      = Object.keys(error_data);
         console.log(props);
 
-        for(let i = 0, length = props.length; i < length; i++) {
+        for (let i = 0, length = props.length; i < length; i++) {
           console.log(props[i] + ' : ' + error_data[props[i]][0]);
           window.alert(props[i] + ' : ' + error_data[props[i]][0]);
           break;
@@ -120,7 +121,9 @@ export default {
         console.log(error_data)
         console.log(error.response);
       });
-      this.email = '', this.nickname = '', this.password = '';
+      this.email    = '', 
+      this.nickname = '', 
+      this.password = '';
     }
   }
 }

@@ -14,21 +14,29 @@
           form
             legend 로그인 및 회원가입 폼
             fieldset
-              label(for='email')
+              label(for='signin-email')
                 input(
-                  id='email'
+                  v-model='email'
+                  id='signin-email'
                   type='email'
                   placeholder='이메일을 입력해 주세요.'
                   required='required'
-                  autofocus='autofocus')
-              label(for='password')
+                  autofocus='autofocus'
+                  @keydown.enter='submitSignIn'
+                  )
+              label(for='signin-password')
                 input(
-                  id='password' 
+                  v-model='password'
+                  id='signin-password' 
                   type='password' 
                   placeholder='비밀번호를 입력해 주세요.'
-                  required='required')
+                  required='required'
+                  @keydown.enter='submitSignIn'                  
+                  )                  
           .signin-buttons-signin
-            button.signin-login(type='button')
+            button.signin-login(
+              type='button'
+              @click='submitSignIn')
               span 로그인
             button.signin-facebook(type='button')
               span 페이스북 아이디로 로그인
@@ -44,14 +52,16 @@ export default {
   name: 'SignIn',
   data() {
     return{
-
+      email: '',
+      password: ''
     }
   },
   computed: {
     ...mapGetters([
       'signUp',
       'signIn',
-      'mainView'
+      'mainView',
+      'getUrlLogin'
     ])
   },
   methods: {
@@ -59,6 +69,22 @@ export default {
       'openSignUp',
       'closeSignIn',
     ]),
+    submitSignIn() {
+
+      this.$http.post(this.getUrlLogin, {
+        email:    this.email,
+        password: this.password
+      })
+      .then(response => {
+        let token = response.data.key;
+        if ( !window.localStorage.getItem('token') ) {
+          window.localStorage.setItem('token', token);
+        }
+        console.log('success token:', window.localStorage.getItem('token'));
+        
+      })
+
+    }
   }
 }
 </script>
