@@ -15,9 +15,18 @@
             legend 로그인 및 회원가입 폼
             fieldset
               label(for='email')
-                input#email(type='email', value='', placeholder='이메일을 입력해 주세요')
+                input(
+                  id='email'
+                  type='email'
+                  placeholder='이메일을 입력해 주세요.'
+                  required='required'
+                  autofocus='autofocus')
               label(for='password')
-                input#password(type='password', value='', placeholder='비밀번호를 6자 이상 입력해 주세요.')
+                input(
+                  id='password' 
+                  type='password' 
+                  placeholder='비밀번호를 입력해 주세요.'
+                  required='required')
           .signin-buttons-signin
             button.signin-login(type='button')
               span 로그인
@@ -29,6 +38,7 @@
 
 <script>
 import {mapGetters} from 'vuex'
+import {mapMutations} from 'vuex'
 
 export default {
   name: 'SignIn',
@@ -45,12 +55,10 @@ export default {
     ])
   },
   methods: {
-    openSignUp() {
-      this.$store.commit('openSignUp')
-    },
-    closeSignIn() {
-      this.$store.commit('closeSignIn')
-    }
+    ...mapMutations([
+      'openSignUp',
+      'closeSignIn',
+    ]),
   }
 }
 </script>
