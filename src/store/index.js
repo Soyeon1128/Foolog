@@ -1,10 +1,16 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import sign from './modules/sign'
 
 Vue.use(Vuex);
 
 export const store = new Vuex.Store({
+  modules:{
+    sign
+  },
   state: {
+    // url: 'http://foolog.jos-project.xyz',
+    url_users: 'http://foolog.jos-project.xyz/api/member/',
     sign_up: false,
     sign_in: false,
     main_view: true

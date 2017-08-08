@@ -7,10 +7,11 @@ import App from './App';
 import {store} from './store'
 
 Vue.use(VueRouter);
+Vue.prototype.$http = axios;
 
 const router = new VueRouter({
   mode: 'history',
-  routes,
+  routes
 });
 
 new Vue({

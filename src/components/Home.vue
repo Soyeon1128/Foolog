@@ -1,16 +1,10 @@
 <template lang="pug"> 
   .home-container
     header-logo
-    sign-in(
-      v-show='signIn'
-    )
-    sign-up(
-      v-show='signUp'
-    )
+    sign-in( v-show='signIn' )
+    sign-up( v-show='signUp' )
     video-bg
-    .home-slogan.susy-home(
-      v-show='mainView'
-    )
+    .home-slogan.susy-home( v-show='mainView' )
       main.home-slogan-first
         p Love, Eat, and Write Your Diary
       main.home-slogan-second
@@ -28,6 +22,7 @@
 
 <script>
 import {mapGetters} from 'vuex'
+import {mapMutations} from 'vuex'
 import VideoBg from './Video'
 import HeaderLogo from './Header'
 import SignIn from './SignIn'
@@ -54,12 +49,10 @@ export default {
     ])
   },
   methods: {
-    openSignUp() {
-      this.$store.commit('openSignUp')
-    },
-    openSignIn() {
-      this.$store.commit('openSignIn') 
-    }
+    ...mapMutations([
+      'openSignUp',
+      'openSignIn'
+    ]),
   }
 }
 </script>
