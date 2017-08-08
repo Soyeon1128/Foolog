@@ -28,14 +28,13 @@ import HeaderLogo from './Header'
 import SignIn from './SignIn'
 import SignUp from './SignUp'
 
-
 export default {
   name: 'Home',
   components: {
     VideoBg,
     HeaderLogo,
     SignIn,
-    SignUp
+    SignUp,
   },
   data() {
     return {
