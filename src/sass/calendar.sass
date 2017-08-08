@@ -1,0 +1,51 @@
+// calendar 전체 영역
+.calendar
+  margin-top: 15px
+
+// cal-header 영역
+.cal-header
+  display: flex;
+  justify-content: center
+  align-items: center
+  flex-wrap: wrap;
+  height: 100px
+  text-align: center
+  font-size: 40px
+  font-weight: 100
+  // padding-top: 25px
+  box-sizing: border-box
+ 
+.current-month-header 
+  margin: 0 20px
+  // vertical-align: middle
+
+.btn-prev-month, .btn-next-month 
+  border: none
+  background: none
+  font-size: 20px
+  font-weight: 100
+  // vertical-align: middle
+
+// cal-table 영역
+table 
+  border-collapse: collapse
+  border-top: 1px solid #666
+  margin: 0 auto
+
+  &-thead,  &-tbody 
+  font-size: 20px
+
+  &-thead 
+  // text-align: center
+
+  &-tbody 
+  color: $color-text-icon
+  font-weight: 100
+  text-align: center  
+
+table td 
+  height: 80px
+  vertical-align: middle
+
+.not-this-month 
+  color: $color-gray-icon
