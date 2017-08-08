@@ -1,5 +1,4 @@
 <template lang="pug"> 
-
   .home-container
     header-logo
     sign-in( v-show='signIn' )
@@ -19,7 +18,6 @@
         button.home-buttons-signin(
           type='button'
           @click='openSignIn') 로그인
-
 </template>
 
 <script>
@@ -29,7 +27,7 @@ import VideoBg from './Video'
 import HeaderLogo from './Header'
 import SignIn from './SignIn'
 import SignUp from './SignUp'
-
+import Calendar from './Calendar/Calendar'
 
 export default {
   name: 'Home',
@@ -37,7 +35,8 @@ export default {
     VideoBg,
     HeaderLogo,
     SignIn,
-    SignUp
+    SignUp,
+    Calendar,
   },
   data() {
     return {
