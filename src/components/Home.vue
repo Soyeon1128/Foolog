@@ -1,4 +1,5 @@
 <template lang="pug"> 
+
   .home-container
     header-logo
     sign-in( v-show='signIn' )
@@ -18,6 +19,7 @@
         button.home-buttons-signin(
           type='button'
           @click='openSignIn') 로그인
+
 </template>
 
 <script>
