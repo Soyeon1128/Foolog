@@ -1,0 +1,175 @@
+body{
+  /* font-family: 'Ubuntu', sans-serif; */
+  font-family: 'NanumSquare', sans-serif;
+  font-weight: 300;
+  font-style: normal; 
+   overflow: hidden;   
+}
+body, p, button, fieldset{
+  margin: 0;
+  padding: 0;
+}
+h1,h2,h3,h4,h5{
+  padding: 0;
+  margin: 0;
+}
+
+/* header 영역 */
+.header{
+  background-color: #fe836d;
+  width: 100%;
+  height: 60px;
+  color: #fff;
+}
+.foolog-logo{
+  font-weight: 300;
+  padding-top: 12px;
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  flex-wrap: wrap; 
+}
+
+/* video 영역 */
+video{
+  height: 100%;
+}
+
+/* main-content 영역 */
+fieldset{
+  border: none;
+}
+legend{
+  position: absolute;
+  clip: rect(1px, 1px, 1px, 1px);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+}
+.user-content-border{
+  position: absolute;
+  top: 50%;
+  left: 50%; 
+  width: 310px;
+  height: 325px;
+  margin-top: -163px;
+  margin-left: -155px; 
+  border-radius: 5px;
+  background: rgba(255,255,255,0.4);
+}
+.user-content{
+  position: absolute; 
+  top: 10px;
+  left: 10px;    
+  margin: 0 auto;
+  border-radius: 5px;
+  width: 288.5px;
+  height: 305px;
+  background: #fff;
+  vertical-align: center;
+}
+.user-delete{
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  width: 23px;
+  height: 23px;
+  border: none;
+  border-radius: 10px;
+  font-size: 12px;
+  color: #fe836d;  
+  background: #fff;
+  cursor: pointer;
+}
+.user-signup{
+  font-weight: 300;  
+  float: right;
+  font-size: 15px;
+  background-color: #fff;
+  border: none;
+  border-radius: 0 5px 0 0;    
+  color: #303030;  
+  width: 142px;
+  height: 43px;
+  cursor: pointer;  
+}
+.user-signin{
+  font-weight: 300;    
+  float: left;
+  font-size: 15px;  
+  background-color: #bbb;  
+  border: none;   
+  border-radius: 5px 0 0 0;  
+  color: #303030;  
+  width: 142px;
+  height: 43px;
+  cursor: pointer;  
+}
+#email{
+  margin: 28px 0 5px 28px;
+  font-size: 10px;  
+  background-color: #eee;  
+  border: none;  
+  border-radius: 3px;  
+  color: #303030;  
+  width: 232px;
+  height: 35px;
+  cursor: pointer;  
+}
+#nickname{
+  margin: 0 0 5px 28px;
+  font-size: 10px;  
+  background-color: #eee;  
+  border: none;  
+  border-radius: 3px;  
+  color: #303030;  
+  width: 232px;
+  height: 35px;
+  cursor: pointer;  
+}
+#password{
+  margin: 0 0 5px 28px;
+  font-size: 10px;  
+  background-color: #eee;  
+  border: none;  
+  border-radius: 3px;  
+  color: #303030;  
+  width: 232px;
+  height: 35px;
+  cursor: pointer;  
+}
+.user-signup-btn{
+  font-weight: 300;    
+  margin: 16px 0 10px 28px;  
+  font-size: 15px;  
+  background-color: #fe836d;  
+  border: none;  
+  border-radius: 3px;  
+  color: #fff;  
+  width: 232px;
+  height: 35px;
+  cursor: pointer;  
+}
+.user-facebook{
+  margin: 0 0 10px 28px;    
+  font-size: 15px;  
+  background-color: #4c68b1;  
+  border: none;  
+  border-radius: 3px;  
+  color: #fff;  
+  width: 232px;
+  height: 35px;
+  cursor: pointer;  
+}
+.notice-facebook{
+  color: #a6a6a6;
+  font-size: 9px;
+  padding-top: 10px;
+  margin-left: 28px;
+}
+
+hr{
+  width: 80%;
+  margin: 0 auto;
+}
