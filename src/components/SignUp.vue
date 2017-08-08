@@ -14,28 +14,34 @@
           form
             legend 로그인 및 회원가입 폼
             fieldset
-              label(for='email')
+              label(for='signup-email')
                 //- p {{ email_error }}
                 input(v-model.trim='email' 
                   @input='validateEmail'
-                  id='email' 
+                  id='signup-email' 
                   type='email' 
                   value='email_error'
                   placeholder='이메일을 입력해 주세요.' 
                   required='required'
-                  autofocus='autofocus')
-              label(for='nickname')
+                  autofocus='autofocus'
+                  @keydown.enter='submitSignUp'
+                  )
+              label(for='signup-nickname')
                 input(v-model.trim='nickname' 
-                  id='nickname' 
+                  id='signup-nickname' 
                   type='text' 
                   placeholder='닉네임을 입력해 주세요.' 
-                  required='required')
-              label(for='password')
+                  required='required'
+                  @keydown.enter='submitSignUp'
+                  )
+              label(for='signup-password')
                 input(v-model.trim='password'
-                  id='password'
+                  id='signup-password'
                   type='password'
                   placeholder='비밀번호는 8자 이상, 영어와 숫자를 혼용해서 입력해 주세요.' 
-                  required='required')
+                  required='required'                  
+                  @keydown.enter='submitSignUp'
+                  )
           .signup-buttons-signup
             button.signup-btn(
               type='button'

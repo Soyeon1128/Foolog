@@ -14,21 +14,25 @@
           form
             legend 로그인 및 회원가입 폼
             fieldset
-              label(for='email')
+              label(for='signin-email')
                 input(
                   v-model='email'
-                  id='email'
+                  id='signin-email'
                   type='email'
                   placeholder='이메일을 입력해 주세요.'
                   required='required'
-                  autofocus='autofocus')
-              label(for='password')
+                  autofocus='autofocus'
+                  @keydown.enter='submitSignIn'
+                  )
+              label(for='signin-password')
                 input(
                   v-model='password'
-                  id='password' 
+                  id='signin-password' 
                   type='password' 
                   placeholder='비밀번호를 입력해 주세요.'
-                  required='required')
+                  required='required'
+                  @keydown.enter='submitSignIn'                  
+                  )                  
           .signin-buttons-signin
             button.signin-login(
               type='button'
