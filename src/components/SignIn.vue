@@ -70,7 +70,6 @@ export default {
       'closeSignIn',
     ]),
     submitSignIn() {
-
       this.$http.post(this.getUrlLogin, {
         email:    this.email,
         password: this.password
@@ -81,9 +80,11 @@ export default {
           window.localStorage.setItem('token', token);
         }
         console.log('success token:', window.localStorage.getItem('token'));
-        
+        this.$router.push( {path: '/calendar'} );
       })
-
+      .catch(error => {
+        console.log(error.response)
+      })
     }
   }
 }
