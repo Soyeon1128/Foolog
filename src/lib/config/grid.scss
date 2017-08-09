@@ -7,7 +7,7 @@
 }
 .susy-home {
   // background: rgba(0, 141, 0, 0.45);
-  height: 100vh;
+  // height: 100vh;
 }
 .susy-user {
   // background: aqua;
@@ -17,13 +17,17 @@
   // background: lightsteelblue;
   // height: 100vh;
 }
+.susy-slogan {
+  // background: green;
+  // height: 100vh;
+}
 .susy-post-photo {
   background: rgba(0, 141, 0, 0.45);
-  height: 100vh
+  // height: 100vh
 }
 .susy-post-diary {
   background: rgba(0, 59, 165, 0.45);
-  height: 100vh
+  // height: 100vh
 }
 
 @include susy-breakpoint(320px, 4) {
@@ -38,6 +42,35 @@
   }
   .susy-main {
     @include span(4);
+  }
+  .susy-slogan-1 {
+    @include span(4);
+    font-size: 25px;
+    // position: absolute;
+    // top: 15%;
+    // left: 0;
+    position: absolute;
+    top: 0;
+    z-index: 1000;
+    margin-top: -49px;
+    left: 50%;
+    transform: translateX(-58%);
+    width: 170px;
+  }
+  .susy-slogan-2 {
+    @include span(4);
+    font-size: 25px;
+    // position: absolute;
+    // top: 15%;
+    // left: 0;
+    position: absolute;
+    top: 28px;
+    z-index: 1000;
+    margin-top: -49px;
+    left: 50%;
+    transform: translateX(-58%);
+    width: 170px;
+    
   }
   .susy-post-photo {
     @include span(4);
@@ -59,6 +92,28 @@
   .susy-main {
     @include span(isolate 6 at 2);
   }
+  .susy-slogan-1 {
+    @include span(8);
+    font-size: 50px;
+    position: absolute;
+    top: 0;
+    z-index: 1000;
+    margin-top: -93px;
+    left: 50%;
+    transform: translateX(-52%);
+    width: 350px;
+  }
+  .susy-slogan-2 {
+    @include span(8);
+    font-size: 50px;
+    position: absolute;
+    top: 55px;
+    z-index: 1000;
+    margin-top: -93px;
+    left: 50%;
+    transform: translateX(-52%);
+    width: 350px;
+  }
   .susy-post-photo {
     @include span(isolate 3 at 2 nest);
   }
@@ -78,6 +133,24 @@
   }
   .susy-main {
     @include span(isolate 8 at 3);
+  }
+  .susy-slogan-1 {
+    @include span(12);
+    font-size: 70px;
+    position: absolute;
+    top: 0;
+    margin-top: -135px;
+    left: 100%;
+    transform: translateX(-69.5%)
+  }
+  .susy-slogan-2 {
+    @include span(12);
+    font-size: 70px;
+    position: absolute;
+    top: 80px;
+    margin-top: -135px;
+    left: 100%;
+    transform: translateX(-69.5%)
   }
   .susy-post-photo {
     @include span(isolate 4 at 3 nest);
