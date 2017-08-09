@@ -11,8 +11,9 @@ export const store = new Vuex.Store({
 
   state: {
     // url: 'http://foolog.jos-project.xyz',
-    url_users: 'http://foolog.jos-project.xyz/api/member/',
-    url_login: 'http://foolog.jos-project.xyz/api/member/login/',
+    url_users: 'http://api.foolog.xyz/member/',
+    url_login: 'http://api.foolog.xyz/member/login/',
+    url_valid: 'http://api.foolog.xyz/member/valid/'
 
   },
 
@@ -23,6 +24,8 @@ export const store = new Vuex.Store({
   },
 
   mutations: {
-
+    goToHmoe() {
+      this.$router.push( {path: '/'} )
+    }
   }
 })
