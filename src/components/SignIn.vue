@@ -38,8 +38,16 @@
               type='button'
               @click='submitSignIn')
               span 로그인
-            button.signin-facebook(type='button')
-              span 페이스북 아이디로 로그인
+            .fb-login-button(
+              data-max-rows='1', 
+              data-size='large', 
+              data-button-type='login_with', 
+              data-show-faces='false', 
+              data-auto-logout-link='false', 
+              data-use-continue-as='false')
+            //- button.signin-facebook(type='button')
+            //-   span.fa.fa-facebook 
+            //-   span 페이스북 아이디로 로그인
           hr
           p.signin-notice-facebook Facebook아이디로 간편하게 로그인 할 수 있습니다.
 </template>
