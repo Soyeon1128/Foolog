@@ -15,32 +15,37 @@
             legend 로그인 및 회원가입 폼
             fieldset
               label(for='signup-email')
-                //- p {{ email_error }}
                 input(v-model.trim='email' 
-                  @input='validateEmail'
                   id='signup-email' 
                   type='email' 
-                  value='email_error'
                   placeholder='이메일을 입력해 주세요.' 
-                  required='required'
-                  autofocus='autofocus'
-                  @keydown.enter='submitSignUp'
+                  @input.lazy='validateEmail'
+                  autofocus
+                  required
                   )
+                div.email-valid(
+                  v-show='email_valid')
+                  span.fa.fa-exclamation-circle(aria-hidden="true") 
+                  span 이미 존재하는 아이디입니다.
               label(for='signup-nickname')
                 input(v-model.trim='nickname' 
                   id='signup-nickname' 
                   type='text' 
                   placeholder='닉네임을 입력해 주세요.' 
-                  required='required'
-                  @keydown.enter='submitSignUp'
+                  @input.lazy='validateNickname'
+                  required
                   )
+                div.nickname-valid(
+                  v-show='nickname_valid')
+                  span.fa.fa-exclamation-circle(aria-hidden="true")
+                  span 이미 존재하는 닉네임입니다.
               label(for='signup-password')
                 input(v-model.trim='password'
                   id='signup-password'
                   type='password'
                   placeholder='비밀번호는 8자 이상, 영어와 숫자를 혼용해서 입력해 주세요.' 
-                  required='required'                  
                   @keydown.enter='submitSignUp'
+                  required                  
                   )
           .signup-buttons-signup
             button.signup-btn(
@@ -60,15 +65,18 @@ export default {
   mounted () {
 
   },
+  directives: {
+    focus: {
+      
+    }
+  },
   data() {
     return{
       email:    '',
       nickname: '',
       password: '',
-      // email_error: '',
-      // nickname_error: '',
-      // password_error: '',
-
+      email_valid: false,
+      nickname_valid: false
     }
   },
   computed: {
@@ -84,30 +92,69 @@ export default {
       'closeSignUp'
     ]),
     validateEmail() {
-      // let url = this.$store.state.url + '/api/member/'; 
-      // this.$http.get(this.$store.state.url_users, function(response) {
-      //   if(response.data !== )
-      // })
-      // .then(reponse => {
+      this.$http.get(this.$store.state.url_valid, {
+        params: { 
+          email: this.email 
+        }
+      })
+      .then(response => {
+        console.log(response)
 
+        let error_valid = response.data;
+        let props = Object.values(error_valid);
+        console.log(props);
         
-      // })
+        if ( props[0] === false ) {
+          this.email_valid = true
+          this.email = ''
+        } else if ( props[0] === true ) {
+          this.email_valid = false
+        }
+
+      })
+      .catch(error => {
+        console.log(error)
+      })
+    },
+    validateNickname() {
+      this.$http.get(this.$store.state.url_valid, {
+        params: { 
+          nickname: this.nickname 
+        }
+      })
+      .then(response => {
+        console.log(response)
+
+        let error_valid = response.data;
+        let props = Object.values(error_valid);
+        console.log(props);
+
+        if ( props[1] === false ) {
+          this.nickname_valid = true
+          this.nickname = ''
+        } else if ( props[1] === true ) {
+          this.nickname_valid = false
+        }
+      })
+      .catch(error => {
+        console.log(error)
+      })
     },
     submitSignUp() {
-      // let url = this.$store.state.url + '/api/member/';
       console.log(this.$store.state.url_users);
+      // this.$http.get(this.$store.state.url_valid, {      
       this.$http.post(this.$store.state.url_users, {
         email:     this.email,
         nickname:  this.nickname,
         password1: this.password,
         password2: this.password
-      })
-      .then(response => {
-        // console.log(error.response)                
+      })    
+      .then(response => {            
         console.log(response)
         window.alert('회원가입이 완료되었습니다');
       })
       .catch(error => {
+
         let error_data = error.response.data;
         let props      = Object.keys(error_data);
         console.log(props);
@@ -117,7 +164,7 @@ export default {
           window.alert(props[i] + ' : ' + error_data[props[i]][0]);
           break;
         }
-
+        
         console.log(error_data)
         console.log(error.response);
       });
