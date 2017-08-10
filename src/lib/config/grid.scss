@@ -2,33 +2,35 @@
 @import "config";
 
 // 테스트를 위한 배경색/높이 설정
-.susy-header {
-  // background: pink;
-  // height: 200px;
-}
-.susy-home {
-  // background: rgba(0, 141, 0, 0.45);
-  // height: 100vh;
-}
-.susy-user {
-  // background: aqua;
-  // height: 100vh;
-}
-.susy-main {
-  // background: lightsteelblue;
-  // height: 100vh;
-}
-.susy-add-button {
-  background: blue;
-}
-.susy-post-photo {
-  // background: rgba(0, 141, 0, 0.45);
-  // height: 100vh
-}
-.susy-post-diary {
-  // background: rgba(0, 59, 165, 0.45);
-  // height: 100vh
-}
+// .susy-header {
+//   // background: pink;
+//   // height: 200px;
+// }
+// .susy-home {
+//   // background: rgba(0, 141, 0, 0.45);
+//   // height: 100vh;
+// }
+// .susy-user {
+//   // background: aqua;
+//   // height: 100vh;
+// }
+// .susy-main {
+//   // background: lightsteelblue;
+//   // height: 100vh;
+// }
+// .susy-add-button {
+// }
+// .susy-quotes-start {
+//   // background: blue;
+// }
+// .susy-post-photo {
+//   // background: rgba(0, 141, 0, 0.45);
+//   // height: 100vh
+// }
+// .susy-post-diary {
+//   // background: rgba(0, 59, 165, 0.45);
+//   // height: 100vh
+// }
 
 // 모바일
 @include susy-breakpoint(320px, 4) {
@@ -47,34 +49,48 @@
   .susy-slogan-1 {
     @include span(4);
     font-size: 25px;
-    // position: absolute;
-    // top: 15%;
-    // left: 0;
     position: absolute;
-    top: 0;
-    z-index: 1000;
-    margin-top: -49px;
-    left: 50%;
-    transform: translateX(-58%);
-    width: 170px;
+    // top: 0;
+    // z-index: 1000;
+    margin-top: -50px;
+    // left: 50%;
+    // transform: translateX(-58%);
+    // width: 170px;
   }
   .susy-slogan-2 {
     @include span(4);
     font-size: 25px;
-    // position: absolute;
-    // top: 15%;
-    // left: 0;
     position: absolute;
     top: 28px;
-    z-index: 1000;
-    margin-top: -49px;
-    left: 50%;
-    transform: translateX(-58%);
-    width: 170px;
+    // z-index: 1000;
+    margin-top: -50px;
+    // left: 50%;
+    // transform: translateX(-58%);
+    // width: 170px;
   }
   .susy-add-button {
     @include span(isolate 2 at 2);
     font-size: 15px;
+  }
+  .double-quotes-start {
+    font-size: 12px;
+    top: -8px;
+    left: -4px;  
+  }
+  .double-quotes-end {
+    font-size: 12px;
+    top: 2px;
+    left: 4px;
+  }
+  .susy-post-empty-1 {
+    @include span(4);
+    font-size: 17px;
+    margin-top: 10px;
+  }
+  .susy-post-empty-2 {
+    @include span(4);
+    font-size: 17px;
+    margin-top: 5px;
   }
   .susy-post-photo {
     @include span(4);
@@ -103,36 +119,50 @@
     @include span(8);
     font-size: 50px;
     position: absolute;
-    top: 0;
-    z-index: 1000;
-    margin-top: -93px;
-    left: 50%;
-    transform: translateX(-52%);
-    width: 350px;
+    // text-align: center;
+    
+    // top: 0;
+    // z-index: 1000;
+    margin-top: -95px;
+    // left: 50%;
+    // transform: translateX(-52%);
+    // width: 350px;
   }
   .susy-slogan-2 {
     @include span(8);
     font-size: 50px;
     position: absolute;
     top: 55px;
-    z-index: 1000;
-    margin-top: -93px;
-    left: 50%;
-    transform: translateX(-52%);
-    width: 350px;
+    // z-index: 1000;
+    // text-align: center;
+    margin-top: -95px;
+    // left: 50%;
+    // transform: translateX(-52%);
+    // width: 350px;
   }
   .susy-add-button {
     @include span(isolate 2 at 4);
     font-size: 23px;
   }
+  .double-quotes-start {
+    font-size: 20px;
+    top: -14px;
+    left: -6px;  
+  }
+  .double-quotes-end {
+    font-size: 20px;
+    top: 5px;
+    left: 7px;
+  }
   .susy-post-empty-1 {
-    @include span(isolate 6 at 2);
-    font-size: 30px ;   
-  }  
-  .susy-post-empty-2 {
-    @include span(isolate 6 at 2);
+    @include span(8);
     font-size: 30px;
-    margin-top: 37px;  
+    margin-top: 0;
+  }
+  .susy-post-empty-2 {
+    @include span(8);
+    font-size: 30px;
+    margin-top: 10px;  
   }  
   .susy-post-photo {
     @include span(isolate 3 at 2 nest);
@@ -162,10 +192,8 @@
     @include span(12);
     font-size: 73px;
     position: absolute;
-    top: 0;
+    text-align: center;
     margin-top: -138px;
-    left: 100%;
-    transform: translateX(-70%)
   }
   .susy-slogan-2 {
     @include span(12);
@@ -173,27 +201,30 @@
     position: absolute;
     top: 80px;
     margin-top: -138px;
-    left: 100%;
-    transform: translateX(-70%)
   }
   .susy-add-button {
     @include span(isolate 2 at 6);
     font-size: 30px;
   }
+  .double-quotes-start {
+    font-size: 30px;
+    top: -19px;
+    left: -8px;
+  }
+  .double-quotes-end {
+    font-size: 30px;
+    top: 10px;
+    left: 9px;
+  }
   .susy-post-empty-1 {
     @include span(isolate 8 at 3);
-    font-size: 40px;  
+    font-size: 40px;
+    margin-top: 0;
   }
   .susy-post-empty-2 {
     @include span(isolate 10 at 2);
     font-size: 40px;
-    // margin-top: 60px;
-    // width: 800px;
-    // margin: 0 auto;
     margin-top: 50px;
-    text-align: center;
-    
-    // margin-left: -200px;
   }
   .susy-post-photo {
     @include span(isolate 4 at 3 nest);
