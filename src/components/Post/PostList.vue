@@ -10,8 +10,12 @@
               input(id='post-add-photo'
               name='post-add-photo'
               type='file'
+              @click='imgRegister'
               )
               span.add-photo-text 사진 추가하기
+              img(
+                :scr='imgRegister'
+                v-model='src')
     .post-list-diary.susy-post-diary
       .post-list-diary-1
           span.fa.fa-clock-o.fa-lg  Aug 16 2017 Wed
@@ -29,14 +33,16 @@
         .diary-tags-food
           p 음식 종류
             .food-evaluate
-              button.fa.fa-smile-o.fa-lg(type='button')
-              button.fa.fa-smile-o.fa-lg(type='button')
-              button.fa.fa-smile-o.fa-lg(type='button')
+              button.food-evaluate-korean(type='button') 한식
+              button.food-evaluate-chinese(type='button') 중식
+              button.food-evaluate-japanese(type='button') 일식
+              button.food-evaluate-eastern(type='button') 양식
+              button.food-evaluate-etc(type='button') 기타
         .diary-tags-taste
           p 맛
             .taste-evaluate
-              button.fa.fa-frown-o.fa-lg(type='button')
-              button.fa.fa-frown-o.fa-lg(type='button')
+              button.fa.fa-smile-o.fa-lg(type='button')
+              button.fa.fa-meh-o.fa-lg(type='button')
               button.fa.fa-frown-o.fa-lg(type='button')
         .diary-save
           button.diary-save-button 저장
@@ -54,11 +60,20 @@
 export default {
   data () {
     return {
-      
+      src: ''
     }
-  }
+  },
   methods: {
-    
+    imgRegister(){
+      // this.imageRegister({axios: this.$http, file: this.file});
+      // this.$emit('closeModal');
+      let reader = new FileReader();
+        reader.readAsDataURL(this.file);
+        console.log(this.file)
+        // reader.onload = (e => { e.target.result }
+        // reader.readAsDataURL(file);
+        // })
+    }
   }
 }
 </script>
