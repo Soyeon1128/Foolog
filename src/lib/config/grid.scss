@@ -12,7 +12,7 @@
 }
 .susy-user {
   // background: aqua;
-  height: 100vh;
+  // height: 100vh;
 }
 .susy-main {
   // background: lightsteelblue;
@@ -22,11 +22,11 @@
   background: blue;
 }
 .susy-post-photo {
-  background: rgba(0, 141, 0, 0.45);
+  // background: rgba(0, 141, 0, 0.45);
   // height: 100vh
 }
 .susy-post-diary {
-  background: rgba(0, 59, 165, 0.45);
+  // background: rgba(0, 59, 165, 0.45);
   // height: 100vh
 }
 
@@ -81,6 +81,7 @@
   }
   .susy-post-diary {
     @include span(4);
+    margin-top: 30px
   }
 }
 
@@ -138,6 +139,8 @@
   }
   .susy-post-diary {
     @include span(isolate 3 at 5 nest);
+    margin-top: 0;
+    
   }
 }
 
@@ -197,5 +200,8 @@
   }
   .susy-post-diary {
     @include span(isolate 4 at 7 nest);
+    // margin-top: -50px
+    margin-top: 0;
+    
   }
 }
