@@ -1,6 +1,7 @@
 @import "../susy/_susy";
 @import "config";
 
+// 테스트를 위한 배경색/높이 설정
 .susy-header {
   // background: pink;
   // height: 200px;
@@ -17,9 +18,8 @@
   // background: lightsteelblue;
   // height: 100vh;
 }
-.susy-slogan {
-  // background: green;
-  // height: 100vh;
+.susy-add-button {
+  background: blue;
 }
 .susy-post-photo {
   background: rgba(0, 141, 0, 0.45);
@@ -30,6 +30,7 @@
   // height: 100vh
 }
 
+// 모바일
 @include susy-breakpoint(320px, 4) {
   .susy-header {
     @include container();
@@ -70,7 +71,10 @@
     left: 50%;
     transform: translateX(-58%);
     width: 170px;
-    
+  }
+  .susy-add-button {
+    @include span(isolate 2 at 2);
+    font-size: 15px;
   }
   .susy-post-photo {
     @include span(4);
@@ -79,6 +83,8 @@
     @include span(4);
   }
 }
+
+// 태블릿
 @include susy-breakpoint(768px, 8) {
   .susy-header {
     @include container();
@@ -114,6 +120,19 @@
     transform: translateX(-52%);
     width: 350px;
   }
+  .susy-add-button {
+    @include span(isolate 2 at 4);
+    font-size: 23px;
+  }
+  .susy-post-empty-1 {
+    @include span(isolate 6 at 2);
+    font-size: 30px ;   
+  }  
+  .susy-post-empty-2 {
+    @include span(isolate 6 at 2);
+    font-size: 30px;
+    margin-top: 37px;  
+  }  
   .susy-post-photo {
     @include span(isolate 3 at 2 nest);
   }
@@ -121,6 +140,8 @@
     @include span(isolate 3 at 5 nest);
   }
 }
+
+// 데스크탑
 @include susy-breakpoint(1200px, 12) {
   .susy-header {
     @include container();
@@ -136,21 +157,40 @@
   }
   .susy-slogan-1 {
     @include span(12);
-    font-size: 70px;
+    font-size: 73px;
     position: absolute;
     top: 0;
-    margin-top: -135px;
+    margin-top: -138px;
     left: 100%;
-    transform: translateX(-69.5%)
+    transform: translateX(-70%)
   }
   .susy-slogan-2 {
     @include span(12);
-    font-size: 70px;
+    font-size: 73px;
     position: absolute;
     top: 80px;
-    margin-top: -135px;
+    margin-top: -138px;
     left: 100%;
-    transform: translateX(-69.5%)
+    transform: translateX(-70%)
+  }
+  .susy-add-button {
+    @include span(isolate 2 at 6);
+    font-size: 30px;
+  }
+  .susy-post-empty-1 {
+    @include span(isolate 8 at 3);
+    font-size: 40px;  
+  }
+  .susy-post-empty-2 {
+    @include span(isolate 10 at 2);
+    font-size: 40px;
+    // margin-top: 60px;
+    // width: 800px;
+    // margin: 0 auto;
+    margin-top: 50px;
+    text-align: center;
+    
+    // margin-left: -200px;
   }
   .susy-post-photo {
     @include span(isolate 4 at 3 nest);
