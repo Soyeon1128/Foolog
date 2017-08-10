@@ -3,7 +3,7 @@
     header-logo
     header-slogan
     post-add-button
-    post-list
+    post-empty
     //- post-list
 </template>
 
@@ -17,7 +17,7 @@ import PostList from '../Post/PostList'
 export default {
   name: 'Post',
   components: {
-    HeaderLogo, HeaderSlogan, PostEmpty, PostAddButton, PostList,
+    HeaderLogo, HeaderSlogan, PostAddButton, PostEmpty,  PostList,
   }
 }
 </script>
