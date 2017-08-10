@@ -3,7 +3,7 @@
     header-logo
     header-slogan
     post-add-button
-    post-empty
+    post-list
     //- post-list
 </template>
 

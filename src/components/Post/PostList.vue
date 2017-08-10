@@ -8,7 +8,9 @@
           fieldset
             label(for='post-add-photo')
               input(id='post-add-photo'
-              type='file')
+              name='post-add-photo'
+              type='file'
+              )
               span.add-photo-text 사진 추가하기
     .post-list-diary.susy-post-diary
       .post-list-diary-1
@@ -16,11 +18,13 @@
           button.fa.fa-map-marker.fa-lg(type='button')  장소 추가하기
       .post-list-diary-2
         form
-          legend 포스트 작성란
-          fieldset
-            label(for='post-add-text')
-              input(id='post-add-text'
-              type='text')
+          textarea.post-add-text(
+                type='text'
+                name='add-text'
+                cols='60'
+                rows='12'
+                wrap='hard'
+                autofocus)
       .post-list-diary-3      
         .diary-tags-food
           p 음식 종류
@@ -48,6 +52,13 @@
 
 <script>
 export default {
-  
+  data () {
+    return {
+      
+    }
+  }
+  methods: {
+    
+  }
 }
 </script>
