@@ -1,0 +1,176 @@
+@import "../susy/_susy";
+@import "config";
+
+// 모바일 뷰포트
+@include susy-breakpoint(320px, 4) {
+  .susy-header {
+    @include container();
+  }
+  .susy-home {
+    @include span(4);
+  }
+  .susy-user {
+    @include span(4);
+  }
+  .susy-main {
+    @include span(4);
+  }
+  .susy-slogan-1 {
+    @include span(4);
+    font-size: 25px;
+    position: absolute;
+    margin-top: -50px;
+  }
+  .susy-slogan-2 {
+    @include span(4);
+    font-size: 25px;
+    position: absolute;
+    top: 28px;
+    margin-top: -50px;
+  }
+  .susy-add-button {
+    @include span(isolate 2 at 2);
+    font-size: 15px;
+  }
+  .post-empty-group-1 {
+    font-size: 17px;
+  }
+  .double-quotes-start {
+    font-size: 12px;
+    top: -8px;
+    left: -4px;  
+  }
+  .post-empty-group-2 {
+    font-size: 17px;
+    margin-top: 4px;
+  }
+  .double-quotes-end {
+    font-size: 12px;
+    top: 2px;
+    left: 4px;
+  }
+  .susy-post-photo {
+    @include span(4);
+  }
+  .susy-post-diary {
+    @include span(4);
+    margin-top: 30px
+  }
+}
+
+// 태블릿 뷰포트
+@include susy-breakpoint(768px, 8) {
+  .susy-header {
+    @include container();
+  }
+  .susy-home {
+    @include span(isolate 4 at 3);
+  }
+  .susy-user {
+    @include span(isolate 4 at 3);
+  }
+  .susy-main {
+    @include span(isolate 6 at 2);
+  }
+  .susy-slogan-1 {
+    @include span(8);
+    font-size: 50px;
+    position: absolute;
+    margin-top: -95px;
+  }
+  .susy-slogan-2 {
+    @include span(8);
+    font-size: 50px;
+    position: absolute;
+    top: 55px;
+    margin-top: -95px;
+  }
+  .susy-add-button {
+    @include span(isolate 2 at 4);
+    font-size: 23px;
+  }
+  .post-empty-group-1 {
+    font-size: 30px;
+    margin-top: 0;
+  }
+  .double-quotes-start {
+    font-size: 20px;
+    top: -14px;
+    left: -6px;  
+  }
+  .post-empty-group-2 {
+    font-size: 30px;
+    margin-top: 7px;
+  }  
+  .double-quotes-end {
+    font-size: 20px;
+    top: 5px;
+    left: 7px;
+  }
+  .susy-post-photo {
+    @include span(isolate 3 at 2 nest);
+  }
+  .susy-post-diary {
+    @include span(isolate 3 at 5 nest);
+    margin-top: 0;
+  }
+}
+
+// 데스크탑 뷰포트
+@include susy-breakpoint(1200px, 12) {
+  .susy-header {
+    @include container();
+  }
+  .susy-home {
+    @include span(isolate 6 at 4);
+  }
+  .susy-user {
+    @include span(isolate 4 at 5);
+  }
+  .susy-main {
+    @include span(isolate 8 at 3);
+  }
+  .susy-slogan-1 {
+    @include span(12);
+    font-size: 73px;
+    position: absolute;
+    text-align: center;
+    margin-top: -138px;
+  }
+  .susy-slogan-2 {
+    @include span(12);
+    font-size: 73px;
+    position: absolute;
+    top: 80px;
+    margin-top: -138px;
+  }
+  .susy-add-button {
+    @include span(isolate 2 at 6);
+    font-size: 30px;
+  }
+  .post-empty-group-1 {
+    font-size: 40px;
+    margin-top: 0;
+  }
+  .double-quotes-start {
+    font-size: 30px;
+    top: -18px;
+    left: -8px;
+  }
+  .post-empty-group-2 {
+    font-size: 40px;
+    margin-top: 10px;
+  }
+  .double-quotes-end {
+    font-size: 30px;
+    top: 10px;
+    left: 9px;
+  }
+  .susy-post-photo {
+    @include span(isolate 4 at 3 nest);
+  }
+  .susy-post-diary {
+    @include span(isolate 4 at 7 nest);
+    margin-top: 0;
+  }
+}

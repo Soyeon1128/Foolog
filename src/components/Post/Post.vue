@@ -3,8 +3,8 @@
     header-logo
     header-slogan
     post-add-button
-    post-list
-    //- post-list
+    //- post-empty(v-if="해당 날짜의 인증된 유저의 글 목록이 하나도 없을 시")
+    //- post-list(v-if="해당 날짜의 인증된 유저의 글 목록이 존재할 때")
 </template>
 
 <script>
@@ -17,7 +17,7 @@ import PostList from '../Post/PostList'
 export default {
   name: 'Post',
   components: {
-    HeaderLogo, HeaderSlogan, PostEmpty, PostAddButton, PostList,
+    HeaderLogo, HeaderSlogan, PostAddButton, PostEmpty,  PostList,
   }
 }
 </script>
