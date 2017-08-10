@@ -4,10 +4,10 @@
     .calendar.susy-main
       .cal-header
         span.current-cal-header(v-text="calHeader")        
-        .cal-header-btn-group
-          button.btn-prev-month(@click="onPrevCalendar")
+        .cal-header-button-group
+          button.prev-month-button(@click="onPrevCalendar")
             | <
-          button.btn-next-month(@click="onNextCalendar")
+          button.next-month-button(@click="onNextCalendar")
             | >
       .cal-table
         table
