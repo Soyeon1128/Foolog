@@ -97,3 +97,10 @@ export default {
   }
 }
 </script>
+
+<style lang="sass" scoped>
+  
+  body
+    overlfow: hidden
+
+</style>
