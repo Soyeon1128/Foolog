@@ -10,12 +10,9 @@
               input(id='post-add-photo'
               name='post-add-photo'
               type='file'
-              @click='imgRegister'
+              @change='fileUpload'
               )
               span.add-photo-text 사진 추가하기
-              img(
-                :scr='imgRegister'
-                v-model='src')
     .post-list-diary.susy-post-diary
       .post-list-diary-1
           span.fa.fa-clock-o.fa-lg  Aug 16 2017 Wed
@@ -54,13 +51,16 @@
         //-   | 수정
       .post-delete
         button.post-delete-button(type='button') X
+    img.test-img(
+      scr='https://www.w3schools.com/css/img_fjords.jpg'
+      )
 </template>
 
 <script>
 export default {
   data () {
     return {
-      src: ''
+      src: '',
     }
   },
   methods: {
@@ -73,6 +73,15 @@ export default {
         // reader.onload = (e => { e.target.result }
         // reader.readAsDataURL(file);
         // })
+    },
+    fileUpload(e) {
+      console.log(e.target.files[0])
+      let file = e.target.files[0];
+      let reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = (f) => {
+        this.src = f.srcElement.result;
+      };
     }
   }
 }
