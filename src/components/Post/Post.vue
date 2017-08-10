@@ -2,6 +2,7 @@
   .post-container
     header-logo
     header-slogan
+    post-list
      
    
 
@@ -10,17 +11,15 @@
 <script>
 import HeaderLogo from '../Header'
 import HeaderSlogan from '../HeaderSlogan'
+import PostList from '../Post/PostList'
 
 export default {
   name: 'Post',
   components: {
-    HeaderLogo, HeaderSlogan,
+    HeaderLogo, HeaderSlogan, PostList
   }
 }
 </script>
 
-<style lang="sass">
 
-
-</style>
 

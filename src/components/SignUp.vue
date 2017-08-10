@@ -59,11 +59,9 @@
 <script>
 import {mapGetters} from 'vuex' 
 import {mapMutations} from 'vuex' 
-
 export default {
   name: 'SignUp',
   mounted () {
-
   },
   directives: {
     focus: {
@@ -99,7 +97,6 @@ export default {
       })
       .then(response => {
         console.log(response)
-
         let error_valid = response.data;
         let props = Object.values(error_valid);
         console.log(props);
@@ -110,7 +107,6 @@ export default {
         } else if ( props[0] === true ) {
           this.email_valid = false
         }
-
       })
       .catch(error => {
         console.log(error)
@@ -124,11 +120,9 @@ export default {
       })
       .then(response => {
         console.log(response)
-
         let error_valid = response.data;
         let props = Object.values(error_valid);
         console.log(props);
-
         if ( props[1] === false ) {
           this.nickname_valid = true
           this.nickname = ''
@@ -154,11 +148,9 @@ export default {
         window.alert('회원가입이 완료되었습니다');
       })
       .catch(error => {
-
         let error_data = error.response.data;
         let props      = Object.keys(error_data);
         console.log(props);
-
         for (let i = 0, length = props.length; i < length; i++) {
           console.log(props[i] + ' : ' + error_data[props[i]][0]);
           window.alert(props[i] + ' : ' + error_data[props[i]][0]);
@@ -175,3 +167,10 @@ export default {
   }
 }
 </script>
+
+<style lang="sass" scoped>
+  
+  body
+    overlfow: hidden
+
+</style>
