@@ -30,7 +30,7 @@
   }
   .susy-add-button {
     @include span(isolate 2 at 2);
-    font-size: 15px;
+    font-size: 18px;
   }
   .post-empty-group-1 {
     font-size: 17px;
@@ -49,12 +49,46 @@
     top: 2px;
     left: 4px;
   }
+
+  // PostList 영역
+  .susy-photo-diary-wrapper {
+    @include container();
+    margin-top: 65px;           
+  }
   .susy-post-photo {
     @include span(4);
   }
   .susy-post-diary {
     @include span(4);
     margin-top: 30px
+  }
+  .fa-clock-o,
+  .fa-map-marker{
+    font-size: 19px;
+  }
+  .diary-tags-food{
+    font-size: 19px;
+  }
+  .food-evaluate button{
+    width: 50px;
+    font-size: 16px;
+    margin-left: 6px
+  }
+  .diary-tags-taste{
+    font-size: 19px;
+  }
+  .taste-evaluate button{
+    font-size: 30px;
+    margin-right: 10px;
+  }
+  .post-add-text {
+    @include span(5);
+  }
+  .post-delete {
+    position: absolute;
+    top: -395px;
+    right: -10px;
+    z-index: 100;
   }
 }
 
@@ -107,13 +141,48 @@
     top: 5px;
     left: 7px;
   }
+
+  // PostList 영역
+  .susy-photo-diary-wrapper {
+    @include span(isolate 6 at 2);
+    margin-top: 70px;
+  }  
   .susy-post-photo {
-    @include span(isolate 3 at 2 nest);
+    @include span(isolate 4 at 1 nest);
   }
   .susy-post-diary {
-    @include span(isolate 3 at 5 nest);
+    @include span(isolate 4 at 5 nest);
     margin-top: 0;
   }
+  .fa-clock-o,
+  .fa-map-marker{
+    font-size: 14px;
+  }
+  .diary-tags-food{
+    font-size: 14px;
+  }
+  .food-evaluate button{
+    width: 35px;
+    font-size: 11px;
+    margin-left: 1px
+  }
+  .diary-tags-taste{
+    font-size: 14px;
+  }
+  .taste-evaluate button{
+    font-size: 25px;
+    margin-left: 5px;
+    margin-right: 5px
+  }
+  .post-delete {
+    position: absolute;
+    top: -13px;
+    right: -13px;
+  }
+  .post-add-text {
+    @include span(8);
+  }
+
 }
 
 // 데스크탑 뷰포트
@@ -166,11 +235,46 @@
     top: 10px;
     left: 9px;
   }
+  // PostList 영역
+  .susy-photo-diary-wrapper {
+    @include span(isolate 8 at 3);
+    margin-top: 85px;
+  } 
   .susy-post-photo {
-    @include span(isolate 4 at 3 nest);
+    @include span(isolate 6 at 1 nest);
   }
   .susy-post-diary {
-    @include span(isolate 4 at 7 nest);
+    @include span(isolate 6 at 7 nest);
     margin-top: 0;
+  }
+  .post-add-text {
+    @include span(12);
+  }
+  .fa-clock-o,
+  .fa-map-marker{
+    font-size: 16px;
+  }
+  .diary-tags-food{
+    font-size: 18px;
+    font-weight: 200;
+  }
+  .food-evaluate button{
+    width: 45px;
+    font-size: 14px;
+    margin-left: 8px
+  }
+  .diary-tags-taste {
+    font-size: 18px;
+    font-weight: 200;    
+  }
+  .taste-evaluate button {
+    font-size: 30px;
+    margin-left: 5px;
+    margin-right: 20px;
+  }
+  .post-delete {
+    position: absolute;
+    top: -13px;
+    right: -13px;
   }
 }

@@ -4,8 +4,7 @@
     header-slogan
     post-add-button
     post-empty
-    //- post-empty(v-if="해당 날짜의 인증된 유저의 글 목록이 하나도 없을 시")
-    //- post-list(v-if="해당 날짜의 인증된 유저의 글 목록이 존재할 때")
+    post-list
 </template>
 
 <script>

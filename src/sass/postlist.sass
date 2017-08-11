@@ -1,5 +1,8 @@
 .post-list-container
-  margin-top: 170px
+  // margin-top: 170px
+  // padding-top: 50px
+  background-color: $color-main-post
+  margin-bottom: 45px
 
 // photo 영역  
 
@@ -12,34 +15,52 @@
   position: absolute
   top: 30%
   left: 41%
+  z-index: 100
+
+.post-list-photo-wrapper fieldset
+  position: relative
+  width: 100%
+  height: 350px
+  background-color: $color-main-post 
 
 #post-add-photo
-  border: none
-  background: none
+  cursor: pointer
   width: 100%
   height: 300px
-  cursor: pointer
-  background-color: $color-main-post
+  position: absolute
+  visibility: hidden
 
 .add-photo-text
-  color: $color-gray-icon
-  font-size: 30px
-  font-weight: 200
   position: absolute
   top: 63%
   left: 32%
+  color: $color-gray-icon
+  font-size: 30px
+  font-weight: 200
 
-.test-img
-  width: 100px
-  height: 100px
+.post-img-wrapper
+  position: relative
+  width: 100%
+  height: 350px
+  overflow: hidden
+
+.post-img
+  position: absolute
+  top: 4.5%
+  left: 2.6%
+  width: 95%
+  height: 336px
+  z-index: 101
 
 
 // diary 영역
 
 .post-list-diary
-  height: 350px
+  // height: 600px
   background-color: $color-main-post 
-  padding: 25px
+  padding: 20px
+  padding-bottom: 20px 
+  position: relative 
   
   // post-list-diary-1
   .post-list-diary-1
@@ -47,13 +68,13 @@
 
   .fa-clock-o
     color: $color-foolog
-    font-size: 16px
+    // font-size: 16px
 
   .fa-map-marker
     color: $color-gray-icon
     background: none
     border: none
-    font-size: 16px
+    // font-size: 16px
     position: absolute
     top: 0
     right: 0
@@ -63,37 +84,35 @@
 
   // post-list-diary-2  
   .post-add-text
+    position: relative
+    resize: none
     border: none
-    margin-top: 25px
-    width: 100%
-    height: 140px
+    margin: 20px 0 20px 0
+    max-width: 100%
+    height: 285px
     padding-left: 8px
     line-height: 17px
     font-size: 12px
-    // background-color: $color-main-post 
+    z-index: 1200
 
 
   // post-list-diary-3 
   .post-list-diary-3  
-    margin-top: 25px
+    margin: 35px 0 30px 0
     position: relative
 
     .diary-tags-food
-      display: inline-block
+      margin-top: 20px    
       color: $color-gray-icon
-      width: 240px
-      margin-right: 35px
-      color
       .food-evaluate
-        margin: 10px 0 0 0px
+        margin-left: 10px
       .food-evaluate button
-        font-size: 13px
+        margin: 7px 7px 10px 0
         font-weight: 200
-        margin-right: 10px
         color: $color-gray-icon
         cursor: pointer
         background: none
-        border: 1px solid $color-gray-icon
+        border: 1.5px solid $color-gray-icon
         border-radius: 25px
 
       button.food-evaluate-korean:hover
@@ -118,24 +137,21 @@
         color: #fff
 
     .diary-tags-taste
-      display: inline-block
-      position: absolute
-      top: 0
-      right: 0
+      margin: 10px 0 0 0
       color: $color-gray-icon
-      width: 100px
       .taste-evaluate
-        margin: 10px 0 0 -8px
+        margin: 7px 0 0 0
       .taste-evaluate button
+        width: 35px
         color: $color-gray-icon
         cursor: pointer
         background: none
         border: none
 
       button.fa-smile-o:hover
-        color: #afafb0
+        color: #000
       button.fa-meh-o:hover
-        color: #727171
+        color: #000
       button.fa-frown-o:hover
         color: #000
 
@@ -143,31 +159,30 @@
     .diary-save
       display: inline-block
       position: absolute
-      top: 75px
-      right: 0
+      // top: 106%
+      top: 100%
+      right: 2%
 
     .diary-save-button
-      width: 75px
-      height: 30px
+      width: 60px
+      height: 25px
       color: #fff
-      font-size: 18px
+      font-size: 16px
       font-weight: lighter
       cursor: pointer
       border: none
       border-radius: 3px
       background-color: $color-foolog
 
-  .post-delete
-    position: relative
-    .post-delete-button
-      width: 30px
-      height: 30px
-      border: none
-      border-radius: 20px
-      background: #fe836d
-      color: #fff
-      cursor: pointer
-      font-size: 15px
-      position: absolute
-      top: -297px
-      right: -40px
+.post-delete-button
+  width: 30px
+  height: 30px
+  border: none
+  border-radius: 20px
+  background: #fe836d
+  color: #fff
+  cursor: pointer
+  font-size: 15px
+  // position: absolute
+  // top: -13px
+  // right: -13px

@@ -1,4 +1,5 @@
 <template lang="pug">
+  //- post
   .home-container
     header-logo
     sign-in( v-show='signIn' )
