@@ -13,8 +13,8 @@ export const store = new Vuex.Store({
     // url: 'http://foolog.jos-project.xyz',
     url_users: 'http://api.foolog.xyz/member/',
     url_login: 'http://api.foolog.xyz/member/login/',
-    url_valid: 'http://api.foolog.xyz/member/valid/'
-
+    url_valid: 'http://api.foolog.xyz/member/valid/',
+    url_daylist: 'http://api.foolog.xyz/post/day/',
   },
 
   getters: {
@@ -24,7 +24,7 @@ export const store = new Vuex.Store({
   },
 
   mutations: {
-    goToHmoe() {
+    goToHome() {
       this.$router.push( {path: '/'} )
     }
   }
