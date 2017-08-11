@@ -6,13 +6,15 @@
         form
           legend 포스트 사진 올리기
           fieldset
-            label(for='post-add-photo')
+            label.post-add-label(for='post-add-photo')
               input(id='post-add-photo'
               name='post-add-photo'
               type='file'
-              @change='fileUpload'
-              )
+              @change='imgUpload')
               span.add-photo-text 사진 추가하기
+              .post-img-wrapper
+                img.post-img(
+                  :src='src')
     .post-list-diary.susy-post-diary
       .post-list-diary-1
           span.fa.fa-clock-o.fa-lg  Aug 16 2017 Wed
@@ -43,17 +45,8 @@
               button.fa.fa-frown-o.fa-lg(type='button')
         .diary-save
           button.diary-save-button 저장
-        //- .diary-share
-        //-   span.fa.fa-facebook-official.fa-lg
-        //-   | 페이스북 공유하기
-        //- .diary-modify
-        //-   span.fa.fa-pencil
-        //-   | 수정
       .post-delete
         button.post-delete-button(type='button') X
-    img.test-img(
-      scr='https://www.w3schools.com/css/img_fjords.jpg'
-      )
 </template>
 
 <script>
@@ -67,21 +60,26 @@ export default {
     imgRegister(){
       // this.imageRegister({axios: this.$http, file: this.file});
       // this.$emit('closeModal');
-      let reader = new FileReader();
-        reader.readAsDataURL(this.file);
-        console.log(this.file)
+      // let reader = new FileReader();
+      //   reader.readAsDataURL(this.file);
+      //   console.log(this.file)
         // reader.onload = (e => { e.target.result }
         // reader.readAsDataURL(file);
         // })
     },
-    fileUpload(e) {
-      console.log(e.target.files[0])
+    imgUpload(e) {
+      // console.log(e)
+      // console.log(e.target)
+      // console.log(e.target.files[0])
       let file = e.target.files[0];
       let reader = new FileReader();
       reader.readAsDataURL(file);
       reader.onload = (f) => {
-        this.src = f.srcElement.result;
-      };
+        console.log(f);
+
+       this.src = f.srcElement.result; 
+
+      }
     }
   }
 }
