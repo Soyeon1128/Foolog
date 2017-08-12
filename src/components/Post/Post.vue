@@ -4,7 +4,8 @@
     header-slogan
     post-add-button
     //- post-empty
-    //- post-list
+    //- post-before-save
+    //- post-after-save
     //- post-map
 </template>
 
@@ -13,16 +14,16 @@ import HeaderLogo from '../Header'
 import HeaderSlogan from '../HeaderSlogan'
 import PostAddButton from './PostAddButton'
 import PostEmpty from './PostEmpty'
-import PostList from '../Post/PostList'
+import PostBeforeSave from '../Post/PostBeforeSave'
+import PostAfterSave from '../Post/PostAfterSave'
 import PostMap from '../Post/PostMap'
 
 export default {
   name: 'Post',
   components: {
-    HeaderLogo, HeaderSlogan, PostAddButton, PostEmpty, PostList, PostMap 
-  }
+    HeaderLogo, HeaderSlogan, PostAddButton, PostEmpty, PostBeforeSave, PostAfterSave, PostMap 
+  },
 }
 </script>
-
 
 
