@@ -47,27 +47,32 @@
         .diary-save
           button.diary-save-button 저장
       .post-delete
-        button.post-delete-button(type='button') X
+        button.post-delete-button(
+          type='button'
+          @click='closeBeforeSaveList') X
 </template>
 
 <script>
+import {mapGetters} from 'vuex' 
+import {mapMutations} from 'vuex'
+
 export default {
   data () {
     return {
       src: '',
     }
   },
+  computed: {
+    ...mapGetters([
+      'postBeforeSave',
+    ])
+  },
+
   methods: {
-    imgRegister(){
-      // this.imageRegister({axios: this.$http, file: this.file});
-      // this.$emit('closeModal');
-      // let reader = new FileReader();
-      //   reader.readAsDataURL(this.file);
-      //   console.log(this.file)
-        // reader.onload = (e => { e.target.result }
-        // reader.readAsDataURL(file);
-        // })
-    },
+    ...mapMutations([
+      'closeBeforeSaveList'
+    ]),
+
     imgUpload(e) {
       // console.log(e)
       // console.log(e.target)

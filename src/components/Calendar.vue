@@ -163,7 +163,7 @@ export default {
       })
       .then(response => {
         this.$router.push( {path: '/post'} );
-       console.log(response);
+       console.log(response.data.length);
       })
       .catch(error => {
         console.log(error.response);
