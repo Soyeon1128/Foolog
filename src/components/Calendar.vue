@@ -160,7 +160,6 @@ export default {
           name: 'post', 
           params: { date: this.targetFullDate }
         });
-        // console.log(response);
       })
       .catch(error => {
         // console.log(error.response);

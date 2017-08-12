@@ -4,7 +4,7 @@
     header-slogan
     post-add-button
     //- post-empty
-    //- post-before-save
+    post-before-save
     //- post-after-save
     //- post-map
 </template>
