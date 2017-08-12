@@ -7,7 +7,7 @@
 export default {
   name: 'google-map',
   props: ['name'],
-  data: function () {
+  data: () => {
     return {
       mapName: this.name + "-map",
       markerCoordinates: [{
@@ -25,7 +25,7 @@ export default {
       markers: []
     }
   },
-  mounted: function () {
+  mounted: () => {
     this.bounds = new google.maps.LatLngBounds();
     const element = document.getElementById(this.mapName)
     const mapCentre = this.markerCoordinates[0]

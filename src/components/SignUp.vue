@@ -58,7 +58,8 @@
 
 <script>
 import {mapGetters} from 'vuex' 
-import {mapMutations} from 'vuex' 
+import {mapMutations} from 'vuex'
+ 
 export default {
   name: 'SignUp',
   mounted () {
