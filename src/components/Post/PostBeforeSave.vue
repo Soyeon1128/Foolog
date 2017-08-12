@@ -18,7 +18,7 @@
                   v-if='src')
     .post-list-diary.susy-post-diary
       .post-list-diary-1
-          span.fa.fa-clock-o.fa-lg  Aug 16 2017 Wed
+          span.fa.fa-clock-o.fa-lg  {{ this.$route.params.date }}
           button.fa.fa-map-marker.fa-lg(type='button')  장소 추가하기
       .post-list-diary-2
         form
@@ -47,11 +47,12 @@
         .diary-save
           button.diary-save-button 저장
       .post-delete
-        button.post-delete-button(type='button') X
+        button.post-delete-button(type='button') X      
 </template>
 
 <script>
 export default {
+  name: 'PostBeforeSave',
   data () {
     return {
       src: '',

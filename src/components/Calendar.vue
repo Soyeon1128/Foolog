@@ -149,22 +149,23 @@ export default {
 
       this.getDayList();
     },
-
+    // Post 페이지로 라우팅(유저 토큰값을 헤더로 전송, 라우팅 시 params로 타겟날짜 전달)
     getDayList() {
       let user_token = window.localStorage.getItem('token');
-      
       this.$http.get(this.dayListUrl, {
         headers: { 'Authorization' : `Token ${user_token}` }
       })
       .then(response => {
-        this.$router.push( {path: '/post'} );
-       console.log(response);
+        this.$router.push({
+          name: 'post', 
+          params: { date: this.targetFullDate }
+        });
+        // console.log(response);
       })
       .catch(error => {
-        console.log(error.response);
+        // console.log(error.response);
       })
-      
-    },
+    }
   }
 }
 </script>
