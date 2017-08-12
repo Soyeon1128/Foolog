@@ -5,7 +5,8 @@
     post-add-button
     post-empty(v-if='postEmpty')
     post-before-save(v-if='postBeforeSave')
-      //- post-map
+    //- post-after-save
+    //- post-map
 </template>
 
 <script>
@@ -14,11 +15,11 @@ import {mapMutations} from 'vuex'
 
 import HeaderLogo from '../Header'
 import HeaderSlogan from '../HeaderSlogan'
-import PostEmpty from './PostEmpty'
 import PostAddButton from './PostAddButton'
+import PostEmpty from './PostEmpty'
 import PostBeforeSave from '../Post/PostBeforeSave'
 import PostAfterSave from '../Post/PostAfterSave'
-// import PostMap from '../Post/PostMap'
+import PostMap from '../Post/PostMap'
 
 export default {
   name: 'Post',
@@ -45,6 +46,7 @@ export default {
       
     ])
   }
+
 }
 </script>
 

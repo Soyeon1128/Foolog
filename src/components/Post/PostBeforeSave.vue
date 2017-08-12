@@ -18,7 +18,7 @@
                   v-if='src')
     .post-list-diary.susy-post-diary
       .post-list-diary-1
-          span.fa.fa-clock-o.fa-lg  Aug 16 2017 Wed
+          span.fa.fa-clock-o.fa-lg  {{ this.$route.params.date }}
           button.fa.fa-map-marker.fa-lg(type='button')  장소 추가하기
       .post-list-diary-2
         form
@@ -57,11 +57,13 @@ import {mapGetters} from 'vuex'
 import {mapMutations} from 'vuex'
 
 export default {
+  name: 'PostBeforeSave',
   data () {
     return {
       src: '',
     }
   },
+
   computed: {
     ...mapGetters([
       'postBeforeSave',
@@ -72,7 +74,6 @@ export default {
     ...mapMutations([
       'closeBeforeSaveList'
     ]),
-
     imgUpload(e) {
       // console.log(e)
       // console.log(e.target)

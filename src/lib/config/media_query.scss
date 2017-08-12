@@ -17,23 +17,28 @@
   }
   .susy-slogan-1 {
     @include span(4);
-    font-size: 25px;
+    font-size: 33px;
     position: absolute;
-    margin-top: -50px;
+    margin-top: -40px;
   }
   .susy-slogan-2 {
     @include span(4);
-    font-size: 25px;
+    font-size: 33px;
     position: absolute;
     top: 28px;
-    margin-top: -50px;
+    margin-top: -35px;
   }
   .susy-add-button {
     @include span(isolate 2 at 2);
-    font-size: 18px;
+    font-size: 20px;
+    margin-top: 35px;
+  }
+  .post-empty {
+    margin-top: 110px;
   }
   .post-empty-group-1 {
-    font-size: 17px;
+    font-size: 20px;
+    // margin-top: 20px;
   }
   .double-quotes-start {
     font-size: 12px;
@@ -41,7 +46,7 @@
     left: -4px;  
   }
   .post-empty-group-2 {
-    font-size: 17px;
+    font-size: 20px;
     margin-top: 4px;
   }
   .double-quotes-end {
@@ -49,8 +54,6 @@
     top: 2px;
     left: 4px;
   }
-
-  // PostList 영역
   .susy-photo-diary-wrapper {
     @include container();
     margin-top: 65px;           
@@ -121,10 +124,14 @@
   }
   .susy-add-button {
     @include span(isolate 2 at 4);
-    font-size: 23px;
+    font-size: 22px;
+    margin-top: 17px;
+  }
+  .post-empty {
+    margin-top: 105px;
   }
   .post-empty-group-1 {
-    font-size: 30px;
+    font-size: 27px;
     margin-top: 0;
   }
   .double-quotes-start {
@@ -133,7 +140,7 @@
     left: -6px;  
   }
   .post-empty-group-2 {
-    font-size: 30px;
+    font-size: 27px;
     margin-top: 7px;
   }  
   .double-quotes-end {
@@ -141,8 +148,6 @@
     top: 5px;
     left: 7px;
   }
-
-  // PostList 영역
   .susy-photo-diary-wrapper {
     @include span(isolate 6 at 2);
     margin-top: 70px;
@@ -215,27 +220,30 @@
   }
   .susy-add-button {
     @include span(isolate 2 at 6);
-    font-size: 30px;
+    font-size: 29px;
+    margin-top: 20px;
+  }
+  .post-empty {
+    margin-top: 130px;
   }
   .post-empty-group-1 {
-    font-size: 40px;
+    font-size: 36px;
     margin-top: 0;
   }
   .double-quotes-start {
-    font-size: 30px;
+    font-size: 28px;
     top: -18px;
     left: -8px;
   }
   .post-empty-group-2 {
-    font-size: 40px;
+    font-size: 36px;
     margin-top: 10px;
   }
   .double-quotes-end {
-    font-size: 30px;
+    font-size: 28px;
     top: 10px;
     left: 9px;
   }
-  // PostList 영역
   .susy-photo-diary-wrapper {
     @include span(isolate 8 at 3);
     margin-top: 85px;
