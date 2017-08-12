@@ -11,8 +11,8 @@
 <script>
 import HeaderLogo from '../Header'
 import HeaderSlogan from '../HeaderSlogan'
-import PostEmpty from './PostEmpty'
 import PostAddButton from './PostAddButton'
+import PostEmpty from './PostEmpty'
 import PostList from '../Post/PostList'
 import PostMap from '../Post/PostMap'
 

@@ -49,7 +49,6 @@ export default {
       arrTargetDate: [],
       targetFullDate: '',
       dayListUrl: '',
-      userToken: ''
     }
   },
   methods: {
@@ -148,18 +147,14 @@ export default {
       // data에 해당 daylist url 보관
       this.dayListUrl = target_url_daylist;
 
-      this.getUserToken();
       this.getDayList();
     },
-    getUserToken() {
-      let token = window.localStorage.getItem('token');
-      this.userToken = token;
-      console.log(this.userToken);
-    },
+
     getDayList() {
-      console.log(this.userToken);
+      let user_token = window.localStorage.getItem('token');
+      
       this.$http.get(this.dayListUrl, {
-        headers: { 'Authorization' : `Token ${this.userToken}` }
+        headers: { 'Authorization' : `Token ${user_token}` }
       })
       .then(response => {
         this.$router.push( {path: '/post'} );
