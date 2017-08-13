@@ -107,60 +107,98 @@
     .diary-tags-food
       margin-top: 20px    
       color: $color-gray-icon
-      .food-evaluate
-        margin-left: 10px
-      .food-evaluate button
-        margin: 7px 7px 10px 0
-        font-weight: 200
-        color: $color-gray-icon
-        cursor: pointer
-        background: none
-        border: 1.5px solid $color-gray-icon
-        border-radius: 25px
-
-      button.food-evaluate-korean:hover
-        border: 1px solid #007bbb
-        background: #007bbb
-        color: #fff
-      button.food-evaluate-chinese:hover
-        border: 1px solid #e83929
-        background: #e83929
-        color: #fff        
-      button.food-evaluate-japanese:hover
-        border: 1px solid #82ae46
-        background: #82ae46
-        color: #fff
-      button.food-evaluate-eastern:hover
-        border: 1px solid #e6b422
-        background: #e6b422
-        color: #fff
-      button.food-evaluate-etc:hover
-        border: 1px solid #824880
-        background: #824880
-        color: #fff
+      .food-evaluate-wrap 
+        input[type=radio] 
+          display: none
+        .food-evaluate
+          display: inline-block
+          // font-size: 12px
+          width: auto
+          height: 26px
+          line-height: 25px
+          margin-top: 10px
+          margin-right: 10px
+          padding: 0 20px
+          border: 1px solid $color-gray-icon
+          border-radius: 30px
+          cursor: pointer
+          transition: 0.3s
+          -webkit-transition: all 0.2s ease-out;
+          -moz-transition: all 0.2s ease-out;
+          -ms-transition: all 0.2s ease-out;
+          -o-transition: all 0.2s ease-out;
+          transition: all 0.2s ease-out;
+        #food-evaluate-korean:checked + .food-evaluate 
+          border: 1px solid #007bbb          
+          background: #007bbb
+          color: #fff
+        #food-evaluate-chinese:checked + .food-evaluate 
+          border: 1px solid #e83929          
+          background: #e83929
+          color: #fff
+        #food-evaluate-japanese:checked + .food-evaluate 
+          border: 1px solid #82ae46          
+          background: #82ae46
+          color: #fff
+        #food-evaluate-eastern:checked + .food-evaluate 
+          border: 1px solid #e6b422          
+          background: #e6b422
+          color: #fff
+        #food-evaluate-etc:checked + .food-evaluate 
+          border: 1px solid #824880          
+          background: #824880
+          color: #fff
 
     .diary-tags-taste
       margin: 10px 0 0 0
       color: $color-gray-icon
-      .taste-evaluate
-        margin: 7px 0 0 0
-      .taste-evaluate button
-        width: 35px
-        color: $color-gray-icon
-        cursor: pointer
-        background: none
-        border: none
+      .taste-evaluate-wrap 
+        input[type=radio] 
+          display: none
+        .taste-evaluate
+          font-size: 18px
+          display: inline-block
+          // width: auto
+          // height: 26px
+          line-height: 25px
+          margin-top: 10px
+          margin-right: 10px
+          padding: 0 20px
+          // border: 1px solid $color-gray-icon
+          // border-radius: 30px
+          cursor: pointer
+          transition: 0.3s
+          -webkit-transition: all 0.3s ease-out;
+          -moz-transition: all 0.3s ease-out;
+          -ms-transition: all 0.3s ease-out;
+          -o-transition: all 0.3s ease-out;
+          transition: all 0.3s ease-out;
+        #taste-evaluate-good:checked + .taste-evaluate 
+          color: #000
+        #taste-evaluate-soso:checked + .taste-evaluate 
+          color: #000
+        #taste-evaluate-bad:checked + .taste-evaluate 
+          color: #000
+      // .taste-evaluate
+      //   margin: 7px 0 0 0
+      // .taste-evaluate button
+      //   width: 35px
+      //   color: $color-gray-icon
+      //   cursor: pointer
+      //   background: none
+      //   border: none
 
-      button.fa-smile-o:hover
-        color: #000
-      button.fa-meh-o:hover
-        color: #000
-      button.fa-frown-o:hover
-        color: #000
+      // button.fa-smile-o:hover
+      //   color: #000
+      // button.fa-meh-o:hover
+      //   color: #000
+      // button.fa-frown-o:hover
+      //   color: #000
 
 
     .diary-save
       display: inline-block
+      margin-top: 10px
       position: absolute
       // top: 106%
       top: 100%
