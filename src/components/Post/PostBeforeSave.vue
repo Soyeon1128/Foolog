@@ -42,20 +42,20 @@
           //-   button.food-evaluate-etc(type='button' value='기타') 기타
           .food-evaluate-wrap
             input(type="radio" id="food-evaluate-korean" name="food-evaluate" class="food-evaluate" )
-            label.food-evaluate(for="food-evaluate-korean" value='한식')
-              span 한식 
+            label.food-evaluate(@click='getFoodTagValue' value='한식' for="food-evaluate-korean")
+              span(value='한식') 한식 
             input(type="radio" id="food-evaluate-chinese" name="food-evaluate" class="food-evaluate")
-            label.food-evaluate(for="food-evaluate-chinese" value='중식')
-              span 중식
+            label.food-evaluate(@click='getFoodTagValue' value='중식' for="food-evaluate-chinese")
+              span(value='중식') 중식
             input(type="radio" id="food-evaluate-japanese" name="food-evaluate" class="food-evaluate")
-            label.food-evaluate(for="food-evaluate-japanese" value='일식')
-              span 일식
+            label.food-evaluate(@click='getFoodTagValue' value='일식' for="food-evaluate-japanese")
+              span(value='일식') 일식
             input(type="radio" id="food-evaluate-eastern" name="food-evaluate" class="food-evaluate")
-            label.food-evaluate(for="food-evaluate-eastern" value='양식')
-              span 양식
+            label.food-evaluate(@click='getFoodTagValue' value='양식' for="food-evaluate-eastern")
+              span(value='양식') 양식
             input(type="radio" id="food-evaluate-etc" name="food-evaluate" class="food-evaluate")
-            label.food-evaluate(for="food-evaluate-etc" value='기타')
-              span 기타
+            label.food-evaluate(@click='getFoodTagValue' value='기타' for="food-evaluate-etc")
+              span(value='기타') 기타
         .diary-tags-taste
           span 맛 평가
           //- .taste-evaluate
@@ -64,14 +64,14 @@
           //-   button.fa.fa-frown-o.fa-lg(type='button')
           .taste-evaluate-wrap
             input(type="radio" id="taste-evaluate-good" name="taste-evaluate" class="taste-evaluate" )
-            label.taste-evaluate(for="taste-evaluate-good" value='한식')
-              span.fa.fa-smile-o.fa-lg
+            label.taste-evaluate(@click='getTasteTagValue' value='Good' for="taste-evaluate-good")
+              span.fa.fa-smile-o.fa-lg(value='Good')
             input(type="radio" id="taste-evaluate-soso" name="taste-evaluate" class="taste-evaluate")
-            label.taste-evaluate(for="taste-evaluate-soso" value='중식')
-              span.fa.fa-meh-o.fa-lg
+            label.taste-evaluate(@click='getTasteTagValue' value='Soso' for="taste-evaluate-soso")
+              span.fa.fa-meh-o.fa-lg(value='Soso')
             input(type="radio" id="taste-evaluate-bad" name="taste-evaluate" class="taste-evaluate")
-            label.taste-evaluate(for="taste-evaluate-bad" value='일식')
-              span.fa.fa-frown-o.fa-lg
+            label.taste-evaluate(@click='getTasteTagValue' value='Bad' for="taste-evaluate-bad")
+              span.fa.fa-frown-o.fa-lg(value='Bad')
         .diary-save
           button.diary-save-button(@click='savePost') 저장
       .post-delete
@@ -123,7 +123,24 @@ export default {
 
       }
     },
+    getFoodTagValue(e) {
+      let value = e.target.attributes[0].value
+      console.log(e.target.attributes[0].value);
+      
+      this.post_keys.tags_food = value
+    },
+    getTasteTagValue(e) {
+      let value = e.target.attributes[0].value
+      console.log(e.target.attributes[0].value);
+      
+      this.post_keys.tags_taste = value      
+    },
     savePost() {
+      console.log(this.post_keys.photo);
+      console.log(this.post_keys.text);
+      console.log(this.post_keys.tags_food);
+      console.log(this.$route.params.date);
+
       let user_token = window.localStorage.getItem('token');
       this.$http.get(this.dayListUrl, {
         headers: { 'Authorization' : `Token ${user_token}` }
@@ -131,14 +148,13 @@ export default {
       this.$http.post(this.$store.state.url_post, {
         text: this.post_keys.text,
         photo: this.post_keys.photo,
-        tags: this.post_keys.tags_food, 
+        tags: this.post_keys.tags_food,
         date: this.$route.params.date,
         longitude: '',
         latitude: '',
         memo: '',
         title: '',
       })
-      console.log(this.$route.params.date)
       .then(res => {
         console.log(res)
         window.alert('일기가 등록되었습니다.')
