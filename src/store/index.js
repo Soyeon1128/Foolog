@@ -16,6 +16,7 @@ export const store = new Vuex.Store({
     url_users: 'http://api.foolog.xyz/member/',
     url_login: 'http://api.foolog.xyz/member/login/',
     url_valid: 'http://api.foolog.xyz/member/valid/',
+    url_post: 'http://api.foolog.xyz/post/',
     url_daylist: 'http://api.foolog.xyz/post/day/',
   },
 
