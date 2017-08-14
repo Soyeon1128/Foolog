@@ -2,8 +2,8 @@ import Vue from 'vue';
 import Vuex from 'vuex'
 import VueRouter from 'vue-router'
 import axios from 'axios'
-import {routes} from './routes'
 import App from './App';
+import {routes} from './routes'
 import {store} from './store'
 
 Vue.use(VueRouter);

@@ -19,12 +19,12 @@
   top: 30px
   left: 0
 
-.cal-header-btn-group
+.cal-header-button-group
   position: relative
   top: -17%
   right: 0
 
-.btn-prev-month, .btn-next-month 
+.prev-month-button, .next-month-button 
   border: none
   background: none
   font-size: 20px
@@ -33,10 +33,10 @@
   width: 40px
   height: 40px
 
-.btn-prev-month
+.prev-month-button
   margin-right: 100px
 
-.btn-next-month
+.next-month-button
   margin-left: 100px
 
 // cal-table 영역
@@ -45,17 +45,27 @@ table
   border-top: 1px solid #666
   margin: 0 auto
 
-  &-thead, &-tbody
+  &-thead
   font-size: 20px
 
-  &-tbody 
-  color: $color-text-icon
+  &-tbody
+  font-size: 20px  
+  
   font-weight: 100
   text-align: center  
 
-table td 
+thead td 
   height: 80px
   vertical-align: middle
 
-.not-this-month 
+.cal-date-link
+  text-decoration: none
+  cursor: pointer
+  width: 100%
+  height: 80px
+  line-height: 80px
+  display: inline-block
+  color: $color-text-icon
+  
+.not-this-month .cal-date-link
   color: #ddd

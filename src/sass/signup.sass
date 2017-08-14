@@ -1,10 +1,5 @@
 @import '../sass/config'
 
-
-fieldset
-  border: none
-
-
 .signup-content-wrapper
   position: relative
   top: 120px
@@ -60,7 +55,7 @@ fieldset
 
 #signup-email
   padding-left: 10px
-  margin: 28px 0 10px 28px
+  margin: 28px 0 8px 28px
   font-size: 11px  
   background-color: #eee  
   border: none  
@@ -69,10 +64,25 @@ fieldset
   width: 85%
   height: 45px
   cursor: pointer  
+
+.email-valid-false
+  font-size: 10px
+  color: red
+  margin-left: 30px
+
+.email-valid-empty
+  font-size: 10px
+  color: red
+  margin-left: 30px
+  
+.email-valid-true
+  font-size: 10px
+  color: blue
+  margin-left: 30px
 
 #signup-nickname
   padding-left: 10px
-  margin: 0 0 10px 28px
+  margin: 8px 0 8px 28px
   font-size: 11px  
   background-color: #eee  
   border: none  
@@ -80,11 +90,24 @@ fieldset
   color: #303030  
   width: 85%
   height: 45px
-  cursor: pointer  
+  cursor: pointer
+
+.nickname-valid-false
+  font-size: 10px
+  color: red
+  margin-left: 30px  
+
+.nickname-valid-empty
+  font-size: 10px
+  color: red
+  margin-left: 30px  
+
+.fa-exclamation-circle
+  margin-right: 3px
 
 #signup-password
   padding-left: 10px
-  margin: 0 0 10px 28px
+  margin: 8px 0 8px 28px
   font-size: 11px  
   background-color: #eee  
   border: none  
@@ -96,7 +119,7 @@ fieldset
 
 .signup-btn
   font-weight: 400  
-  margin: 18px 0 10px 28px  
+  margin: 8px 0 10px 28px  
   font-size: 15px  
   background-color: #fe836d  
   border: none  
@@ -113,5 +136,5 @@ fieldset
   margin-left: 28px
 
 hr
-  width: 85%
+  width: 84.5%
   margin: 0 auto

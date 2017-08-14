@@ -1,0 +1,309 @@
+@import "../susy/_susy";
+@import "config";
+
+// 모바일 뷰포트
+@include susy-breakpoint(320px, 4) {
+  .susy-header {
+    @include container();
+  }
+  .susy-home {
+    @include span(4);
+  }
+  .susy-user {
+    @include span(4);
+  }
+  .susy-main {
+    @include span(4);
+  }
+  .susy-slogan-1 {
+    @include span(4);
+    font-size: 33px;
+    position: absolute;
+    margin-top: -40px;
+  }
+  .susy-slogan-2 {
+    @include span(4);
+    font-size: 33px;
+    position: absolute;
+    top: 28px;
+    margin-top: -35px;
+  }
+  .susy-add-button {
+    @include span(isolate 2 at 2);
+    font-size: 20px;
+    margin-top: 35px;
+  }
+  .post-empty {
+    margin-top: 110px;
+  }
+  .post-empty-group-1 {
+    font-size: 20px;
+    // margin-top: 20px;
+  }
+  .double-quotes-start {
+    font-size: 12px;
+    top: -8px;
+    left: -4px;  
+  }
+  .post-empty-group-2 {
+    font-size: 20px;
+    margin-top: 4px;
+  }
+  .double-quotes-end {
+    font-size: 12px;
+    top: 2px;
+    left: 4px;
+  }
+  .susy-photo-diary-wrapper {
+    @include container();
+    margin-top: 105px;           
+  }
+  .susy-post-photo {
+    @include span(4);
+  }
+  .susy-post-diary {
+    @include span(4);
+    margin-top: 30px
+  }
+  .fa-clock-o,
+  .fa-map-marker{
+    font-size: 19px;
+  }
+  .diary-tags-food{
+    font-size: 19px;
+  }
+  .food-evaluate {
+    font-size: 16px;
+    margin-left: 6px
+  }
+  .diary-tags-taste{
+    font-size: 19px;
+  }
+  .taste-evaluate {
+    font-size: 35px;
+    margin-right: 10px;
+  }
+  .post-add-text {
+    @include span(5);
+  }
+  .post-delete {
+    position: absolute;
+    top: -395px;
+    right: -10px;
+    z-index: 100;
+  }
+}
+
+// 태블릿 뷰포트
+@include susy-breakpoint(768px, 8) {
+  .susy-header {
+    @include container();
+  }
+  .susy-home {
+    @include span(isolate 4 at 3);
+  }
+  .susy-user {
+    @include span(isolate 4 at 3);
+  }
+  .susy-main {
+    @include span(isolate 6 at 2);
+  }
+  .susy-slogan-1 {
+    @include span(8);
+    font-size: 50px;
+    position: absolute;
+    margin-top: -95px;
+  }
+  .susy-slogan-2 {
+    @include span(8);
+    font-size: 50px;
+    position: absolute;
+    top: 55px;
+    margin-top: -95px;
+  }
+  .susy-add-button {
+    @include span(isolate 2 at 4);
+    font-size: 22px;
+    margin-top: 17px;
+  }
+  .post-empty {
+    margin-top: 105px;
+  }
+  .post-empty-group-1 {
+    font-size: 27px;
+    margin-top: 0;
+  }
+  .double-quotes-start {
+    font-size: 20px;
+    top: -14px;
+    left: -6px;  
+  }
+  .post-empty-group-2 {
+    font-size: 27px;
+    margin-top: 7px;
+  }  
+  .double-quotes-end {
+    font-size: 20px;
+    top: 5px;
+    left: 7px;
+  }
+  .susy-photo-diary-wrapper {
+    @include span(isolate 6 at 2);
+    margin-top: 70px;
+  }  
+  .susy-post-photo {
+    @include span(isolate 4 at 1 nest);
+  }
+  .susy-post-diary {
+    @include span(isolate 4 at 5 nest);
+    margin-top: 0;
+  }
+  .fa-clock-o,
+  .fa-map-marker{
+    font-size: 14px;
+  }
+  .diary-tags-food{
+    font-size: 14px;
+  }
+  .food-evaluate{
+    font-size: 12px;
+    margin-left: 1px
+  }
+  .diary-tags-taste{
+    font-size: 14px;
+  }
+  .taste-evaluate {
+    font-size: 25px;
+    margin-right: 5px
+  }
+  .post-delete {
+    position: absolute;
+    top: -13px;
+    right: -13px;
+  }
+  .post-add-text {
+    @include span(8);
+  }
+
+}
+
+// 데스크탑 뷰포트
+@include susy-breakpoint(1200px, 12) {
+  .susy-header {
+    @include container();
+  }
+  .susy-home {
+    @include span(isolate 6 at 4);
+  }
+  .susy-user {
+    @include span(isolate 4 at 5);
+  }
+  .susy-main {
+    @include span(isolate 8 at 3);
+  }
+  .susy-slogan-1 {
+    @include span(12);
+    font-size: 73px;
+    position: absolute;
+    text-align: center;
+    margin-top: -138px;
+  }
+  .susy-slogan-2 {
+    @include span(12);
+    font-size: 73px;
+    position: absolute;
+    top: 80px;
+    margin-top: -138px;
+  }
+  .susy-add-button {
+    @include span(isolate 2 at 6);
+    font-size: 29px;
+    margin-top: 20px;
+  }
+  .post-empty {
+    margin-top: 130px;
+  }
+  .post-empty-group-1 {
+    font-size: 36px;
+    margin-top: 0;
+  }
+  .double-quotes-start {
+    font-size: 28px;
+    top: -18px;
+    left: -8px;
+  }
+  .post-empty-group-2 {
+    font-size: 36px;
+    margin-top: 10px;
+  }
+  .double-quotes-end {
+    font-size: 28px;
+    top: 10px;
+    left: 9px;
+  }
+  .susy-photo-diary-wrapper {
+    @include span(isolate 8 at 3);
+    margin-top: 85px;
+  } 
+  .susy-post-photo {
+    @include span(isolate 6 at 1 nest);
+  }
+  .susy-post-diary {
+    @include span(isolate 6 at 7 nest);
+    margin-top: 0;
+  }
+  // diary 1. 날짜 & 장소
+  .fa-clock-o {
+    font-size: 18px;
+  }
+  .fa-map-marker {
+    font-size: 17px;
+  }
+  // diary 2. 텍스트
+  .post-add-text {
+    @include span(12);
+    font-size: 15px;
+  }
+  .post-save-text {
+    font-size: 15px;
+  }
+  // diary 3. 태그 - 음식 종류
+  .diary-tags-food{
+    font-size: 15px;
+    font-weight: 200;
+  }
+  .food-evaluate {
+    font-size: 14px;
+    font-weight: 200;    
+  }
+  .save-tags-food {
+    font-size: 15px;
+    font-weight: 200;
+  }
+  .tag-food {
+    font-size: 14px;  
+    font-weight: 200;
+  }
+  // diary 3. 태그 - 맛 평가 
+  .diary-tags-taste {
+    font-size: 15px;
+    font-weight: 200;    
+  }
+  .taste-evaluate {
+    font-size: 25px;
+    margin-right: 20px;
+  }
+  .save-tags-taste {
+    font-size: 15px;
+    font-weight: 200;
+  }
+  .tag-taste {
+    font-size: 23px;
+    margin-right: 20px;
+  }
+  .post-delete {
+    position: absolute;
+    top: -13px;
+    right: -13px;
+  }
+}

@@ -1,4 +1,5 @@
-<template lang="pug"> 
+<template lang="pug">
+  //- post
   .home-container
     header-logo
     sign-in( v-show='signIn' )
@@ -28,6 +29,7 @@ import HeaderLogo from './Header'
 import SignIn from './SignIn'
 import SignUp from './SignUp'
 import Calendar from './Calendar'
+import Post from './Post/Post'
 
 export default {
   name: 'Home',
@@ -37,6 +39,7 @@ export default {
     SignIn,
     SignUp,
     Calendar,
+    Post,
   },
   data() {
     return {
@@ -58,4 +61,11 @@ export default {
   }
 }
 </script>
+
+<style lang="sass" scoped>
+  
+  body
+    overlfow: hidden
+
+</style>
 
