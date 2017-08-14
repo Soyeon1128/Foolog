@@ -93,7 +93,6 @@ export default {
 
         // 달력 셀에 삽입되는 target date를 배열 arrTargetDate에 푸시
         this.arrTargetDate.push(new Date(targetDate));
-        // this.arrTargetDate.push(Object.assign(targetDate));
 
         // 다음 날 계산 (+1일)
         targetDate.setDate(targetDate.getDate() + 1);
@@ -149,14 +148,15 @@ export default {
 
       this.getDayList();
     },
-    // Post 페이지로 라우팅(유저 토큰값을 헤더로 전송, 라우팅 시 params로 타겟날짜 전달)
+    // Post 페이지로 라우팅(유저 토큰값을 헤더로 전송)
+    // 라우팅 시 params로 targetFullDate 전달 (클릭한 날짜의 YYYYMMDD 형식의 문자열)
     getDayList() {
       this.$router.push({
           name: 'post', 
-          params: { date: this.targetFullDate }
+          params: {
+            date: this.targetFullDate,
+          }
         });
-        console.log(this.targetFullDate);
-
       // let user_token = window.localStorage.getItem('token');
       // this.$http.get(this.dayListUrl, {
       //   headers: { 'Authorization' : `Token ${user_token}` }
