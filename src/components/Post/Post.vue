@@ -1,6 +1,6 @@
 <template lang="pug">
   .post-container
-    header-logo
+    header-logo {{ this.$route.params.date }}
     header-slogan
     post-add-button
     //- post-empty(v-if='postEmpty')
