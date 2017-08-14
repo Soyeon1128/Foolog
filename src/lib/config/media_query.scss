@@ -252,26 +252,53 @@
     @include span(isolate 6 at 7 nest);
     margin-top: 0;
   }
+  // diary 1. 날짜 & 장소
+  .fa-clock-o {
+    font-size: 18px;
+  }
+  .fa-map-marker {
+    font-size: 17px;
+  }
+  // diary 2. 텍스트
   .post-add-text {
     @include span(12);
+    font-size: 15px;
   }
-  .fa-clock-o,
-  .fa-map-marker{
-    font-size: 16px;
+  .post-save-text {
+    font-size: 15px;
   }
+  // diary 3. 태그 - 음식 종류
   .diary-tags-food{
-    font-size: 18px;
+    font-size: 15px;
     font-weight: 200;
   }
   .food-evaluate {
-    font-size: 12px;
+    font-size: 14px;
+    font-weight: 200;    
   }
+  .save-tags-food {
+    font-size: 15px;
+    font-weight: 200;
+  }
+  .tag-food {
+    font-size: 14px;  
+    font-weight: 200;
+  }
+  // diary 3. 태그 - 맛 평가 
   .diary-tags-taste {
-    font-size: 18px;
+    font-size: 15px;
     font-weight: 200;    
   }
   .taste-evaluate {
-    font-size: 30px;
+    font-size: 25px;
+    margin-right: 20px;
+  }
+  .save-tags-taste {
+    font-size: 15px;
+    font-weight: 200;
+  }
+  .tag-taste {
+    font-size: 23px;
     margin-right: 20px;
   }
   .post-delete {

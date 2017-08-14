@@ -65,13 +65,13 @@
           .taste-evaluate-wrap
             input(type="radio" id="taste-evaluate-good" name="taste-evaluate" class="taste-evaluate" )
             label.taste-evaluate(@click='getTasteTagValue' value='Good' for="taste-evaluate-good")
-              span.fa.fa-smile-o.fa-lg(value='Good')
+              span.fa.fa-smile-o(value='Good')
             input(type="radio" id="taste-evaluate-soso" name="taste-evaluate" class="taste-evaluate")
             label.taste-evaluate(@click='getTasteTagValue' value='Soso' for="taste-evaluate-soso")
-              span.fa.fa-meh-o.fa-lg(value='Soso')
+              span.fa.fa-meh-o(value='Soso')
             input(type="radio" id="taste-evaluate-bad" name="taste-evaluate" class="taste-evaluate")
             label.taste-evaluate(@click='getTasteTagValue' value='Bad' for="taste-evaluate-bad")
-              span.fa.fa-frown-o.fa-lg(value='Bad')
+              span.fa.fa-frown-o(value='Bad')
         .diary-save
           button.diary-save-button(@click='savePost') 저장
       .post-delete

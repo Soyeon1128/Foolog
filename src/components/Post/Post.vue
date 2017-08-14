@@ -3,9 +3,9 @@
     header-logo {{ this.$route.params.date }}
     header-slogan
     post-add-button
-    //- post-empty(v-if='postEmpty')
-    //- post-before-save(v-if='postBeforeSave')
-    post-after-save
+    post-empty(v-if='postEmpty')
+    post-before-save(v-if='postBeforeSave')
+    //- post-after-save
     //- post-map
 </template>
 
