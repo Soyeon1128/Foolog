@@ -1,183 +1,131 @@
-.post-list-container
-  // margin-top: 170px
+.post-save-container
+  margin-top: 130px
   // padding-top: 50px
   background-color: $color-main-post
   margin-bottom: 45px
+  // height: 100%
+  // padding-bottom: 20px
 
-// photo 영역  
-
-.post-list-photo-wrapper
-  position: relative
-
-.post-add-label
-  cursor: pointer
-  
-.fa-camera
-  color: $color-gray-icon
-  font-size: 80px
-  position: absolute
-  top: 30%
-  left: 41%
-  z-index: 100
-
-.post-list-photo-wrapper fieldset
-  position: relative
+// photo 영역
+.post-save-photo
+  padding: 15px 10px 10px 10px
+.post-save-photo img
   width: 100%
-  height: 350px
-  background-color: $color-main-post 
-
-#post-add-photo
-  cursor: pointer
-  width: 100%
-  height: 300px
-  position: absolute
-  visibility: hidden
-
-.add-photo-text
-  position: absolute
-  top: 63%
-  left: 32%
-  color: $color-gray-icon
-  font-size: 30px
-  font-weight: 200
-
-.post-img-wrapper
-  position: relative
-  width: 100%
-  height: 350px
-  overflow: hidden
-
-.post-img
-  position: absolute
-  top: 4.5%
-  left: 2.6%
-  width: 95%
-  height: 336px
-  z-index: 101
-
 
 // diary 영역
-
-.post-list-diary
-  // height: 600px
+.post-save-diary
+  // height: 120%
   background-color: $color-main-post 
   padding: 20px
   padding-bottom: 20px 
   position: relative 
   
-  // post-list-diary-1
-  .post-list-diary-1
-    position: relative
+// post-save-diary-1
+.post-save-diary-1
+  position: relative
+  margin-top: 5px
 
-  .fa-clock-o
-    color: $color-foolog
-    // font-size: 16px
+.fa-clock-o
+  color: $color-foolog
+  font-size: 18px
 
-  .fa-map-marker
-    color: $color-gray-icon
+.fa-map-marker
+  color: $color-gray-icon
+  background: none
+  border: none
+  font-size: 17px 
+  position: absolute
+  top: 0
+  right: 0
+  cursor: pointer
+
+// post-save-diary-2  
+.post-save-diary-2
+  margin-bottom: 35px
+
+.save-text
+  // position: relative
+  // resize: none
+  border: none
+  margin: 20px 0 20px 0
+  max-width: 100%
+  // height: 285px
+  padding: 5px 3px
+  line-height: 22px
+  font-size: 15px
+  z-index: 1200
+  color: #666
+
+// post-save-diary-3 
+.post-save-diary-3  
+  // margin: 35px 0 30px 0
+  position: absolute
+  top: 99%
+  left: 0
+  margin-top: -60px
+  margin-left: 25px
+  padding-bottom: -50px
+  // margin-bottom: 30px
+
+.save-tags-food
+  display: inline-block
+  margin-top: 20px 
+  margin-right: 10px   
+  color: $color-gray-icon
+  span
+    margin-right: 5px
+    font-size: 15px    
+  button
+    margin: 7px 7px 10px 0
+    font-weight: 200
+    cursor: pointer
+    border-radius: 25px
+    border: 1px solid #007bbb
+    background: #007bbb
+    color: #fff
+    vertical-align: middle
+
+.save-tags-taste
+  display: inline-block
+  margin: 10px 0 0 0
+  color: $color-gray-icon
+  span
+    margin-right: 4px
+    font-size: 15px  
+  .fa-smile-o
+    width: 35px
+    color: #000
+    cursor: pointer
     background: none
     border: none
-    // font-size: 16px
-    position: absolute
-    top: 0
-    right: 0
-    cursor: pointer
-
+    font-size: 20px  
     
 
-  // post-list-diary-2  
-  .post-add-text
-    position: relative
-    resize: none
-    border: none
-    margin: 20px 0 20px 0
-    max-width: 100%
-    height: 285px
-    padding-left: 8px
-    line-height: 17px
-    font-size: 12px
-    z-index: 1200
+.post-save-share
+  display: inline-block  
+  color: $color-gray-icon
+  margin-right: 10px
+  font-size: 15px
+  
 
+.fa-facebook-official
+  margin-right: 5px
+  color: #3b5998;
+  
 
-  // post-list-diary-3 
-  .post-list-diary-3  
-    margin: 35px 0 30px 0
-    position: relative
-
-    .diary-tags-food
-      margin-top: 20px    
-      color: $color-gray-icon
-      .food-evaluate
-        margin-left: 10px
-      .food-evaluate button
-        margin: 7px 7px 10px 0
-        font-weight: 200
-        color: $color-gray-icon
-        cursor: pointer
-        background: none
-        border: 1.5px solid $color-gray-icon
-        border-radius: 25px
-
-      button.food-evaluate-korean:hover
-        border: 1px solid #007bbb
-        background: #007bbb
-        color: #fff
-      button.food-evaluate-chinese:hover
-        border: 1px solid #e83929
-        background: #e83929
-        color: #fff        
-      button.food-evaluate-japanese:hover
-        border: 1px solid #82ae46
-        background: #82ae46
-        color: #fff
-      button.food-evaluate-eastern:hover
-        border: 1px solid #e6b422
-        background: #e6b422
-        color: #fff
-      button.food-evaluate-etc:hover
-        border: 1px solid #824880
-        background: #824880
-        color: #fff
-
-    .diary-tags-taste
-      margin: 10px 0 0 0
-      color: $color-gray-icon
-      .taste-evaluate
-        margin: 7px 0 0 0
-      .taste-evaluate button
-        width: 35px
-        color: $color-gray-icon
-        cursor: pointer
-        background: none
-        border: none
-
-      button.fa-smile-o:hover
-        color: #000
-      button.fa-meh-o:hover
-        color: #000
-      button.fa-frown-o:hover
-        color: #000
-
-
-    .diary-save
-      display: inline-block
-      position: absolute
-      // top: 106%
-      top: 100%
-      right: 2%
-
-    .diary-save-button
-      width: 60px
-      height: 25px
-      color: #fff
-      font-size: 16px
-      font-weight: lighter
-      cursor: pointer
-      border: none
-      border-radius: 3px
-      background-color: $color-foolog
-
-.post-delete-button
+.post-save-modify
+  display: inline-block
+  color: $color-gray-icon
+  // cursor: pointer
+  
+.modify-button
+  border: none
+  background: none
+  font-size: 15px
+  color: $color-gray-icon
+  cursor: pointer
+  
+.delete-button
   width: 30px
   height: 30px
   border: none
@@ -186,6 +134,6 @@
   color: #fff
   cursor: pointer
   font-size: 15px
-  // position: absolute
-  // top: -13px
-  // right: -13px
+  position: absolute
+  top: -13px
+  right: -13px
