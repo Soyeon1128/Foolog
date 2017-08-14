@@ -91,12 +91,17 @@ export default {
       post_keys: {
         text: '',
         photo: '',
-        location: '',
         tags_food: '',
         tags_taste: '',
-        objDate: '',
-        postDate: ''
-      }      
+        date:'',
+        longitude: '',
+        latitude: '',
+        memo: '',
+        title: ''
+      },
+      file: null,
+      objDate: '',
+      postDate: ''
     }
   },
   created() {
@@ -116,9 +121,9 @@ export default {
       // console.log(e)
       // console.log(e.target)
       // console.log(e.target.files[0])
-      let file = e.target.files[0];
+      this.file = e.target.files[0];
       let reader = new FileReader();
-      reader.readAsDataURL(file);
+      reader.readAsDataURL(this.file);
       reader.onload = (f) => {
         console.log(f);
         console.log(this.post_keys.photo);
@@ -172,32 +177,46 @@ export default {
       this.postDate = postDate;
     },
     savePost() {
-      console.log(this.post_keys.photo);
-      console.log(this.post_keys.text);
-      console.log(this.post_keys.tags_food);
-      console.log(this.$route.params.date);
+      let form = new FormData();
+      
+      if ( this.post_keys.text.trim() !== '' ) {
+        form.append('text', this.post_keys.text);
+      }
+      if ( this.file ) {
+        form.append('photo', this.file);
+      }
+      if ( this.post_keys.tags_food && this.post_keys.tags_taste.trim() !== '' ) {
+        form.append('tags', this.post_keys.tags_food+', '+this.post_keys.tags_taste);
+      }
+      if ( this.post_keys.date ) {
+        form.append('date', this.post_keys.date);
+      }
+      if ( this.post_keys.longitude ) {
+        form.append('longitude', this.post_keys.longitude);
+      }
+      if ( this.post_keys.latitude ) {
+        form.append('latitude', this.post_keys.latitude);
+      }
+      if ( this.post_keys.memo.trim() !== '' ) {
+        form.append('memo', this.post_keys.memo);
+      }
+      if ( this.post_keys.title.trim() !== '' ) {
+        form.append('title', this.post_keys.title);
+      }
 
       let user_token = window.localStorage.getItem('token');
-      // this.$http.get(this.$store.state.url_post, {
-      //   headers: { 'Authorization' : `Token ${user_token}` }
-      // })
-      this.$http.post(this.$store.state.url_post, {
-        text: this.post_keys.text,
-        photo: this.post_keys.photo,
-        tags: this.post_keys.tags_food,
-        date: this.$route.params.date,
-        longitude: '',
-        latitude: '',
-        memo: '',
-        title: '',
+
+      this.$http.post(this.$store.state.url_post, form, {
+        headers: { 'Authorization' : `Token ${user_token}` }
       })
       .then(res => {
         console.log(res)
+        console.log(res.data)
         window.alert('일기가 등록되었습니다.')
       })
       .catch(err => {
         console.log(err)
-        // console.log(err.response)
+        console.log(err.response)
       })
     }
   }
