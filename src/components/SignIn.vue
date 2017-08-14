@@ -15,24 +15,24 @@
             legend 로그인 및 회원가입 폼
             fieldset
               label(for='signin-email')
-                input(
-                  v-model='email'
-                  id='signin-email'
-                  type='email'
-                  placeholder='이메일을 입력해 주세요.'
-                  required='required'
-                  autofocus='autofocus'
-                  @keydown.enter='submitSignIn'
-                  )
+              input(v-model.trim='email'
+                id='signin-email'
+                type='email'
+                placeholder='이메일을 입력해 주세요.'
+                aria-label='로그인 이메일'
+                @keydown.enter='submitSignIn'
+                required
+                autofocus
+                )
               label(for='signin-password')
-                input(
-                  v-model='password'
-                  id='signin-password' 
-                  type='password' 
-                  placeholder='비밀번호를 입력해 주세요.'
-                  required='required'
-                  @keydown.enter='submitSignIn'                  
-                  )                  
+              input(v-model.trim='password'
+                id='signin-password' 
+                type='password' 
+                placeholder='비밀번호를 입력해 주세요.'
+                aria-label='로그인 비밀번호'                
+                @keydown.enter='submitSignIn'                  
+                required
+                )                  
           .signin-buttons-signin
             button.signin-login(
               type='button'
@@ -45,9 +45,6 @@
               data-show-faces='false', 
               data-auto-logout-link='false', 
               data-use-continue-as='false')
-            //- button.signin-facebook(type='button')
-            //-   span.fa.fa-facebook 
-            //-   span 페이스북 아이디로 로그인
           hr
           p.signin-notice-facebook Facebook아이디로 간편하게 로그인 할 수 있습니다.
 </template>
@@ -56,12 +53,17 @@
 import {mapGetters} from 'vuex'
 import {mapMutations} from 'vuex'
 
+let emailRegex = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
+let passwordRegex = /^[A-Za-z0-9]{8,20}$/;
+
 export default {
   name: 'SignIn',
   data() {
     return{
       email: '',
-      password: ''
+      password: '',
+      emailValidationWarning: '',
+      passwordValidationWarning: '',
     }
   },
   computed: {
@@ -70,7 +72,10 @@ export default {
       'signIn',
       'mainView',
       'getUrlLogin'
-    ])
+    ]),
+    emailValidation() {
+
+    }
   },
   methods: {
     ...mapMutations([

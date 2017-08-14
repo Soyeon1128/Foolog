@@ -83,6 +83,10 @@
 <script>
 import {mapGetters} from 'vuex' 
 import {mapMutations} from 'vuex'
+import axios from 'axios'
+
+// Vue.use(axios)
+// Vue.prototype.$http = axios
 
 export default {
   name: 'PostBeforeSave',
@@ -160,7 +164,7 @@ export default {
         window.alert('일기가 등록되었습니다.')
       })
       .catch(err => {
-        console.log(err)
+        console.log(err.response)
       })
     }
   }

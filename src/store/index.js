@@ -1,9 +1,13 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+// import VueRouter from 'vue-router'
+// import axios from 'axios'
 import sign from './modules/sign'
 import post from './modules/post'
 
 Vue.use(Vuex);
+// Vue.use(VueRouter);
+// Vue.prototype.$http = axios;
 
 export const store = new Vuex.Store({
   modules:{
@@ -18,6 +22,7 @@ export const store = new Vuex.Store({
     url_valid: 'http://api.foolog.xyz/member/valid/',
     url_post: 'http://api.foolog.xyz/post/',
     url_daylist: 'http://api.foolog.xyz/post/day/',
+    // get_date: this.$route.params.date
   },
 
   getters: {
