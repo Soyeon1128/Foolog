@@ -83,10 +83,6 @@
 <script>
 import {mapGetters} from 'vuex' 
 import {mapMutations} from 'vuex'
-import axios from 'axios'
-
-// Vue.use(axios)
-// Vue.prototype.$http = axios
 
 export default {
   name: 'PostBeforeSave',
@@ -146,9 +142,9 @@ export default {
       console.log(this.$route.params.date);
 
       let user_token = window.localStorage.getItem('token');
-      this.$http.get(this.dayListUrl, {
-        headers: { 'Authorization' : `Token ${user_token}` }
-      })
+      // this.$http.get(this.$store.state.url_post, {
+      //   headers: { 'Authorization' : `Token ${user_token}` }
+      // })
       this.$http.post(this.$store.state.url_post, {
         text: this.post_keys.text,
         photo: this.post_keys.photo,
@@ -164,7 +160,8 @@ export default {
         window.alert('일기가 등록되었습니다.')
       })
       .catch(err => {
-        console.log(err.response)
+        console.log(err)
+        // console.log(err.response)
       })
     }
   }
