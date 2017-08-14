@@ -20,9 +20,10 @@
         .save-tags-taste
           span 맛 평가
           span.tag-taste.fa.fa-smile-o.fa-lg(value='Good')
-        //- .post-save-share
-        //-   span.fa.fa-facebook-official.fa-lg
-        //-   span 페이스북 공유하기
+        
+        .fb-share-button(data-href='https://developers.facebook.com/docs/plugins/', data-layout='button', data-size='large', data-mobile-iframe='false')
+          a.fb-xfbml-parse-ignore(target='_blank', href='https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&src=sdkpreparse') 공유하기
+
         .post-save-modify
           span.fa.fa-pencil 
           button.modify-button 수정
@@ -38,18 +39,18 @@ export default {
     }
   },
   methods: {
-     getFoodTagValue(e) {
-      let value = e.target.attributes[0].value
-      console.log(e.target.attributes[0].value);
+    // getFoodTagValue(e) {
+    //   let value = e.target.attributes[0].value
+    //   console.log(e.target.attributes[0].value);
       
-      this.post_keys.tags_food = value
-    },
-    getTasteTagValue(e) {
-      let value = e.target.attributes[0].value
-      console.log(e.target.attributes[0].value);
+    //   this.post_keys.tags_food = value
+    // },
+    // getTasteTagValue(e) {
+    //   let value = e.target.attributes[0].value
+    //   console.log(e.target.attributes[0].value);
       
-      this.post_keys.tags_taste = value      
-    },
+    //   this.post_keys.tags_taste = value      
+    // },
   }
 }
 </script>
