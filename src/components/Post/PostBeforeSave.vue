@@ -18,7 +18,7 @@
                   v-if='post_keys.photo')
     .post-list-diary.susy-post-diary
       .post-list-diary-1
-          span.fa.fa-clock-o.fa-lg  {{ this.$route.params.date }}
+          span.fa.fa-clock-o.fa-lg(v-text="postDate")
           //- span.fa.fa-clock-o.fa-lg  {{ this.$store.state.get_date }}
           button.fa.fa-map-marker.fa-lg(type='button')  장소 추가하기
       .post-list-diary-2
@@ -97,12 +97,16 @@ export default {
         longitude: '',
         latitude: '',
         memo: '',
-        title: '',
+        title: ''
       },
-      file: null      
+      file: null,
+      objDate: '',
+      postDate: ''
     }
   },
-
+  created() {
+    this.changeDateObj();
+  },
   computed: {
     ...mapGetters([
       'postBeforeSave',
@@ -140,13 +144,39 @@ export default {
       
       this.post_keys.tags_taste = value      
     },
-    
+    // 전달받은 YYYYMMDD 형식의 날짜를 해당 날짜 Object로 변환시켜주는 함수
+    // objDate : 날짜 객체 (데이터 통신 시 사용)
+    // postDate : 글쓰기 영역에서 보여지는 날짜 (YYYY.MM.DD 형식)
+    changeDateObj() {
+      // 전달받은 YYYYMMDD 형식의 날짜 데이터
+      let targetDate = this.$route.params.date;
+
+      // 날짜 Object로 변환
+      let year = targetDate.substring(0,4);
+      let month = targetDate.substring(4,6);
+      if ( month.substring(0,1) === '0' ) {
+        month = month.substring(1,2);
+      }
+      month = month - 1;
+      let date = targetDate.substring(6,8);
+      date = parseInt(date) + 1;
+
+      let objDate = new Date(year, month, date);
+      this.objDate = objDate;
+
+      // YYYY.MM.DD 형식의 날짜 데이터
+      month = month + 1;
+      date = date - 1;
+      if( month < 10 ) {
+        month = '0' + month;
+      }
+      if( date < 10 ) {
+        date = '0' + date;
+      }
+      let postDate = year + '.' + month + '.' + date;
+      this.postDate = postDate;
+    },
     savePost() {
-      // console.log(this.post_keys.photo);
-      // console.log(this.post_keys.text);
-      // console.log(this.post_keys.tags_food);
-      // console.log(this.post_keys.tags_taste);
-      // console.log(this.$route.params.date);
       let form = new FormData();
       
       if ( this.post_keys.text.trim() !== '' ) {

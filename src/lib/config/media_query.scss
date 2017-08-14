@@ -65,9 +65,11 @@
     @include span(4);
     margin-top: 30px
   }
-  .fa-clock-o,
-  .fa-map-marker{
-    font-size: 19px;
+  .fa-clock-o {
+    font-size: 18px;
+  }
+  .fa-map-marker {
+    font-size: 17px;
   }
   .diary-tags-food{
     font-size: 19px;
@@ -158,9 +160,11 @@
     @include span(isolate 4 at 5 nest);
     margin-top: 0;
   }
-  .fa-clock-o,
-  .fa-map-marker{
-    font-size: 14px;
+  .fa-clock-o {
+    font-size: 16px;
+  }
+  .fa-map-marker {
+    font-size: 15px;
   }
   .diary-tags-food{
     font-size: 14px;
