@@ -156,7 +156,7 @@ export default {
           params: {
             date: this.targetFullDate,
           }
-        });
+      });
       // let user_token = window.localStorage.getItem('token');
       // this.$http.get(this.dayListUrl, {
       //   headers: { 'Authorization' : `Token ${user_token}` }
