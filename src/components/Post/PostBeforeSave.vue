@@ -18,7 +18,7 @@
                   v-if='post_keys.photo')
     .post-list-diary.susy-post-diary
       .post-list-diary-1
-          span.fa.fa-clock-o.fa-lg(v-text="postDate")
+          span.fa.fa-clock-o.fa-lg  {{ postDate }}
           //- span.fa.fa-clock-o.fa-lg  {{ this.$store.state.get_date }}
           button.fa.fa-map-marker.fa-lg(type='button')  장소 추가하기
       .post-list-diary-2
@@ -93,26 +93,24 @@ export default {
         photo: '',
         tags_food: '',
         tags_taste: '',
-        date:'',
+        date: '',
         longitude: '',
         latitude: '',
         memo: '',
         title: ''
       },
       file: null,
-      objDate: '',
       postDate: ''
     }
   },
   created() {
-    this.changeDateObj();
+    this.changeDateFormat();
   },
   computed: {
     ...mapGetters([
       'postBeforeSave',
     ])
   },
-
   methods: {
     ...mapMutations([
       'closeBeforeSaveList'
@@ -127,7 +125,6 @@ export default {
       reader.onload = (f) => {
         console.log(f);
         this.post_keys.photo = f.srcElement.result; 
-
       }
     },
     getFoodTagValue(e) {
@@ -142,37 +139,24 @@ export default {
       
       this.post_keys.tags_taste = value      
     },
-    // 전달받은 YYYYMMDD 형식의 날짜를 해당 날짜 Object로 변환시켜주는 함수
-    // objDate : 날짜 객체 (데이터 통신 시 사용)
-    // postDate : 글쓰기 영역에서 보여지는 날짜 (YYYY.MM.DD 형식)
-    changeDateObj() {
+    // 날짜 형식 변환 함수
+    // 전달받은 YYYYMMDD 형식의 날짜를 필요한 날짜 형식으로 변환시키는 함수
+    changeDateFormat() {
       // 전달받은 YYYYMMDD 형식의 날짜 데이터
       let targetDate = this.$route.params.date;
 
-      // 날짜 Object로 변환
+      // 연, 월, 일 추출
       let year = targetDate.substring(0,4);
       let month = targetDate.substring(4,6);
-      if ( month.substring(0,1) === '0' ) {
-        month = month.substring(1,2);
-      }
-      month = month - 1;
       let date = targetDate.substring(6,8);
-      date = parseInt(date) + 1;
 
-      let objDate = new Date(year, month, date);
-      this.objDate = objDate;
-
-      // YYYY.MM.DD 형식의 날짜 데이터
-      month = month + 1;
-      date = date - 1;
-      if( month < 10 ) {
-        month = '0' + month;
-      }
-      if( date < 10 ) {
-        date = '0' + date;
-      }
+      // postDate : 글쓰기 영역에서 보여지는 날짜 (YYYY.MM.DD)
       let postDate = year + '.' + month + '.' + date;
       this.postDate = postDate;
+
+      // dataDate : 데이터 전송 시 필요한 날짜 형식 (YYYY-MM-DD 00:00)
+      let dataDate = year + '-' + month + '-' + date + ' ' + '00:00'
+      this.post_keys.date = dataDate;
     },
     savePost() {
       let form = new FormData();
@@ -189,9 +173,9 @@ export default {
         form.append('tags', this.post_keys.tags_food+', '+this.post_keys.tags_taste);
         console.log('this.post_keys.tags_food+', '+this.post_keys.tags_taste : ', this.post_keys.tags_food+', '+this.post_keys.tags_taste);
       }
-      form.append('date', '2017-08-05 11:36');
-      console.log('this.objDate : ', this.objDate.getUTCDate());
-      
+      if ( this.post_keys.date ) {
+        form.append('date', this.post_keys.date);
+      }
       if ( this.post_keys.longitude ) {
         form.append('longitude', this.post_keys.longitude);
         console.log('this.post_keys.longitude : ', this.post_keys.longitude);
