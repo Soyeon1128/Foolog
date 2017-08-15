@@ -152,7 +152,6 @@ export default {
       })
     },
     submitSignUp() {
-      // console.log(this.$store.state.url_users);     
       this.$http.post(this.$store.state.url_users, {
         email:     this.email,
         nickname:  this.nickname,
@@ -172,7 +171,6 @@ export default {
           window.alert(props[i] + ' : ' + error_data[props[i]][0]);
           break;
         }
-        
         console.log(error_data)
         console.log(error.response);
       });
