@@ -7,7 +7,7 @@
     .post-save-diary.susy-post-diary
       
       .post-save-diary-1
-        span.fa.fa-clock-o.fa-lg  {{ this.$route.params.date }}
+        span.fa.fa-clock-o.fa-lg  {{ postDate }}
         button.fa.fa-map-marker.fa-lg(type='button')  잠원동 신선횟집
       
       .post-save-diary-2
@@ -33,8 +33,9 @@
 
 <script>
 export default {
-  name: 'PostAfterSave',
+  name: 'PostAfter',
   created() {
+    this.changeDateFormat();
     this.showSaveData();
   },
   data() {
@@ -56,10 +57,24 @@ export default {
         latitude: '',
         memo: '',
         title: ''
-      }
+      },
+      postDate: '',
     }
   },
   methods: {
+    changeDateFormat() {
+      // 전달받은 YYYYMMDD 형식의 날짜 데이터
+      let targetDate = this.$route.params.date;
+
+      // 연, 월, 일 추출
+      let year = targetDate.substring(0,4);
+      let month = targetDate.substring(4,6);
+      let date = targetDate.substring(6,8);
+
+      // postDate : 글쓰기 영역에서 보여지는 날짜 (YYYY.MM.DD)
+      let postDate = year + '.' + month + '.' + date;
+      this.postDate = postDate;
+    },
     showSaveData() {
       let user_token = window.localStorage.getItem('token');
       let url = this.$route.params.date;

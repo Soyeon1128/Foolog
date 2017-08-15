@@ -1,6 +1,8 @@
 import Home from './components/Home'
 import Calendar from './components/Calendar'
 import Post from './components/Post/Post'
+import PostBefore from './components/Post/PostBefore.vue'
+import PostAfter from './components/Post/PostAfter.vue'
 import Search from './components/Search'
 import Statistics from './components/Statistics'
 
@@ -22,7 +24,7 @@ export const routes = [
     //     next();
     //   }
     // },
-    
+
     components: {
       default: Home
     }
@@ -36,10 +38,22 @@ export const routes = [
   {
     name: 'post',
     // path: '/post',
-    path: '/post/:date',
+    path: '/post',
     components: {
       default: Post
-    }
+    },
+    children: [
+      {
+        path: ':date/before',
+        name: 'PostBefore',
+        component: PostBefore
+      },
+      {
+        path: ':date/after',
+        name: 'PostAfter',
+        component: PostAfter
+      }
+    ]
   },
   {
     path: '/search',

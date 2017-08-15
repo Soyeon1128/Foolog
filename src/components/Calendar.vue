@@ -151,12 +151,38 @@ export default {
     // Post 페이지로 라우팅(유저 토큰값을 헤더로 전송)
     // 라우팅 시 params로 targetFullDate 전달 (클릭한 날짜의 YYYYMMDD 형식의 문자열)
     getDayList() {
-      this.$router.push({
-          name: 'post', 
-          params: {
-            date: this.targetFullDate,
-          }
-      });
+      let user_token = window.localStorage.getItem('token');
+
+      this.$http.get(this.dayListUrl, {
+        headers: { 'Authorization' : `Token ${user_token}` }  
+      })
+      .then(response => {
+        if ( response.data.length === 0 ) {
+          this.$router.push({
+            name: 'PostBefore',
+            params: {
+              date: this.targetFullDate
+            }
+          })
+        }
+        else if ( response.data.length > 0 ) {
+          this.$router.push({
+            name: 'PostAfter',
+            params: {
+              date: this.targetFullDate
+            }
+          })
+        }
+      })
+      .catch(error => {
+        console.log(error);
+      })
+      // this.$router.push({
+      //     name: 'post', 
+      //     params: {
+      //       date: this.targetFullDate,
+      //     }
+      // });
     }
   }
 }

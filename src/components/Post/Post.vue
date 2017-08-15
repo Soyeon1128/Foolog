@@ -3,50 +3,34 @@
     header-logo 
     header-slogan
     post-add-button
-    //- post-empty(v-if='postEmpty')
-    //- post-before-save(v-if='postBeforeSave')
-    post-after-save
-    //- post-map
+    router-view
+    //- post-before
+    //- post-after
 </template>
 
 <script>
-import {mapGetters} from 'vuex'
-import {mapMutations} from 'vuex'
+// import {mapGetters} from 'vuex'
+// import {mapMutations} from 'vuex'
 
 import HeaderLogo from '../Header'
 import HeaderSlogan from '../HeaderSlogan'
 import PostAddButton from './PostAddButton'
-import PostEmpty from './PostEmpty'
-import PostBeforeSave from '../Post/PostBeforeSave'
-import PostAfterSave from '../Post/PostAfterSave'
+import PostBefore from '../Post/PostBefore'
+import PostAfter from '../Post/PostAfter'
 import PostMap from '../Post/PostMap'
 
 export default {
   name: 'Post',
   components: {
     HeaderLogo, HeaderSlogan, PostAddButton, 
-    PostEmpty, PostBeforeSave, PostAfterSave, 
+    PostBefore, PostAfter,
     // PostMap 
   },
   data () {
     return {
  
     }
-  },
-  computed: {
-    ...mapGetters([
-      'postEmpty',
-      'postBeforeSave',
-      'postAfterSave'
-    ])
-  },
-  methods: {
-    ...mapMutations([
-      'openPostBefore',
-      
-    ])
   }
-
 }
 </script>
 
