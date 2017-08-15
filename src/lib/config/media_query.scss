@@ -15,6 +15,11 @@
   .susy-main {
     @include span(4);
   }
+  .home-slogan-first {
+    width: 100%;
+    font-size: 42px;
+    transform: translateX(0)     
+  }
   .susy-slogan-1 {
     @include span(4);
     font-size: 33px;
@@ -110,6 +115,11 @@
   .susy-main {
     @include span(isolate 6 at 2);
   }
+  .home-slogan-first {
+    width: 140%;
+    font-size: 60px;
+    transform: translateX(-13.5%)     
+  }
   .susy-slogan-1 {
     @include span(8);
     font-size: 50px;
@@ -204,6 +214,11 @@
   }
   .susy-main {
     @include span(isolate 8 at 3);
+  }
+  .home-slogan-first {
+    width: 100%;
+    font-size: 70px;
+    transform: translateX(0)         
   }
   .susy-slogan-1 {
     @include span(12);
