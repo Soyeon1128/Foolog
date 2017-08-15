@@ -160,37 +160,29 @@ export default {
     },
     savePost() {
       let form = new FormData();
-      console.log('savePost');
       if ( this.post_keys.text.trim() !== '' ) {
         form.append('text', this.post_keys.text);
-        console.log('this.post_keys.text : ', this.post_keys.text);
       }
       if ( this.file ) {
         form.append('photo', this.file);
-        console.log('this.file : ', this.file);
       }
       if ( this.post_keys.tags_food && this.post_keys.tags_taste.trim() !== '' ) {
         form.append('tags', this.post_keys.tags_food+', '+this.post_keys.tags_taste);
-        console.log('this.post_keys.tags_food+', '+this.post_keys.tags_taste : ', this.post_keys.tags_food+', '+this.post_keys.tags_taste);
       }
       if ( this.post_keys.date ) {
         form.append('date', this.post_keys.date);
       }
       if ( this.post_keys.longitude ) {
         form.append('longitude', this.post_keys.longitude);
-        console.log('this.post_keys.longitude : ', this.post_keys.longitude);
       }
       if ( this.post_keys.latitude ) {
         form.append('latitude', this.post_keys.latitude);
-        console.log('this.post_keys.latitude : ', this.post_keys.latitude);
       }
       if ( this.post_keys.memo.trim() !== '' ) {
         form.append('memo', this.post_keys.memo);
-        console.log('this.post_keys.memo : ', this.post_keys.memo);
       }
       if ( this.post_keys.title.trim() !== '' ) {
         form.append('title', this.post_keys.title);
-        console.log('this.post_keys.title : ', this.post_keys.title);
       }
       let user_token = window.localStorage.getItem('token');
       console.log(this.$store.state.url_post);

@@ -157,20 +157,6 @@ export default {
             date: this.targetFullDate,
           }
       });
-      // let user_token = window.localStorage.getItem('token');
-      // this.$http.get(this.dayListUrl, {
-      //   headers: { 'Authorization' : `Token ${user_token}` }
-      // })
-      // .then(response => {
-      //   this.$router.push({
-      //     name: 'post', 
-      //     params: { date: this.targetFullDate }
-      //   });
-      //   console.log(response);
-      // })
-      // .catch(error => {
-      //   console.log(error.response);
-      // })
     }
   }
 }
