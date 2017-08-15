@@ -7,6 +7,7 @@
     post-before-save(v-if='postBeforeSave')
     //- post-after-save
     //- post-map
+    post-map-test
 </template>
 
 <script>
@@ -20,13 +21,14 @@ import PostEmpty from './PostEmpty'
 import PostBeforeSave from '../Post/PostBeforeSave'
 import PostAfterSave from '../Post/PostAfterSave'
 import PostMap from '../Post/PostMap'
+import PostMapTest from '../Post/PostMapTest'
 
 export default {
   name: 'Post',
   components: {
     HeaderLogo, HeaderSlogan, PostAddButton, 
     PostEmpty, PostBeforeSave, PostAfterSave, 
-    // PostMap 
+    PostMap, PostMapTest
   },
   data () {
     return {
