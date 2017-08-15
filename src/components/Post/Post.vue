@@ -4,8 +4,8 @@
     header-slogan
     post-add-button
     router-view
-    //- post-before
-    //- post-after
+    //- post-map
+    post-map-test
 </template>
 
 <script>
@@ -18,13 +18,14 @@ import PostAddButton from './PostAddButton'
 import PostBefore from '../Post/PostBefore'
 import PostAfter from '../Post/PostAfter'
 import PostMap from '../Post/PostMap'
+import PostMapTest from '../Post/PostMapTest'
 
 export default {
   name: 'Post',
   components: {
-    HeaderLogo, HeaderSlogan, PostAddButton, 
+    HeaderLogo, HeaderSlogan, PostAddButton,
     PostBefore, PostAfter,
-    // PostMap 
+    PostMap, PostMapTest
   },
   data () {
     return {

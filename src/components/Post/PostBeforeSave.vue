@@ -185,7 +185,6 @@ export default {
         form.append('title', this.post_keys.title);
       }
       let user_token = window.localStorage.getItem('token');
-      console.log(this.$store.state.url_post);
       this.$http.post(this.$store.state.url_post, form, {
         headers: { 'Authorization' : `Token ${user_token}` }
       })

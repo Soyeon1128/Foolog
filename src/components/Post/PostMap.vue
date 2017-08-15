@@ -1,6 +1,6 @@
 <template lang="pug">
   .google-map(id="mapName")
-
+      
 </template>
 
 <script>
@@ -42,6 +42,9 @@ export default {
     this.markers.push(marker)
       this.map.fitBounds(this.bounds.extend(position))
     });
+  },
+  methods: {
+ 
   }
 };
 </script>
