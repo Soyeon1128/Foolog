@@ -2,7 +2,7 @@
   .post-save-container.susy-photo-diary-wrapper
   
     .post-save-photo.susy-post-photo
-      img(src="../../assets/img3.png")
+      img(:src='save_keys.photo' v-if='save_keys.photo')
     
     .post-save-diary.susy-post-diary
       
@@ -86,10 +86,13 @@ export default {
       .then(response => {
         console.log(response);
         console.log(response.data);
-        // console.log(response.data[0].text);
+        // 이미지
+        this.save_keys.photo = response.data[0].photo;
+        // 텍스트
         this.save_keys.text = response.data[0].text;
-        this.save_keys.tags_food = response.data[0].tags[0].text;
         // 태그 - 음식 종류
+        this.save_keys.tags_food = response.data[0].tags[0].text;
+                
         if ( response.data[0].tags[0].text === "한식" ) {
           this.save_keys.tags_food_korean = true;
         }
@@ -115,13 +118,11 @@ export default {
         else if ( response.data[0].tags[1].text === "Bad" ) {
           this.save_keys.tags_taste_bad = true;
         }
-        // this.save_keys.text = response.data[0].text;
-        // this.save_keys.text = response.data[0].text;
       })
       .catch(error => {
         console.log(error);
       })
-    }
+    },
   }
 }
 </script>

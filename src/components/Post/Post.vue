@@ -3,9 +3,11 @@
     header-logo 
     header-slogan
     post-add-button
-    router-view
+    post-one
+    //- post-after
+    //- router-view
     //- post-map
-    post-map-test
+    //- post-map-test
 </template>
 
 <script>
@@ -15,6 +17,7 @@
 import HeaderLogo from '../Header'
 import HeaderSlogan from '../HeaderSlogan'
 import PostAddButton from './PostAddButton'
+import PostOne from './PostOne'
 import PostBefore from '../Post/PostBefore'
 import PostAfter from '../Post/PostAfter'
 import PostMap from '../Post/PostMap'
@@ -23,7 +26,7 @@ import PostMapTest from '../Post/PostMapTest'
 export default {
   name: 'Post',
   components: {
-    HeaderLogo, HeaderSlogan, PostAddButton,
+    HeaderLogo, HeaderSlogan, PostAddButton, PostOne,
     PostBefore, PostAfter,
     PostMap, PostMapTest
   },
