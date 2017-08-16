@@ -5,7 +5,7 @@
     post-add-button
     router-view
     //- post-map
-    //- post-map-test
+    post-map-test
 </template>
 
 <script>
@@ -17,16 +17,14 @@ import HeaderSlogan from '../HeaderSlogan'
 import PostAddButton from './PostAddButton'
 import PostBefore from '../Post/PostBefore'
 import PostAfter from '../Post/PostAfter'
-// import PostMap from '../Post/PostMap'
-// import PostMapTest from '../Post/PostMapTest'
-import PostMapFirst from '../Post/PostMapfirst'
+import PostMap from '../Post/PostMap'
+import PostMapTest from '../Post/PostMapTest'
 
 export default {
-  name: 'Post',
+  name: 'Post2',
   components: {
     HeaderLogo, HeaderSlogan, PostAddButton,
-    PostBefore, PostAfter, PostMapFirst
-    // PostMap, PostMapTest
+    PostBefore, PostAfter, PostMap, PostMapTest,
   },
   data () {
     return {

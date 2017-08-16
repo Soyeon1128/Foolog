@@ -31,6 +31,7 @@ import SignIn from './SignIn'
 import SignUp from './SignUp'
 import Calendar from './Calendar'
 import Post from './Post/Post'
+// import Post2 from './Post/Post2'
 
 export default {
   name: 'Home',
@@ -41,6 +42,7 @@ export default {
     SignUp,
     Calendar,
     Post,
+    // Post2,
   },
   data() {
     return {
