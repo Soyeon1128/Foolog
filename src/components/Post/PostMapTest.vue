@@ -1,6 +1,6 @@
 <template lang="pug">
-  h3 My Google Maps Demo
-  #map
+  //- h3 My Google Maps Demo
+  //- #map
     
 </template>
 

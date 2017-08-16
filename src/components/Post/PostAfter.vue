@@ -2,7 +2,7 @@
   .post-save-container.susy-photo-diary-wrapper
   
     .post-save-photo.susy-post-photo
-      img(src="../../assets/img3.png")
+      img(:src='save_keys.photo' v-if='save_keys.photo')
     
     .post-save-diary.susy-post-diary
       
@@ -13,7 +13,7 @@
       .post-save-diary-2
         .post-save-text {{ save_keys.text }}
       
-      .post-save-diary-3      
+      .post-save-diary-3   
         .save-tags-food
           span 음식 종류
           .tag-food(:class="{ 'tag-food-korean': save_keys.tags_food_korean, 'tag-food-chinese': save_keys.tags_food_chinese, 'tag-food-japanese': save_keys.tags_food_japanese, 'tag-food-eastern': save_keys.tags_food_eastern, 'tag-food-etc': save_keys.tags_food_etc }") {{ save_keys.tags_food }}
@@ -21,10 +21,11 @@
           span 맛 평가
           span.tag-taste.fa.fa-lg(:class="{ 'fa-smile-o': save_keys.tags_taste_good, 'fa-meh-o': save_keys.tags_taste_soso, 'fa-frown-o': save_keys.tags_taste_bad }")
         
-        .fb-share-button(data-href='https://developers.facebook.com/docs/plugins/', data-layout='button', data-size='large', data-mobile-iframe='false')
-          a.fb-xfbml-parse-ignore(target='_blank', href='https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&src=sdkpreparse') 공유하기
+        .save-share
+          .fb-share-button(data-href='https://developers.facebook.com/docs/plugins/', data-layout='button', data-size='large', data-mobile-iframe='false')
+            a.fb-xfbml-parse-ignore(target='_blank', href='https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&src=sdkpreparse') 공유하기
 
-        .post-save-modify
+        .save-modify
           span.fa.fa-pencil 
           button.modify-button 수정
       .post-save-delete
@@ -85,10 +86,13 @@ export default {
       .then(response => {
         console.log(response);
         console.log(response.data);
-        // console.log(response.data[0].text);
+        // 이미지
+        this.save_keys.photo = response.data[0].photo;
+        // 텍스트
         this.save_keys.text = response.data[0].text;
-        this.save_keys.tags_food = response.data[0].tags[0].text;
         // 태그 - 음식 종류
+        this.save_keys.tags_food = response.data[0].tags[0].text;
+                
         if ( response.data[0].tags[0].text === "한식" ) {
           this.save_keys.tags_food_korean = true;
         }
@@ -114,13 +118,11 @@ export default {
         else if ( response.data[0].tags[1].text === "Bad" ) {
           this.save_keys.tags_taste_bad = true;
         }
-        // this.save_keys.text = response.data[0].text;
-        // this.save_keys.text = response.data[0].text;
       })
       .catch(error => {
         console.log(error);
       })
-    }
+    },
   }
 }
 </script>
