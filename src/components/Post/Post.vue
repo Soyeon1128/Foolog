@@ -3,7 +3,9 @@
     header-logo 
     header-slogan
     post-add-button
-    router-view
+    post-one
+    //- post-after
+    //- router-view
     //- post-map
     //- post-map-test
 </template>
@@ -15,6 +17,7 @@
 import HeaderLogo from '../Header'
 import HeaderSlogan from '../HeaderSlogan'
 import PostAddButton from './PostAddButton'
+import PostOne from './PostOne'
 import PostBefore from '../Post/PostBefore'
 import PostAfter from '../Post/PostAfter'
 // import PostMap from '../Post/PostMap'

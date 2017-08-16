@@ -1,5 +1,4 @@
 <template lang="pug">
-
     gmap-map(
     :center="center"
     :zoom="7"
@@ -12,7 +11,6 @@
       :clickable="true"
       :draggable="true"
       @click="center=m.position")
-
 </template>
 
 <script>

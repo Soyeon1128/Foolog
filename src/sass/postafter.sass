@@ -1,12 +1,15 @@
 .post-save-container
   margin-top: 130px
   // padding-top: 50px
-  background-color: $color-main-post
   margin-bottom: 45px
   position: relative
   // height: 100%
   // padding-bottom: 20px
+  background-color: $color-main-post  
 
+.post-save-container.susy-photo-diary-wrapper
+  float: none
+  
 // photo 영역
 .post-save-photo
   padding: 15px 10px 10px 10px
@@ -19,7 +22,6 @@
   background-color: $color-main-post 
   padding: 20px
   width: 48%
-  // position: relative 
   
 // post-save-diary-1
 .post-save-diary-1
@@ -53,13 +55,26 @@
   line-height: 22px
   z-index: 1200
   color: #666
+  min-height: 250px
 
 // post-save-diary-3 
-.post-save-diary-3  
+.post-save-diary-3
+  position: absolute
+  top: 100%
+  left: 50%
+  margin-top: -50px
+  display: inline-block
+  height: 50px
 
-
-.save-tags-food 
+.save-tags-food
+  // width: 100px
+  display: inline-block
   color: $color-gray-icon
+  margin-left: 22px
+  // position: absolute
+  // top: 100%
+  // left: 50%
+  // margin-top: -5%
 
 .save-tags-food span
     
@@ -71,6 +86,8 @@
   text-align: center
   width: 58px
   padding: 5px
+  display: inline-block
+  margin-left: 5px  
 
 .tag-food.tag-food-korean
   background: #007bbb
@@ -84,7 +101,7 @@
   background: #82ae46
   border: 1px solid #82ae46
   
-.tag-food.tag-food-eastern
+.tag-food.tag-food-western
   background: #e6b422
   border: 1px solid #e6b422
   
@@ -93,19 +110,47 @@
   border: 1px solid #824880
   
 .save-tags-taste
+  width: 150px
+  display: inline-block
+  margin-left: 10px  
+  // position: absolute
+  // top: 100%
+  // left: 50%
+  // margin-top: -5%
+  // margin-left: 20%  
   color: $color-gray-icon
   span
+    margin-left: 5px  
+    
 
 .tag-taste
   color: #000
   cursor: pointer
   background: none
   border: none
-    
-.fb-share-button
-  height: 25px
 
-.post-save-modify
+.save-share
+  width: 150px
+  display: inline-block
+  margin-left: -90px
+  // padding-top: 20px
+  // position: absolute
+  // top: 100%
+  // left: 50%
+  // margin-top: -5%
+  // margin-left: 40%
+
+.fb-share-button
+  
+.save-modify
+  width: 60px
+  display: inline-block
+  margin-left: 20px
+  // position: absolute
+  // top: 100%
+  // left: 50%
+  // margin-top: -5%
+  // margin-left: 60% 
   color: $color-gray-icon
 
 .modify-button
