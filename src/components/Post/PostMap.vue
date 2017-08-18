@@ -1,60 +1,128 @@
 <template lang="pug">
-  .google-map(id="mapName")
-      
+  .map-wrapper.susy-main
+    .map-dim
+    input(ref="input" id="pac-input" class="controls" type="text" placeholder="Search Box")
+    #map(ref="map")
 </template>
 
 <script>
 export default {
-  name: 'google-map',
-  props: ['name'],
-  data: () => {
-    return {
-      mapName: this.name + "-map",
-      markerCoordinates: [{
-        latitude: 51.501527,
-        longitude: -0.1921837
-      }, {
-        latitude: 51.505874,
-        longitude: -0.1838486
-      }, {
-        latitude: 51.4998973,
-        longitude: -0.202432
-      }],
-      map: null,
-      bounds: null,
-      markers: []
-    }
+  beforeMount () {
+    
   },
-  mounted: () => {
-    this.bounds = new google.maps.LatLngBounds();
-    const element = document.getElementById(this.mapName)
-    const mapCentre = this.markerCoordinates[0]
-    const options = {
-      center: new google.maps.LatLng(mapCentre.latitude, mapCentre.longitude)
+  mounted() {
+    window.initMap = () => {
+          
+      this.initPosition = new google.maps.LatLng(37.516271, 127.020171);      
+      this.mapOptions = {
+        zoom: 18,
+        center: this.initPosition,
+        // types: ['food']
+      }
+      this.map = new google.maps.Map(this.$refs.map, this.mapOptions);
+      
+      console.log('mapmap:', this.map)
+      this.setMarker();
+      this.setSearchInput();
+      // this.setLocationDetail();
     }
-    this.map = new google.maps.Map(element, options);
-    this.markerCoordinates.forEach((coord) => {
-      const position = new google.maps.LatLng(coord.latitude, coord.longitude);
-      const marker = new google.maps.Marker({ 
-        position,
-        map: this.map
-      });
-    this.markers.push(marker)
-      this.map.fitBounds(this.bounds.extend(position))
-    });
+    window.toggleBounce = () => {
+      if (marker.getAnimation() !== null) {
+        marker.setAnimation(null);
+      } else {
+        marker.setAnimation(google.maps.Animation.BOUNCE);
+      }
+    }
+    
+  },
+  data() {
+    return {
+      map: null, 
+      initPosition: null,
+      mapOptions: null,
+      markers: [],
+    };
   },
   methods: {
- 
-  }
-};
+    setMarker() {
+      let marker = new google.maps.Marker({
+        position: this.initPosition,
+        title: 'Sinsa',
+        draggable: true,
+        animation: google.maps.Animation.BOUNCE,
+      });
+      marker.setMap(this.map)
+      marker.addListener('click', toggleBounce);
+    },
+    setSearchInput() {
+      let input = this.$refs.input
+      let searchBox = new google.maps.places.SearchBox(input);
+      console.log('map',this.map);
+      this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+
+      // Bias the SearchBox results towards current map's viewport.
+      this.map.addListener('bounds_changed', () => {
+        searchBox.setBounds(this.map.getBounds());
+      });
+      searchBox.addListener('places_changed', () => {
+        let places = searchBox.getPlaces();
+        console.log(places);
+        console.log(places[0].name);
+        console.log(places[0].geometry.location.lat());
+        console.log(places[0].geometry.location.lng());
+        if (places.length == 0) {
+          return;
+        }
+        this.markers.forEach( (marker) => {
+          marker.setMap(null);
+        });
+        this.markers = [];
+
+        let bounds = new google.maps.LatLngBounds();
+        places.forEach( (place) => {
+          if (!place.geometry) {
+            console.log("Returned place contains no geometry");
+            return;
+          }
+          let icon = {
+            url: place.icon,
+            size: new google.maps.Size(71, 71),
+            origin: new google.maps.Point(0, 0),
+            anchor: new google.maps.Point(17, 34),
+            scaledSize: new google.maps.Size(25, 25)
+          };
+
+          this.markers.push(new google.maps.Marker({
+            map: this.map,
+            icon: icon,
+            title: place.name,
+            position: place.geometry.location
+          }));
+
+          if (place.geometry.viewport) {
+            bounds.union(place.geometry.viewport);
+          } else {
+            bounds.extend(place.geometry.location);
+          }
+        });
+        this.map.fitBounds(bounds);
+      });
+
+      console.log('searchBox:', searchBox);
+    },
+  },
+}
 </script>
+  
 
 <style lang="sass" scoped>
-
-.google-map 
-  width: 100%
-  height: 600px
-  margin: 0 auto
-  background: gray
+  
   
 </style>
+      
+
+     
+      
+
+
+      

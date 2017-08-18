@@ -15,17 +15,24 @@
             legend 로그인 및 회원가입 폼
             fieldset
               label(for='signin-email')
-              input(v-model.trim='email'
+              input(
+                v-model.trim='email'
                 id='signin-email'
                 type='email'
+                @keydown.enter='submitSignIn'
                 placeholder='이메일을 입력해 주세요.'
                 aria-label='로그인 이메일'
-                @keydown.enter='submitSignIn'
                 required
                 autofocus
                 )
+              .warning-message(
+                v-if='emailValidation',
+                :classList="['fa.fa-exclamation-circle']"
+                :message= 'emailValidationWarning'
+              )
               label(for='signin-password')
-              input(v-model.trim='password'
+              input(
+                v-model.trim='password'
                 id='signin-password' 
                 type='password' 
                 placeholder='비밀번호를 입력해 주세요.'
@@ -74,7 +81,17 @@ export default {
       'getUrlLogin'
     ]),
     emailValidation() {
-
+      if( !emailRegex.test(this.email) ) {
+        this.emailValidationWarning = '잘못된 이메일 형식입니다.'
+        return false
+      } else {
+        return true
+      }
+    },
+    passwordValidation() {
+      if ( !passwordRegex.text(this.password) ) {
+        this.passwordValidationWarning = '비밀번호는 8자 이상, 영어와 숫자를 혼합해서 입력해 주세요.'
+      }
     }
   },
   methods: {

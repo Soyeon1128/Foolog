@@ -1,6 +1,7 @@
 <template lang="pug">
   .post
     header-logo 
+    side-menu
     header-slogan
     //- Add 버튼
     .post-add-button-container
@@ -119,6 +120,7 @@ import {mapGetters} from 'vuex'
 import {mapMutations} from 'vuex'
 
 import HeaderLogo from '../Header'
+import SideMenu from '../SideMenu'
 import HeaderSlogan from '../HeaderSlogan'
 // import PostMap from '../Post/PostMap'
 // import PostMapTest from '../Post/PostMapTest'
@@ -126,7 +128,7 @@ import HeaderSlogan from '../HeaderSlogan'
 export default {
   name: 'Post',
   components: {
-    HeaderLogo, HeaderSlogan, 
+    HeaderLogo, SideMenu, HeaderSlogan, 
     // PostMap, PostMapTest
   },
   created() {

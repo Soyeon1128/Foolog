@@ -26,8 +26,6 @@
                   )
                 div.email-valid-false(v-show='email_valid_false')
                   span.fa.fa-exclamation-circle(aria-hidden="true")  이미 등록된 이메일입니다.
-                //- div.email-valid-true(v-show='email_valid_true')
-                //-   span(aria-hidden="true") 사용가능한 이메일 입니다.
                 div.email-valid-empty(v-show='email_valid_empty')
                   span.fa.fa-exclamation-circle(aria-hidden="true")  빈칸 없이 작성해 주세요.
               label(for='signup-nickname')
@@ -65,6 +63,9 @@
 import {mapGetters} from 'vuex' 
 import {mapMutations} from 'vuex'
  
+let emailRegex = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
+let passwordRegex = /^[A-Za-z0-9]{8,20}$/;
+
 export default {
   name: 'SignUp',
   mounted () {
@@ -120,7 +121,7 @@ export default {
           // this.email_valid_true = true
         } else if ( props[0] === null ) {
           this.email_valid_empty = true
-        }
+        } 
       })
       .catch(error => {
         console.log(error)
@@ -139,7 +140,7 @@ export default {
         console.log(props);
         if ( props[1] === false ) {
           this.nickname_valid_false = true
-          this.nickname = ''
+          // this.nickname = ''
         } else if ( props[1] === true ) {
           this.nickname_valid_false = false
           this.nickname_valid_empty = false
