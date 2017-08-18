@@ -110,7 +110,21 @@ export default {
           window.localStorage.setItem('token', token);
         }
         console.log('success token:', window.localStorage.getItem('token'));
-        this.$router.push( {path: '/calendar'} );
+        this.$router.push({
+          path: '/calendar',
+          // name: 'Calendar',
+          //   params: {
+          //     email: this.email
+          //   }
+        });
+        this.$router.push({
+          // path: '/pk',
+          name: '/pk',
+            params: {
+              pk: response.data.user.pk
+            }
+        });
+        console.log(response.data.user.pk)
       })
       .catch(error => {
         console.log(error.response)

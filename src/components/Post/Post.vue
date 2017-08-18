@@ -1,7 +1,7 @@
 <template lang="pug">
   .post
-    header-logo 
     side-menu
+    header-logo 
     header-slogan
     //- Add 버튼
     .post-add-button-container
@@ -25,7 +25,8 @@
       //- After
       .post-save-container.susy-photo-diary-wrapper(v-if="after" v-for="item in saveData")
         .post-save-photo.susy-post-photo
-          img(:src="item.photo")
+          .post-save-photo-wrapper
+            img(:src="item.photo")
         .post-save-diary.susy-post-diary
           .post-save-diary-1
             span.fa.fa-clock-o.fa-lg  {{ postDate }}
@@ -41,7 +42,7 @@
               span.tag-taste.fa.fa-lg(:class="assignTasteClass(item.tags[1].text)")
             .save-modify
               span.fa.fa-pencil 
-              button.modify-button(@click="clickModifyBtn" type="button") 수정
+              button.modify-button(type="button") 수정
           .post-save-delete
             button.delete-button(@click="clickDeleteBtn" :value="item.pk" type='button') X
       //- Before
