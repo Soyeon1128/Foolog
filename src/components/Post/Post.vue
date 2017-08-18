@@ -40,7 +40,7 @@
               span.tag-taste.fa.fa-lg(:class="assignTasteClass(item.tags[1].text)")
             .save-modify
               span.fa.fa-pencil 
-              button.modify-button 수정
+              button.modify-button(@click="clickModifyBtn" type="button") 수정
           .post-save-delete
             button.delete-button(@click="clickDeleteBtn" :value="item.pk" type='button') X
       //- Before
@@ -311,6 +311,9 @@ export default {
         this.afterSave();
       }
     },
+    // clickModifyBtn(e) {
+    //   console.log(e.taget);
+    // },
     imgUpload(e) {
       this.file = e.target.files[0];
       let reader = new FileReader();
