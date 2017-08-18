@@ -31,22 +31,17 @@ import SignIn from './SignIn'
 import SignUp from './SignUp'
 import Calendar from './Calendar'
 import Post from './Post/Post'
-// import Post2 from './Post/Post2'
+import SideMenu from './SideMenu'
 
 export default {
   name: 'Home',
   components: {
-    VideoBg,
-    HeaderLogo,
-    SignIn,
-    SignUp,
-    Calendar,
-    Post,
-    // Post2,
+    VideoBg, HeaderLogo, SignIn, SignUp,
+    Calendar, Post, SideMenu
   },
   data() {
     return {
-
+      side_menu: false
     }
   },
   computed: {
