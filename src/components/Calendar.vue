@@ -1,6 +1,7 @@
 <template lang="pug">
   .calendar-container
     header-logo
+    side-menu
     .calendar.susy-main
       .cal-header
         span.current-cal-header(v-text="calHeader")        
@@ -30,11 +31,12 @@
 
 <script>
 import HeaderLogo from './Header'
+import SideMenu from './SideMenu'
 
 export default {
   name: 'Calendar',
   components: {
-    HeaderLogo
+    HeaderLogo, SideMenu
   },
   created() {
     this.makeCalendar();

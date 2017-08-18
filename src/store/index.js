@@ -27,12 +27,15 @@ export const store = new Vuex.Store({
   getters: {
     getUrlLogin(state){
       return state.url_login;
+    },
+    sideMenu(state) {
+      return state.side_menu;
     }
   },
 
   mutations: {
     goToHome() {
       this.$router.push( {path: '/'} )
-    }
+    },
   }
 })
