@@ -25,8 +25,6 @@
             )
         span.fa.fa-user
     .side-menu-user-nickname {{  }}
-
-
 </template>
 
 <script>
