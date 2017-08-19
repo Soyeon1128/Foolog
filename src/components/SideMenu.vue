@@ -1,10 +1,10 @@
 <template lang="pug">
-  .side-menu-wrapper
-    button.header-button-sidemenu(
-      type='button'
-      @click='openSideMenu')
+  //- .side-menu-wrapper
+  //-   button.header-button-sidemenu(
+  //-     type='button'
+  //-     @click='openSideMenu')
 
-    .side-menu
+  //-   .side-menu
 </template>
 
 <script>
