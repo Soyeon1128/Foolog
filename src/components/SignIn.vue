@@ -117,14 +117,7 @@ export default {
           //     email: this.email
           //   }
         });
-        this.$router.push({
-          // path: '/pk',
-          name: '/pk',
-            params: {
-              pk: response.data.user.pk
-            }
-        });
-        console.log(response.data.user.pk)
+        console.log(response.data.user)
       })
       .catch(error => {
         console.log(error.response)
