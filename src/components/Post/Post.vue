@@ -1,7 +1,10 @@
 <template lang="pug">
   .post
+    //- Modify Modal
+    .post-modal-container
+      .post-modal hello
     header-logo 
-    side-menu
+    //- side-menu
     header-slogan
     //- Add 버튼
     .post-add-button-container
@@ -23,7 +26,7 @@
             span.post-empty-text-3 나만의 맛있는 일기를 작성해 보세요
             span.double-quotes-end.fa.fa-quote-right.fa-4x
       //- After
-      .post-save-container.susy-photo-diary-wrapper(v-if="after" v-for="item in saveData")
+      .post-save-container.susy-photo-diary-wrapper(v-if="after" v-for="(item, index) in saveData")
         .post-save-photo.susy-post-photo
           img(:src="item.photo")
         .post-save-diary.susy-post-diary
@@ -41,7 +44,7 @@
               span.tag-taste.fa.fa-lg(:class="assignTasteClass(item.tags[1].text)")
             .save-modify
               span.fa.fa-pencil 
-              button.modify-button(@click="clickModifyBtn" type="button") 수정
+              button.modify-button(@click="clickModifyBtn(index)" type="button") 수정
           .post-save-delete
             button.delete-button(@click="clickDeleteBtn" :value="item.pk" type='button') X
       //- Before
@@ -156,6 +159,7 @@ export default {
         memo: '',
         title: ''
       },
+      modify_keys: ''
     }
   },
   computed: {
@@ -313,9 +317,11 @@ export default {
         this.afterSave();
       }
     },
-    // clickModifyBtn(e) {
-    //   console.log(e.taget);
-    // },
+    clickModifyBtn(index) {
+      let editData = this.saveData.splice(index, 1);
+      this.before = true;
+      this.post_keys = editData[0];
+    },
     imgUpload(e) {
       this.file = e.target.files[0];
       let reader = new FileReader();
