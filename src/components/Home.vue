@@ -31,18 +31,12 @@ import SignIn from './SignIn'
 import SignUp from './SignUp'
 import Calendar from './Calendar'
 import Post from './Post/Post'
-import SideMenu from './SideMenu'
 
 export default {
   name: 'Home',
   components: {
     VideoBg, HeaderLogo, SignIn, SignUp,
-    Calendar, Post, SideMenu
-  },
-  data() {
-    return {
-      side_menu: false
-    }
+    Calendar, Post,
   },
   computed: {
     ...mapGetters([

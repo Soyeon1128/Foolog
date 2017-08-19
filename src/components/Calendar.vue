@@ -1,7 +1,7 @@
 <template lang="pug">
   .calendar-container
-    header-logo
     side-menu
+    header-logo
     .calendar.susy-main
       .cal-header
         span.current-cal-header(v-text="calHeader")        
