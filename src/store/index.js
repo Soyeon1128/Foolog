@@ -24,6 +24,9 @@ export const store = new Vuex.Store({
   },
 
   getters: {
+    getUrlMember(state){
+      return state.url_users;
+    },
     getUrlLogin(state){
       return state.url_login;
     },

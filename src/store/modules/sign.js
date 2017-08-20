@@ -1,4 +1,5 @@
 const state = {
+  user_pk: '',
   sign_up: false,
   sign_in: false,
   main_view: true
@@ -14,6 +15,9 @@ const getters = {
   signIn(state) {
     return state.sign_in;
   },
+  userPk(state) {
+    return state.user_pk;
+  }
 }
 
 const mutations = {
@@ -39,6 +43,9 @@ const mutations = {
       state.sign_in   = false;
       state.main_view = true;
     }
+  },
+  setUserPk(state, pk) {
+    state.user_pk = pk;
   },
  
 //-------------------------------- SignUp  

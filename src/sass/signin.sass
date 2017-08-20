@@ -1,5 +1,17 @@
 @import '../sass/config'
 
+.signin-enter-active 
+  transition: all .3s ease-in-out
+
+.signin-leave-active 
+  transition: all .3s cubic-bezier(1.0, 0.5, 0.8, 1.0)
+
+.signin-enter, .signin-leave-to
+  transfrom: translateY(-300px)
+  opacity: 0
+// .signin-enter, .signin-leave-to
+//   transition: all .3s ease-in-out
+//   opacity: 0.2
 
 fieldset
   border: none

@@ -1,4 +1,5 @@
 <template lang="pug">
+transition(name='calendar')    
   .calendar-container
     side-menu
     header-logo

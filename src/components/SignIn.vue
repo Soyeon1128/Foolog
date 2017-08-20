@@ -1,4 +1,5 @@
 <template lang="pug">
+transition(name='signin')  
   .signin-container.susy-user
     main.signin-content-wrapper
       .signin-content-wrapper-inside
@@ -57,8 +58,7 @@
 </template>
 
 <script>
-import {mapGetters} from 'vuex'
-import {mapMutations} from 'vuex'
+import {mapGetters, mapMutations} from 'vuex'
 
 let emailRegex = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
 let passwordRegex = /^[A-Za-z0-9]{8,20}$/;
@@ -98,6 +98,8 @@ export default {
     ...mapMutations([
       'openSignUp',
       'closeSignIn',
+      'submitSignIn',
+      // 'setUserPk',
     ]),
     submitSignIn() {
       this.$http.post(this.getUrlLogin, {
@@ -117,7 +119,10 @@ export default {
           //     email: this.email
           //   }
         });
-        console.log(response.data.user)
+        // this.setUserPk(response.data.user.pk)
+        let user_pk = response.data.user.pk
+        window.localStorage.setItem('user_pk', user_pk);
+
       })
       .catch(error => {
         console.log(error.response)

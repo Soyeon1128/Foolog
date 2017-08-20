@@ -1,6 +1,6 @@
 <template lang="pug">
   .post
-    //- side-menu
+    side-menu
     header-logo 
     header-slogan
     post-add-button
@@ -21,14 +21,13 @@ import PostEmpty from './PostEmpty'
 import PostBefore from './PostBefore'
 import PostAfter from './PostAfter'
 // import PostMap from '../Post/PostMap'
-// import PostMapTest from '../Post/PostMapTest'
 
 export default {
   name: 'Post',
   components: {
     HeaderLogo, SideMenu, HeaderSlogan, PostAddButton,
     PostEmpty, PostBefore, PostAfter
-    // PostMap, PostMapTest
+    // PostMap,
   },
   created() {
     this.changeDateFormat(this.$route.params.date);    
