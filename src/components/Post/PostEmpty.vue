@@ -1,5 +1,5 @@
 <template lang="pug">
-   .post-empty-container.susy-main
+  .post-empty-container.susy-main
     .post-empty
       p.post-empty-group-1
         span.double-quotes-start.fa.fa-quote-left.fa-4x
@@ -12,9 +12,14 @@
 </template>
 
 <script>
+import {mapGetters, mapMutations, mapActions} from 'vuex'
+
 export default {
   name: 'PostEmpty',
-
+  computed: {
+    ...mapGetters([
+    ])
+  },
 }
 </script>
 
