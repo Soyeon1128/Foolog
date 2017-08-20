@@ -54,7 +54,7 @@ export default {
       }
     },
     uploadProfile(e) {
-      console.log('e.target:', e.target.files[0]);
+      // console.log('e.target:', e.target.files[0]);
       this.file = e.target.files[0]
       let reader = new FileReader();
       reader.readAsDataURL(this.file);
@@ -91,11 +91,11 @@ export default {
       // })
       .then(response => {
         let data = response.data;
-        console.log('response:', response);
-        console.log('this.$route.params.pk:', this.$route.params.pk);
+        // console.log('response:', response);
+        // console.log('this.$route.params.pk:', this.$route.params.pk);
       }) 
       .catch(error => {
-        console.log(error);
+        // console.log(error);
       })
     }
   },
