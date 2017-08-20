@@ -2,7 +2,6 @@
   .post
     side-menu
     header-logo 
-    header-logo 
     header-slogan
     //- Add 버튼
     .post-add-button-container
@@ -124,14 +123,15 @@ import {mapMutations} from 'vuex'
 import HeaderLogo from '../Header'
 import SideMenu from '../SideMenu'
 import HeaderSlogan from '../HeaderSlogan'
-// import PostMap from '../Post/PostMap'
+import PostMap from '../Post/PostMap'
 // import PostMapTest from '../Post/PostMapTest'
 
 export default {
   name: 'Post',
   components: {
     HeaderLogo, SideMenu, HeaderSlogan, 
-    // PostMap, PostMapTest
+    // PostMap, 
+    // PostMapTest
   },
   created() {
     this.changeDateFormat();    
