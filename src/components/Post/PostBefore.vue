@@ -1,4 +1,5 @@
 <template lang="pug">
+.before
   .post-list-container.susy-photo-diary-wrapper
     .post-list-photo.susy-post-photo
       .post-list-photo-wrapper
@@ -34,35 +35,35 @@
         .diary-tags-food
           span 음식 종류
           .food-evaluate-wrap
-            input(type="radio" id="food-evaluate-korean" name="food-evaluate" class="food-evaluate" )
-            label.food-evaluate(@click='getFoodTagValue' value='한식' for="food-evaluate-korean")
-              span(value='한식') 한식 
-            input(type="radio" id="food-evaluate-chinese" name="food-evaluate" class="food-evaluate")
-            label.food-evaluate(@click='getFoodTagValue' value='중식' for="food-evaluate-chinese")
-              span(value='중식') 중식
-            input(type="radio" id="food-evaluate-japanese" name="food-evaluate" class="food-evaluate")
-            label.food-evaluate(@click='getFoodTagValue' value='일식' for="food-evaluate-japanese")
-              span(value='일식') 일식
-            input(type="radio" id="food-evaluate-eastern" name="food-evaluate" class="food-evaluate")
-            label.food-evaluate(@click='getFoodTagValue' value='양식' for="food-evaluate-eastern")
-              span(value='양식') 양식
-            input(type="radio" id="food-evaluate-etc" name="food-evaluate" class="food-evaluate")
-            label.food-evaluate(@click='getFoodTagValue' value='기타' for="food-evaluate-etc")
-              span(value='기타') 기타
+            input(type="radio" id="food-evaluate-korean" class="food-evaluate" value="한식" v-model='postKeys.tags[0].text')
+            label.food-evaluate(for="food-evaluate-korean")
+              span 한식
+            input(type="radio" id="food-evaluate-chinese" class="food-evaluate" value="중식" v-model='postKeys.tags[0].text')
+            label.food-evaluate(for="food-evaluate-chinese")
+              span 중식
+            input(type="radio" id="food-evaluate-japanese" class="food-evaluate" value="일식" v-model='postKeys.tags[0].text')
+            label.food-evaluate(for="food-evaluate-japanese")
+              span 일식
+            input(type="radio" id="food-evaluate-western" class="food-evaluate" value="양식" v-model='postKeys.tags[0].text')
+            label.food-evaluate(for="food-evaluate-western")
+              span 양식
+            input(type="radio" id="food-evaluate-etc" class="food-evaluate" value="기타" v-model='postKeys.tags[0].text')
+            label.food-evaluate(for="food-evaluate-etc")
+              span 기타
         .diary-tags-taste
           span 맛 평가
           .taste-evaluate-wrap
-            input(type="radio" id="taste-evaluate-good" name="taste-evaluate" class="taste-evaluate" )
-            label.taste-evaluate(@click='getTasteTagValue' value='Good' for="taste-evaluate-good")
-              span.fa.fa-smile-o(value='Good')
-            input(type="radio" id="taste-evaluate-soso" name="taste-evaluate" class="taste-evaluate")
-            label.taste-evaluate(@click='getTasteTagValue' value='Soso' for="taste-evaluate-soso")
-              span.fa.fa-meh-o(value='Soso')
-            input(type="radio" id="taste-evaluate-bad" name="taste-evaluate" class="taste-evaluate")
-            label.taste-evaluate(@click='getTasteTagValue' value='Bad' for="taste-evaluate-bad")
-              span.fa.fa-frown-o(value='Bad')
+            input(type="radio" id="taste-evaluate-good" class="taste-evaluate" value='Good' v-model='postKeys.tags[1].text')
+            label.taste-evaluate(for="taste-evaluate-good")
+              span.fa.fa-smile-o
+            input(type="radio" id="taste-evaluate-soso" class="taste-evaluate" value='Soso' v-model='postKeys.tags[1].text')
+            label.taste-evaluate(for="taste-evaluate-soso")
+              span.fa.fa-meh-o
+            input(type="radio" id="taste-evaluate-bad" class="taste-evaluate" value='Bad' v-model='postKeys.tags[1].text')
+            label.taste-evaluate(for="taste-evaluate-bad")
+              span.fa.fa-frown-o
         .diary-save
-          button.diary-save-button(@click="postList") 저장
+          button.diary-save-button(@click="saveList") 저장
       .post-delete
         button.post-delete-button(
           type='button'
@@ -75,7 +76,11 @@ import {mapGetters, mapMutations, mapActions} from 'vuex'
 export default {
   name: 'PostBefore',
   created() {
-    this.changeDateFormat(this.$route.params.date);    
+    this.changeDateFormat(this.$route.params.date);
+  },
+  data () {
+    return {
+    }
   },
   computed: {
     ...mapGetters([
@@ -87,10 +92,8 @@ export default {
     ...mapMutations([
       'changeDateFormat',
       'imgUpload',
-      'getFoodTagValue',
-      'getTasteTagValue',
       'showAllDayData',      
-      'postList',
+      'saveList',
     ]),
     ...mapActions([
     ])
