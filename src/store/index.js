@@ -18,6 +18,7 @@ export const store = new Vuex.Store({
   state: {
     url_users: 'http://api.foolog.xyz/member/',
     url_login: 'http://api.foolog.xyz/member/login/',
+    url_logout: 'http://api.foolog.xyz/member/logout/',
     url_valid: 'http://api.foolog.xyz/member/valid/',
     url_post: 'http://api.foolog.xyz/post/',
     url_daylist: 'http://api.foolog.xyz/post/day/',
@@ -29,6 +30,12 @@ export const store = new Vuex.Store({
     },
     getUrlLogin(state){
       return state.url_login;
+    },
+    getUrlLogout(state){
+      return state.url_logout;
+    },
+    getUrlValid(state){
+      return state.url_valid;
     },
     sideMenu(state) {
       return state.side_menu;

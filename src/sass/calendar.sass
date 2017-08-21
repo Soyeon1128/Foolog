@@ -1,11 +1,25 @@
-// calendar 전체 영역
-.calendar-enter-active 
-  transition: all .45s ease-in-out
-
-.calendar-enter
-  transform: translateX(-1028px)
+// calendar 애니메이션
+.calendar-enter, .calendar-leave-to
   opacity: 0
+.calendar-enter-active
+  transition: opacity 1s ease
 
+// .calendar-enter
+//   transform: translateX(-1028px)
+
+// .calendar-enter, .calendar-leave-to
+//   opacity: 0
+// .calendar-enter-active
+//   animation: slide-in .4s ease forwards
+//   transition: opacity .4s
+
+// @keyframes slide-in
+//   from
+//     transform: translateX(-1280px)
+//   to
+//     transform: translateX(0px)
+
+// calendar 전체 영역
 .calendar
   margin-top: 15px
   position: absolute
