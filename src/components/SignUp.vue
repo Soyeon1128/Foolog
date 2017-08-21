@@ -92,7 +92,8 @@ export default {
     ...mapGetters([
       'signUp',
       'signIn',
-      'mainView'
+      'mainView',
+      'getUrlValid'
     ])
   },
   methods: {
@@ -102,7 +103,7 @@ export default {
       'submitSignUp'
     ]),
     validateEmail() {
-      this.$http.get(this.$store.state.url_valid, {
+      this.$http.get(this.getUrlValid, {
         params: { 
           email: this.email 
         }

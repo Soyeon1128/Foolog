@@ -11,7 +11,9 @@
           button.fa.fa-angle-left(
             type='button'
             @click='closeSideMenu')
-          //- h1 My page
+          button.fa.fa-power-off(
+            type='button'
+            @click='userLogout')
           h1 {{ nickname }}
         .side-menu-profile-wrapper
           label.side-menu-profile(for='side-menu-profile-pic')
@@ -24,7 +26,7 @@
                 :src='side_profile'
                 v-if='side_profile'
               )
-          span.profile-email {{ email }}
+          h1.profile-email {{ email }}
           span.fa.fa-user
         button.register-img(@click='registerProfileImg') 프로필 등록하기
         .side-menu-calendar
@@ -37,11 +39,10 @@ import {mapGetters, mapMutations} from 'vuex'
 export default {
   name: 'SideMenu',
   created() {
-    // this.registerProfileImg()
-    let user_pk = window.localStorage.getItem('user_pk', user_pk);
+    // let user_pk = window.localStorage.getItem('user_pk', user_pk);
+    // window.localStorage.getItem('token')
     this.getUserPk();
     this.getUserData();
-    // console.log('testloacalStora3ge: ', this.userPk);
   },
   data() {
     return {
@@ -56,7 +57,8 @@ export default {
   },
   computed: {
     ...mapGetters([
-      'getUrlMember'
+      'getUrlMember',
+      'getUrlLogout'
     ])
   },
   methods: {
@@ -103,7 +105,6 @@ export default {
         window.alert('프로필 사진이 등록되었습니다.');
       })
       .catch(error => {
-        console.log(error)
         console.log(error.response)
       })
     },
@@ -124,18 +125,30 @@ export default {
         if( profile ) {
           this.side_profile = profile
         }
-        console.log('response :',response)
-        
       })
       .catch(error => {
-        console.log(error)
-        let data = response.data;
-        // console.log('response:', response);
-        // console.log('this.$route.params.pk:', this.$route.params.pk);
+        console.log(error.response)
       }) 
-      .catch(error => {
-        // console.log(error);
-      })
+    },
+    userLogout() {
+      let user_token = window.localStorage.getItem('token')
+      console.log('user_token:', user_token);
+      let confirmLogout = confirm("로그아웃 하시겠습니까?")
+      if ( confirmLogout === true ) {
+        this.$http.post(this.getUrlLogout, {
+          key: user_token
+        })
+        .then(response => {
+          console.log(response)
+          window.localStorage.removeItem('token')
+          this.$router.push({
+            path: '/',
+          })
+        })
+        .catch(error => {
+          console.log(error)
+        })
+      }
     }
   },
 }

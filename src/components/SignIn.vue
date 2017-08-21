@@ -20,31 +20,37 @@ transition(name='signin')
                 v-model.trim='email'
                 id='signin-email'
                 type='email'
+                ref='email'
+                @input.lazy='emailValidation'
                 @keydown.enter='submitSignIn'
                 placeholder='이메일을 입력해 주세요.'
                 aria-label='로그인 이메일'
                 required
-                autofocus
-                )
-              .warning-message(
-                v-if='emailValidation',
-                :classList="['fa.fa-exclamation-circle']"
-                :message= 'emailValidationWarning'
-              )
+                autofocus)
+              div.email-valid-false(v-show='email_valid_false')
+                span.fa.fa-exclamation-circle(
+                  aria-hidden="true")  {{ email_valid_warning }}
+              div.email-valid-false(v-show='email_valid_empty')
+                span.fa.fa-exclamation-circle(
+                  aria-hidden="true")  {{ email_valid_warning }}
               label(for='signin-password')
               input(
                 v-model.trim='password'
                 id='signin-password' 
                 type='password' 
+                ref='password' 
+                @input.lazy='passwordValidation'
+                @keydown.enter='submitSignIn'                  
                 placeholder='비밀번호를 입력해 주세요.'
                 aria-label='로그인 비밀번호'                
-                @keydown.enter='submitSignIn'                  
-                required
-                )                  
+                required)
+              div.password-valid-false(v-show='password_valid_false')
+                span.fa.fa-exclamation-circle(
+                  aria-hidden="true")  {{ password_valid_warning }}                  
           .signin-buttons-signin
             button.signin-login(
               type='button'
-              @click='submitSignIn')
+              @click='submitSignIn, emailValidation, passwordValidation, validDuplicate')
               span 로그인
             .fb-login-button(
               data-max-rows='1', 
@@ -69,8 +75,12 @@ export default {
     return{
       email: '',
       password: '',
-      emailValidationWarning: '',
-      passwordValidationWarning: '',
+      email_valid_false: false,
+      email_valid_empty: false,
+      email_valid_warning: '',
+      password_valid_false: false,
+      password_valid_empty: false,
+      password_valid_warning: '',
     }
   },
   computed: {
@@ -82,17 +92,30 @@ export default {
     ]),
     emailValidation() {
       if( !emailRegex.test(this.email) ) {
-        this.emailValidationWarning = '잘못된 이메일 형식입니다.'
-        return false
-      } else {
+        this.email_valid_false = true
+        this.email_valid_warning = '잘못된 이메일 형식입니다.'
+        this.$refs.email.focus();
         return true
+      } else if ( emailRegex.test(this.email) ) {
+        this.email_valid_false = false  
+        return false
       }
+      // if ( this.email === '' ) {
+      //   this.email_valid_empty = true
+      //   this.email_valid_warning = '빈칸 없이 작성해주세요'
+      // }
     },
     passwordValidation() {
-      if ( !passwordRegex.text(this.password) ) {
-        this.passwordValidationWarning = '비밀번호는 8자 이상, 영어와 숫자를 혼합해서 입력해 주세요.'
+      if ( !passwordRegex.test(this.password) ) {
+        this.password_valid_false = true
+        this.password_valid_warning = '비밀번호는 8자 이상, 영어와 숫자를 혼합해서 입력해 주세요.'
+        this.$refs.password.focus();     
+        return true   
+      } else if ( passwordRegex.test(this.password) ) {
+        this.password_valid_false = false
+        return false
       }
-    }
+    },
   },
   methods: {
     ...mapMutations([
@@ -119,13 +142,33 @@ export default {
           //     email: this.email
           //   }
         });
-        // this.setUserPk(response.data.user.pk)
         let user_pk = response.data.user.pk
         window.localStorage.setItem('user_pk', user_pk);
 
       })
       .catch(error => {
         console.log(error.response)
+        window.alert('아이디 & 비밀번호를 확인해주세요')
+      })
+    },
+    validDuplicate() {
+      this.$http.get(this.getUrlValid, {
+        params: { 
+          email: this.email
+        }
+      })
+      console.log('valivali :', emailmemdmi)
+      .then(response => {
+        console.log(response.data)
+        let error_valid = response.data;
+        let props = Object.values(error_valid);
+        console.log(props);
+        if ( props[0] === false ) {
+          window.alert('등록되지 않은 회원입니다.')
+        }
+      })
+      .catch(error => {
+        console.log(error)
       })
     }
   }
