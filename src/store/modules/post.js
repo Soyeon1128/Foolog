@@ -168,6 +168,9 @@ const mutations = {
         })
         .then(response => {
           state.allDayData = response.data;
+          state.allDayData.sort((a, b) => {
+            return a.pk > b.pk ? -1 : a.pk < b.pk ? 1 : 0;
+          })
           state.dayListLength = response.data.length;
           if ( state.dayListLength === 0 ) {
             state.empty = true;
@@ -242,6 +245,9 @@ const mutations = {
         })
         .then(response => {
           state.allDayData = response.data;
+          state.allDayData.sort((a, b) => {
+            return a.pk > b.pk ? -1 : a.pk < b.pk ? 1 : 0;
+          })
           state.dayListLength = response.data.length;
           if ( state.dayListLength === 0 ) {
             state.empty = true;
@@ -302,6 +308,9 @@ const mutations = {
         })
         .then(response => {
           state.allDayData = response.data;
+          state.allDayData.sort((a, b) => {
+            return a.pk > b.pk ? -1 : a.pk < b.pk ? 1 : 0;
+          })
           state.dayListLength = response.data.length;
           if ( state.dayListLength === 0 ) {
             state.empty = true;
