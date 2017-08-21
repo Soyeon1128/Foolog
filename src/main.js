@@ -18,5 +18,26 @@ new Vue({
   el: '#app',
   router,
   store,
-  render: h => h(App)
+  render: h => h(App),
 });
+  // beforeMount(){
+
+  //   let fb_script = document.createElement('script');
+  //   fb_script.setAttribute('id', 'facebook-jssdk');
+  //   fb_script.setAttribute('src', '//connect.facebook.net/ko_KR/sdk.js');
+  //   this.$el.appendChild(fb_script);
+
+  //   window.fbAsyncInit = function() {
+  //     FB.init({
+  //       appId      : '1470389209695242',
+  //       cookie     : true,
+  //       xfbml      : true,
+  //       version    : 'v2.10',
+  //       status     : true
+
+  //     });
+  //     FB.getLoginStatus(function(response) {
+  //       console.log(response);
+  //     });
+  //   };
+  // }

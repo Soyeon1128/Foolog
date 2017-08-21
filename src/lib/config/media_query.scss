@@ -15,6 +15,11 @@
   .susy-main {
     @include span(4);
   }
+  .home-slogan-first {
+    width: 100%;
+    font-size: 42px;
+    transform: translateX(0)     
+  }
   .susy-slogan-1 {
     @include span(4);
     font-size: 33px;
@@ -65,9 +70,11 @@
     @include span(4);
     margin-top: 30px
   }
-  .fa-clock-o,
-  .fa-map-marker{
-    font-size: 19px;
+  .fa-clock-o {
+    font-size: 18px;
+  }
+  .fa-map-marker {
+    font-size: 17px;
   }
   .diary-tags-food{
     font-size: 19px;
@@ -92,6 +99,19 @@
     right: -10px;
     z-index: 100;
   }
+  .map-wrapper {
+    @include span(4);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 350px;
+    height: 400px;
+    transform: translate(-53%, -25%)
+  }
+  #map {
+    width: 320px;
+    height: 370px;
+  }
 }
 
 // 태블릿 뷰포트
@@ -107,6 +127,11 @@
   }
   .susy-main {
     @include span(isolate 6 at 2);
+  }
+  .home-slogan-first {
+    width: 140%;
+    font-size: 60px;
+    transform: translateX(-13.5%)     
   }
   .susy-slogan-1 {
     @include span(8);
@@ -158,9 +183,11 @@
     @include span(isolate 4 at 5 nest);
     margin-top: 0;
   }
-  .fa-clock-o,
-  .fa-map-marker{
-    font-size: 14px;
+  .fa-clock-o {
+    font-size: 16px;
+  }
+  .fa-map-marker {
+    font-size: 15px;
   }
   .diary-tags-food{
     font-size: 14px;
@@ -184,6 +211,19 @@
   .post-add-text {
     @include span(8);
   }
+  .map-wrapper {
+    @include span(isolate 6 at 2);
+    position: absolute;
+    top: 350px;
+    left: 50%;
+    width: 500px;
+    height: 330px;
+    transform: translate(-70%, -25%)
+  }
+  #map {
+    width: 470px;
+    height: 300px;
+  }
 
 }
 
@@ -200,6 +240,11 @@
   }
   .susy-main {
     @include span(isolate 8 at 3);
+  }
+  .home-slogan-first {
+    width: 100%;
+    font-size: 70px;
+    transform: translateX(0)         
   }
   .susy-slogan-1 {
     @include span(12);
@@ -305,5 +350,20 @@
     position: absolute;
     top: -13px;
     right: -13px;
+  }
+  .map-wrapper {
+    @include span(isolate 8 at 4);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 530px;
+    width: 530px;
+    transform: translate(-111%, 12%);
+  }
+
+  #map {
+    position: relative;
+    height: 500px;
+    width: 500px;
   }
 }

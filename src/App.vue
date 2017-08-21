@@ -1,6 +1,7 @@
 <template lang="pug">
   #app
     router-view
+    #fb-root
 </template>
 
 <script>

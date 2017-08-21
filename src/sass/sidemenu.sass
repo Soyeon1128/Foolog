@@ -1,0 +1,157 @@
+@import '../sass/config'
+
+.slide-enter-active 
+  transition: all .2s ease-in-out
+
+.slide-leave-active 
+  transition: all .2s cubic-bezier(1.0, 0.5, 0.8, 1.0)
+
+.slide-enter, .slide-leave-to
+  transform: translateX(-150px)
+  opacity: 0
+
+.side-menu-wrapper
+  height: 100%
+  z-index: 10000
+
+  .side-menu-button
+    position: absolute
+    top: 0px
+    left: 20px
+    width: 60px
+    height: 60px
+    border: none
+    background: none
+    cursor: pointer
+    z-index: 1000
+
+  .button-icon-bars
+    color: #fff
+
+.side-menu
+  position: fixed
+  z-index: 10100
+
+.side-menu-header
+  background: $color-side-header
+  width: 100%
+  height: 60px
+
+.fa-angle-left
+  width: 50px
+  position: absolute
+  top: 11px
+  left: 20px
+  font-size: 30px
+  color: #fff 
+  background: none
+  border: none
+  cursor: pointer
+
+.fa-power-off
+  width: 50px
+  position: absolute
+  top: 19px
+  right: 20px
+  font-size: 18px
+  color: #fff
+  background: none
+  border: none
+  cursor: pointer
+
+.side-menu-header h1
+  // font-family: 'Saira', sans-serif
+  font-weight: 100
+  font-size: 25px
+  text-align: center
+  line-height: 58px
+  color: #fff
+
+.side-menu-profile-wrapper
+  position: relative
+  width: 350px
+  height: 100vh
+  background: $color-foolog
+  // background: $color-foolog
+
+.fa-user
+  position: absolute
+  top: 65px
+  left: 126px
+  width: 100px
+  height: 100px
+  // color: $color-gray-icon
+  color: #fff
+  font-size: 140px
+  z-index: 100
+
+.side-menu-profile
+  position: absolute
+  top: 35px
+  left: 80px
+  width: 200px
+  height: 200px
+  border: 4px solid #fff
+  border-radius: 180px
+  z-index: 1001
+
+#side-menu-profile-pic
+  visibility: hidden
+
+.profile-photo-wrapper
+  position: absolute
+  top: -4px
+  left: -4px
+  width: 200px
+  height: 200px
+  border-radius: 180px
+  // border: 5px solid $color-gray-icon  
+  // border: 3px solid #fff
+  overflow: hidden  
+
+.profile-img
+  position: absolute
+  top: 0
+  left: 0
+  width: 200px
+  max-height: auto
+  margin-top: -25px
+  // width: 199px
+  // height: 199px
+  
+.profile-email
+  font-family: 'Saira', sans-serif
+  text-align: center
+  line-height: 25
+  width: 100%
+  color: #fff
+  font-weight: 100
+  font-size: 22px
+
+.register-img
+  position: absolute
+  top: 300px
+  left: 138px
+  font-size: 12px
+  font-weight: 200
+  color: #fff
+  cursor: pointer
+  border: none
+  background: none
+
+
+.side-dim
+  position: fixed
+  width: 100%
+  height: 100vh
+  background-color: rgba(0, 0, 0, 0.7)
+  z-index: 110
+
+.side-menu-calendar
+  position: absolute
+  top: 426px
+  left: 0
+  width: 350px
+  height: 250px
+  background: #fff
+

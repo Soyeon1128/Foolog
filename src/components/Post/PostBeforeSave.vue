@@ -18,7 +18,7 @@
                   v-if='post_keys.photo')
     .post-list-diary.susy-post-diary
       .post-list-diary-1
-          span.fa.fa-clock-o.fa-lg  {{ this.$route.params.date }}
+          span.fa.fa-clock-o.fa-lg  {{ postDate }}
           //- span.fa.fa-clock-o.fa-lg  {{ this.$store.state.get_date }}
           button.fa.fa-map-marker.fa-lg(type='button')  장소 추가하기
       .post-list-diary-2
@@ -91,19 +91,26 @@ export default {
       post_keys: {
         text: '',
         photo: '',
-        location: '',
         tags_food: '',
         tags_taste: '',
-      }      
+        date: '',
+        longitude: '',
+        latitude: '',
+        memo: '',
+        title: ''
+      },
+      file: null,
+      postDate: ''
     }
   },
-
+  created() {
+    this.changeDateFormat();
+  },
   computed: {
     ...mapGetters([
       'postBeforeSave',
     ])
   },
-
   methods: {
     ...mapMutations([
       'closeBeforeSaveList'
@@ -112,15 +119,12 @@ export default {
       // console.log(e)
       // console.log(e.target)
       // console.log(e.target.files[0])
-      let file = e.target.files[0];
+      this.file = e.target.files[0];
       let reader = new FileReader();
-      reader.readAsDataURL(file);
+      reader.readAsDataURL(this.file);
       reader.onload = (f) => {
         console.log(f);
-        console.log(this.post_keys.photo);
-        
-       this.post_keys.photo = f.srcElement.result; 
-
+        this.post_keys.photo = f.srcElement.result; 
       }
     },
     getFoodTagValue(e) {
@@ -135,33 +139,63 @@ export default {
       
       this.post_keys.tags_taste = value      
     },
-    savePost() {
-      console.log(this.post_keys.photo);
-      console.log(this.post_keys.text);
-      console.log(this.post_keys.tags_food);
-      console.log(this.$route.params.date);
+    // 날짜 형식 변환 함수
+    // 전달받은 YYYYMMDD 형식의 날짜를 필요한 날짜 형식으로 변환시키는 함수
+    changeDateFormat() {
+      // 전달받은 YYYYMMDD 형식의 날짜 데이터
+      let targetDate = this.$route.params.date;
 
+      // 연, 월, 일 추출
+      let year = targetDate.substring(0,4);
+      let month = targetDate.substring(4,6);
+      let date = targetDate.substring(6,8);
+
+      // postDate : 글쓰기 영역에서 보여지는 날짜 (YYYY.MM.DD)
+      let postDate = year + '.' + month + '.' + date;
+      this.postDate = postDate;
+
+      // dataDate : 데이터 전송 시 필요한 날짜 형식 (YYYY-MM-DD 00:00)
+      let dataDate = year + '-' + month + '-' + date + ' ' + '00:00'
+      this.post_keys.date = dataDate;
+    },
+    savePost() {
+      let form = new FormData();
+      if ( this.post_keys.text.trim() !== '' ) {
+        form.append('text', this.post_keys.text);
+      }
+      if ( this.file ) {
+        form.append('photo', this.file);
+      }
+      if ( this.post_keys.tags_food && this.post_keys.tags_taste.trim() !== '' ) {
+        form.append('tags', this.post_keys.tags_food+', '+this.post_keys.tags_taste);
+      }
+      if ( this.post_keys.date ) {
+        form.append('date', this.post_keys.date);
+      }
+      if ( this.post_keys.longitude ) {
+        form.append('longitude', this.post_keys.longitude);
+      }
+      if ( this.post_keys.latitude ) {
+        form.append('latitude', this.post_keys.latitude);
+      }
+      if ( this.post_keys.memo.trim() !== '' ) {
+        form.append('memo', this.post_keys.memo);
+      }
+      if ( this.post_keys.title.trim() !== '' ) {
+        form.append('title', this.post_keys.title);
+      }
       let user_token = window.localStorage.getItem('token');
-      // this.$http.get(this.$store.state.url_post, {
-      //   headers: { 'Authorization' : `Token ${user_token}` }
-      // })
-      this.$http.post(this.$store.state.url_post, {
-        text: this.post_keys.text,
-        photo: this.post_keys.photo,
-        tags: this.post_keys.tags_food,
-        date: this.$route.params.date,
-        longitude: '',
-        latitude: '',
-        memo: '',
-        title: '',
+      this.$http.post(this.$store.state.url_post, form, {
+        headers: { 'Authorization' : `Token ${user_token}` }
       })
       .then(res => {
         console.log(res)
+        console.log(res.data)
         window.alert('일기가 등록되었습니다.')
       })
       .catch(err => {
         console.log(err)
-        // console.log(err.response)
+        console.log(err.response)
       })
     }
   }

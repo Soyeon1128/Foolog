@@ -7,7 +7,8 @@
     video-bg
     .home-slogan.susy-home( v-show='mainView' )
       main.home-slogan-first
-        p Love, Eat, and Write Your Diary
+        p Love, Eat, and 
+        p Write Your Diary
       main.home-slogan-second
         | 오늘 먹었던 맛있는 음식을 남기는 나만의 공간. 
         br
@@ -34,17 +35,8 @@ import Post from './Post/Post'
 export default {
   name: 'Home',
   components: {
-    VideoBg,
-    HeaderLogo,
-    SignIn,
-    SignUp,
-    Calendar,
-    Post,
-  },
-  data() {
-    return {
-
-    }
+    VideoBg, HeaderLogo, SignIn, SignUp,
+    Calendar, Post,
   },
   computed: {
     ...mapGetters([
