@@ -11,6 +11,7 @@ const state = {
   postDate: '',
   dayListLength: 0,
   file: null,
+  camera: true,
   post_keys: {
     text: '',
     photo: '',
@@ -57,6 +58,9 @@ const getters = {
   postKeys(state) {
     return state.post_keys;
   },
+  isCamera(state) {
+    return state.camera;
+  }
 }
 
 const mutations = {
@@ -89,11 +93,13 @@ const mutations = {
       if ( state.dayListLength === 0 ) {
         state.empty = true;
         state.before = false;
+        state.modify = false;
         state.after = false;
       }
       else if ( state.dayListLength > 0 ) {
         state.before = false;
         state.empty = false;
+        state.modify = false;        
         state.after = true;
       }
     })
@@ -122,8 +128,13 @@ const mutations = {
     let reader = new FileReader();
     reader.readAsDataURL(state.file);
     reader.onload = (f) => {
-    state.post_keys.photo = f.srcElement.result; 
+      state.post_keys.photo = f.srcElement.result;
     }
+    state.camera = false;
+  },
+  setPhoto(state, photo) {
+    state.post_keys.photo = photo;
+    console.log(state.post_keys.photo);
   },
   saveList(state) {
 

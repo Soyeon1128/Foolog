@@ -3,7 +3,6 @@
   .post-list-container.susy-photo-diary-wrapper
     .post-list-photo.susy-post-photo
       .post-list-photo-wrapper
-        span.fa.fa-camera
         form
           legend 포스트 사진 올리기
           fieldset
@@ -12,6 +11,7 @@
               name='post-add-photo'
               type='file'
               @change='imgUpload')
+              span.fa.fa-camera(v-if="isCamera")
               span.add-photo-text 사진 추가하기
               .post-img-wrapper
                 img.post-img(
@@ -80,12 +80,14 @@ export default {
   },
   data () {
     return {
+      // isCamera: true
     }
   },
   computed: {
     ...mapGetters([
       'postKeys',
       'postDate',
+      'isCamera'
     ])
   },
   methods: {
@@ -94,9 +96,38 @@ export default {
       'imgUpload',
       'showAllDayData',      
       'saveList',
+      'imgUpload',
+      // 'setPhoto'
     ]),
-    ...mapActions([
-    ])
+    // imgUpload(e) {
+    //   let file = e.target.files[0];
+    //   let reader = new FileReader();
+    //   reader.readAsDataURL(file);
+    //   reader.onload = (f) => {
+    //     this.setPhoto(f.srcElement.result);
+    //   };
+    //   this.isCamera = false;
+    // },
+    // imageLoadHandler(e) {
+    //   let target = e.target;
+    //   let natural_width = target.naturalWidth;
+    //   let natural_height = target.naturalHeight;
+    //   let client_width = target.width;
+    //   let client_height = target.height;
+
+    //   console.log('ref!!!!!!',this.$refs.postImg.attributes);
+
+    //   if ( natural_height < natural_width ) {
+    //     natural_height = client_height;
+    //   }
+    //   else if ( natural_width < natural_height ) {
+    //     natural_width = client_width;
+    //   }
+    //   // console.log(natural_height);
+    //   // console.log(natural_width);
+    //   // console.log(client_height);
+    //   // console.log(client_width);
+    // }
   }
 
 }

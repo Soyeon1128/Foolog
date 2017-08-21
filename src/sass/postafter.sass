@@ -9,7 +9,7 @@
 
 .post-save-container.susy-photo-diary-wrapper
   float: none
-  
+  min-height: 350px
 // photo 영역
 
 // .post-save-photo
@@ -21,16 +21,17 @@
   position: absolute
   top: 25px
   left: 25px
-  width: 385px
-  height: 315px
+  width: 320px
+  height: 320px
   overflow: hidden
 
 .post-save-photo-wrapper img
   position: absolute
-  top: 0
-  left: 0
+  top: 50%
+  left: 50%
   width: auto
-  max-height: 315px 
+  transform: translate(-50%, -50%)
+  mwx-width: 320px
   // margin-left: -55px
   z-index: 101
 
@@ -73,16 +74,16 @@
   line-height: 22px
   z-index: 1200
   color: #666
-  min-height: 250px
+  min-height: 200px
 
 // post-save-diary-3 
 .post-save-diary-3
-  position: absolute
-  top: 100%
-  left: 50%
-  margin-top: -50px
+  // position: absolute
+  // bottom: 10%
+  // left: 50%
+  // margin-top: -50px
   display: inline-block
-  height: 50px
+  // height: 50px
 
 .save-tags-food
   // width: 100px
@@ -128,7 +129,6 @@
   border: 1px solid #824880
   
 .save-tags-taste
-  width: 150px
   display: inline-block
   margin-left: 10px  
   // position: absolute
