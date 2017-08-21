@@ -4,10 +4,10 @@
     header-logo 
     header-slogan
     post-add-button
-    post-empty(v-if="isEmpty")
-    post-after(v-if="isAfter")
-    post-before(v-if="isBefore")
+    post-before(v-if="isBefore" style="margin-bottom: 770px")
     post-before(v-if="isModify")
+    post-empty(v-if="isEmpty")
+    post-after(v-if="isAfter" )
 </template>
 
 <script>

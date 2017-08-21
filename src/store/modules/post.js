@@ -14,15 +14,16 @@ const state = {
   post_keys: {
     text: '',
     photo: '',
-    tags_food: '',
-    tags_taste: '',
+    tags: [
+      { text: "" },
+      { text: "" }
+    ],
     date: '',
     longitude: '',
     latitude: '',
     memo: '',
     title: ''
   },
-  modify_keys: ''
 }
 
 const getters = {
@@ -56,9 +57,6 @@ const getters = {
   postKeys(state) {
     return state.post_keys;
   },
-  modifyKeys(state) {
-    return state.modify_keys;
-  }
 }
 
 const mutations = {
@@ -84,6 +82,9 @@ const mutations = {
     })
     .then(response => {
       state.allDayData = response.data;
+      state.allDayData.sort((a, b) => {
+        return a.pk > b.pk ? -1 : a.pk < b.pk ? 1 : 0;
+      })
       state.dayListLength = response.data.length;
       if ( state.dayListLength === 0 ) {
         state.empty = true;
@@ -103,14 +104,8 @@ const mutations = {
   resetPostKeys(state) {  
     state.post_keys.text = '';
     state.post_keys.photo = '';
-    // state.post_keys.tags[0].color = '';
-    // state.post_keys.tags[0].text = '';
-    // state.post_keys.tags[0].type = '';
-    // state.post_keys.tags[1].color = '';
-    // state.post_keys.tags[1].text = '';
-    // state.post_keys.tags[1].type = '';
-    state.post_keys.tags_food = '';
-    state.post_keys.tags_taste = '';
+    state.post_keys.tags[0].text = '';
+    state.post_keys.tags[1].text = '';
     state.post_keys.longitude = '';
     state.post_keys.latitude = '';
     state.post_keys.memo = '';
@@ -130,19 +125,10 @@ const mutations = {
     state.post_keys.photo = f.srcElement.result; 
     }
   },
-  getFoodTagValue(state, e) {
-    let value = e.target.attributes[0].value;
-    state.post_keys.tags_food = value;
-  },
-  getTasteTagValue(state, e) {
-    let value = e.target.attributes[0].value;
-    state.post_keys.tags_taste = value;
-  },
-  postList(state) {
-    console.log('누른 직후', state.post_keys);
+  saveList(state) {
+
+    // 새 글 등록    
     if ( state.before === true ) {
-    console.log('새글일때', state.post_keys);      
-      // 새 글 등록 (post_keys가 비어있을 경우)
       let form = new FormData();
       if ( state.post_keys.text.trim() !== '' ) {
         form.append('text', state.post_keys.text);
@@ -150,8 +136,8 @@ const mutations = {
       if ( state.file ) {
         form.append('photo', state.file);
       }
-      if ( state.post_keys.tags_food.trim() && state.post_keys.tags_taste.trim() !== '' ) {
-        form.append('tags', state.post_keys.tags_food+', '+state.post_keys.tags_taste);
+      if ( !!state.post_keys.tags[0].text && !!state.post_keys.tags[1].text ) {
+        form.append('tags', state.post_keys.tags[0].text + ', ' + state.post_keys.tags[1].text);
       }
       if ( state.post_keys.date ) {
         form.append('date', state.post_keys.date);
@@ -175,9 +161,7 @@ const mutations = {
       })
       .then(response => {
        console.log('새글 등록 후', state.post_keys);
-        
         window.alert('일기가 등록되었습니다.');
-
         let daylist_url = "http://api.foolog.xyz/post/day/" + state.targetDate + "/"
         axios.get(daylist_url, {
           headers: { 'Authorization' : `Token ${user_token}` }
@@ -205,9 +189,16 @@ const mutations = {
         console.log(err.response);
       })
     }
-    // 기존 글 수정 (post_keys가 하나라도 채워져 있을 경우)    
+
+    // 기존 글 수정    
     else if ( state.modify === true ) {
     console.log('기존 글 수정일때', state.post_keys);
+
+      // tags color 초기화
+      state.post_keys.tags[0].color = '';
+      state.post_keys.tags[1].color = '';
+      console.log('bbb',state.post_keys.tags);
+
       
       let form = new FormData();
       if ( state.post_keys.text !== '' ) {
@@ -216,8 +207,8 @@ const mutations = {
       if ( state.file ) {
         form.append('photo', state.file);
       }
-      if ( state.post_keys.tags_food && state.post_keys.tags_taste !== '' ) {
-        form.append('tags', state.post_keys.tags_food+', '+state.post_keys.tags_taste);
+      if ( !!state.post_keys.tags[0].text && !!state.post_keys.tags[1].text ) {
+        form.append('tags', state.post_keys.tags[0].text + ', ' + state.post_keys.tags[1].text);
       }
       if ( state.post_keys.date ) {
         form.append('date', state.post_keys.date);
@@ -234,16 +225,14 @@ const mutations = {
       if ( state.post_keys.title !== '' ) {
         form.append('title', state.post_keys.title);
       }
-
       let user_token = window.localStorage.getItem('token');
       let modify_pk = state.post_keys.pk;
       let modify_url = 'http://api.foolog.xyz/post/' + modify_pk + '/';
-
       axios.patch(modify_url, form, {
         headers: { 'Authorization' : `Token ${user_token}` }
       })
       .then(response => {
-    console.log('수정 후', state.post_keys);
+        console.log('수정 후', state.post_keys);
         
         window.alert('일기가 수정되었습니다.');
 
@@ -261,6 +250,7 @@ const mutations = {
           }
           else if ( state.dayListLength > 0 ) {
             state.before = false;
+            state.modify = false;
             state.empty = false;
             state.after = true;
           }
@@ -337,7 +327,9 @@ const mutations = {
       state.modifyIndex = index;
       let editData = state.allDayData.splice(index, 1);
       state.post_keys = editData[0];
+      console.log('뭘까용용',state.post_keys);
       state.modify = true;
+      state.before = false;
       state.after = false;      
   },
 }
