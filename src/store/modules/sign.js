@@ -1,8 +1,15 @@
+let emailRegex = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
+let passwordRegex = /^.*(?=.{8,20})(?=.*[0-9])(?=.*[a-zA-Z]).*$/;
+
 const state = {
   user_pk: '',
   sign_up: false,
   sign_in: false,
-  main_view: true
+  main_view: true,
+  email: '',
+  email_valid_warning: '',
+  email_valid_false: false,
+
 }
 
 const getters = {
@@ -17,18 +24,10 @@ const getters = {
   },
   userPk(state) {
     return state.user_pk;
-  }
+  },
 }
 
 const mutations = {
-//-------------------------------- Validation SignIn
-
-
-
-
-
-//-------------------------------- Validation SignUp
-
 
 //-------------------------------- SignIn
   openSignIn(state) {

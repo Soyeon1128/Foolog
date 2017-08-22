@@ -6,7 +6,8 @@
       //-   type='button'
       //-   @click='openSideMenu')
         span.header-icon-bars.fa.fa-bars.fa-2x
-      h1.header-logo
+      .header-logo
+        img.header-logo-img(src='../assets/Foolog-color.svg')
         a.header-logo-button(@click='goToHome') Foolog 
 </template>
 

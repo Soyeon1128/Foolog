@@ -28,7 +28,7 @@
               )
           h1.profile-email {{ email }}
           span.fa.fa-user
-        button.register-img(@click='registerProfileImg') 프로필 등록하기
+        button.register-img(@click='registerProfileImg') 프로필 사진 등록하기
         .side-menu-calendar
     .side-dim( v-if='side_menu' @click='closeSideMenu')
 </template>
@@ -106,6 +106,7 @@ export default {
       })
       .catch(error => {
         console.log(error.response)
+        window.alert('프로필 사진을 추가 & 변경해주세요')
       })
     },
     getUserData() {
