@@ -6,7 +6,7 @@
         img(:src="item.photo")
     .post-save-diary.susy-post-diary
       .post-save-diary-1
-        span.fa.fa-clock-o.fa-lg  {{ postDate }}
+        span.fa.fa-calendar  {{ postDate }}
         button.fa.fa-map-marker.fa-lg(type='button')  잠원동 신선횟집
       .post-save-diary-2
         .post-save-text {{ item.text }}

@@ -4,10 +4,10 @@
     header-logo 
     header-slogan
     post-add-button
-    post-before(v-if="isBefore" style="margin-bottom: 770px")
+    post-before(v-if="isBefore" style="margin-bottom: 735px")
     post-before(v-if="isModify")
     post-empty(v-if="isEmpty")
-    post-after(v-if="isAfter" )
+    post-after(v-if="isAfter")
 </template>
 
 <script>
@@ -155,4 +155,9 @@ export default {
 }
 </script>
 
+<style lang="sass">
 
+.post-area-container
+  margin-top: 12%
+
+</style>
