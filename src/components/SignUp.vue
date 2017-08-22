@@ -1,5 +1,5 @@
 <template lang="pug">
-transition(name='signup')  
+transition(name='signup' mode="out-in")  
   .signup-container.susy-user
     main.signup-content-wrapper
       .signup-content-wrapper-inside  
