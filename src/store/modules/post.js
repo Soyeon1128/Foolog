@@ -11,6 +11,7 @@ const state = {
   postDate: '',
   dayListLength: 0,
   file: null,
+  camera: true,
   post_keys: {
     text: '',
     photo: '',
@@ -57,6 +58,9 @@ const getters = {
   postKeys(state) {
     return state.post_keys;
   },
+  isCamera(state) {
+    return state.camera;
+  }
 }
 
 const mutations = {
@@ -89,11 +93,13 @@ const mutations = {
       if ( state.dayListLength === 0 ) {
         state.empty = true;
         state.before = false;
+        state.modify = false;
         state.after = false;
       }
       else if ( state.dayListLength > 0 ) {
         state.before = false;
         state.empty = false;
+        state.modify = false;        
         state.after = true;
       }
     })
@@ -113,6 +119,7 @@ const mutations = {
     console.log(state.post_keys);
   },
   showBefore(state) {
+    state.camera = true;
     state.empty = false;      
     state.before = true;
   },
@@ -122,8 +129,13 @@ const mutations = {
     let reader = new FileReader();
     reader.readAsDataURL(state.file);
     reader.onload = (f) => {
-    state.post_keys.photo = f.srcElement.result; 
+      state.post_keys.photo = f.srcElement.result;
     }
+    state.camera = false;
+  },
+  setPhoto(state, photo) {
+    state.post_keys.photo = photo;
+    console.log(state.post_keys.photo);
   },
   saveList(state) {
 
@@ -168,6 +180,9 @@ const mutations = {
         })
         .then(response => {
           state.allDayData = response.data;
+          state.allDayData.sort((a, b) => {
+            return a.pk > b.pk ? -1 : a.pk < b.pk ? 1 : 0;
+          })
           state.dayListLength = response.data.length;
           if ( state.dayListLength === 0 ) {
             state.empty = true;
@@ -242,6 +257,9 @@ const mutations = {
         })
         .then(response => {
           state.allDayData = response.data;
+          state.allDayData.sort((a, b) => {
+            return a.pk > b.pk ? -1 : a.pk < b.pk ? 1 : 0;
+          })
           state.dayListLength = response.data.length;
           if ( state.dayListLength === 0 ) {
             state.empty = true;
@@ -302,6 +320,9 @@ const mutations = {
         })
         .then(response => {
           state.allDayData = response.data;
+          state.allDayData.sort((a, b) => {
+            return a.pk > b.pk ? -1 : a.pk < b.pk ? 1 : 0;
+          })
           state.dayListLength = response.data.length;
           if ( state.dayListLength === 0 ) {
             state.empty = true;
@@ -327,7 +348,7 @@ const mutations = {
       state.modifyIndex = index;
       let editData = state.allDayData.splice(index, 1);
       state.post_keys = editData[0];
-      console.log('뭘까용용',state.post_keys);
+      state.camera = false;
       state.modify = true;
       state.before = false;
       state.after = false;      

@@ -9,28 +9,27 @@
 
 .post-save-container.susy-photo-diary-wrapper
   float: none
-  
+  min-height: 450px
 // photo 영역
 
 // .post-save-photo
-//   padding: 15px 10px 10px 10px
-// .post-save-photo img
-  width: 100%
+  heigth: 450px
 
 .post-save-photo-wrapper
   position: absolute
   top: 25px
   left: 25px
-  width: 385px
-  height: 315px
+  width: 420px
+  height: 400px
   overflow: hidden
 
 .post-save-photo-wrapper img
   position: absolute
-  top: 0
-  left: 0
+  top: 50%
+  left: 50%
   width: auto
-  max-height: 315px 
+  transform: translate(-50%, -50%)
+  mwx-width: 320px
   // margin-left: -55px
   z-index: 101
 
@@ -38,7 +37,7 @@
 .post-save-diary
   // height: 120%
   background-color: $color-main-post 
-  padding: 20px
+  padding: 25px
   width: 48%
   
 // post-save-diary-1
@@ -73,28 +72,30 @@
   line-height: 22px
   z-index: 1200
   color: #666
-  min-height: 250px
+  min-height: 200px
 
 // post-save-diary-3 
 .post-save-diary-3
   position: absolute
   top: 100%
   left: 50%
-  margin-top: -50px
+  transform: translateY(-200%)
+  // bottom: 10%
+  // left: 50%
+  // margin-top: -50px
   display: inline-block
-  height: 50px
+  // height: 50px
 
 .save-tags-food
   // width: 100px
   display: inline-block
   color: $color-gray-icon
-  margin-left: 22px
+  margin-left: 33px
   // position: absolute
   // top: 100%
   // left: 50%
   // margin-top: -5%
 
-.save-tags-food span
     
 .tag-food
   font-weight: 200
@@ -128,9 +129,8 @@
   border: 1px solid #824880
   
 .save-tags-taste
-  width: 150px
   display: inline-block
-  margin-left: 10px  
+  margin-left: 20px  
   // position: absolute
   // top: 100%
   // left: 50%
@@ -163,7 +163,7 @@
 .save-modify
   width: 60px
   display: inline-block
-  margin-left: 20px
+  margin-left: 111px
   // position: absolute
   // top: 100%
   // left: 50%
