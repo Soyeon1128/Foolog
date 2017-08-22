@@ -9,7 +9,7 @@
         span.fa.fa-calendar  {{ postDate }}
         button.fa.fa-map-marker.fa-lg(type='button')  잠원동 신선횟집
       .post-save-diary-2
-        .post-save-text {{ item.text }}
+        textarea.post-save-text(type="text" name="posttext" readonly="readonly") {{ item.text }}
       .post-save-diary-3   
         .save-tags-food
           span 음식 종류
