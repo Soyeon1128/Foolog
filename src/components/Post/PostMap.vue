@@ -11,8 +11,7 @@ export default {
     
   },
   mounted() {
-    window.initMap = () => {
-          
+    window.initMap = () => {  
       this.initPosition = new google.maps.LatLng(37.516271, 127.020171);      
       this.mapOptions = {
         zoom: 18,

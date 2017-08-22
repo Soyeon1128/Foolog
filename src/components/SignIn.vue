@@ -1,5 +1,5 @@
 <template lang="pug">
-transition(name='signin')  
+transition(name='signin' mode="out-in")  
   .signin-container.susy-user
     main.signin-content-wrapper
       .signin-content-wrapper-inside
@@ -166,28 +166,32 @@ export default {
     facebookToken() {
       var FB = window.FB;
       var scopes = 'email,public_profile';
-      FB.login(function (response) {
+      FB.login((response) => {
         if (response.status === 'connected') {
           console.log('The user has logged in!');
-          FB.api('/me', function (response) {
+          FB.api('/me', (response) => {
             console.log('페이스북 로그인 리스폰스', response);
           });
         }
       }, { scope: scopes });
-      FB.getLoginStatus(function (response) {
+      FB.getLoginStatus( (response) => {
         if (response.status === 'connected') {
           console.log('Logged in.');
+          console.log('response.authResponse.accessToken:', response.authResponse.accessToken);
           this.$http.post(this.getUrlLogin + 'facebook/', {
             'token': response.authResponse.accessToken
           }).then((response) => {
+            window.localStorage.setItem('facebook', response.authResponse.accessToken);
             console.log('페이스북 토큰 리스폰스', response);
-          }).catch(() => {
-
+            this.$router.push({
+              path: '/calendar'
+              });
+          }).catch((error) => {
+            console.log('error:', error)
          });
-          window.localStorage.setItem('facebook', response.authResponse.accessToken);
         } else if (response.status === 'not_authorized') {
           // 허가 받지 않은 사용자가 재접근 시 로그인페이지로 이동
-          window.location.replace('/login');
+          window.location.replace('/');
           console.log('허가 받지 않음');
         } else {
           console.log('unknown');
