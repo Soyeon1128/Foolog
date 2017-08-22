@@ -19,7 +19,7 @@
                   v-if='postKeys.photo')
     .post-list-diary.susy-post-diary
       .post-list-diary-1
-          span.fa.fa-clock-o.fa-lg  {{ postDate }}
+          span.fa.fa-calendar  {{ postDate }}
           button.fa.fa-map-marker.fa-lg(type='button')  장소 추가하기
       .post-list-diary-2
         form
