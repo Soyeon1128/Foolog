@@ -47,13 +47,17 @@ transition(name='signin')
               type='button'
               @click='loginValid')
               span 로그인
-            .fb-login-button(
-              data-max-rows='1', 
-              data-size='large', 
-              data-button-type='login_with', 
-              data-show-faces='false', 
-              data-auto-logout-link='false', 
-              data-use-continue-as='false')
+            //- .fb-login-button(
+            //-   data-max-rows='1', 
+            //-   data-size='large', 
+            //-   data-button-type='login_with', 
+            //-   data-show-faces='false', 
+            //-   data-auto-logout-link='false', 
+            //-   data-use-continue-as='false')
+            button.signin-facebook(
+              @click='facebookToken')
+              span.fa.fa-facebook-official  
+              span.signin-facebook-text 페이스북으로 로그인
           hr
           p.signin-notice-facebook Facebook아이디로 간편하게 로그인 할 수 있습니다.
 </template>
@@ -158,7 +162,38 @@ export default {
       .catch(error => {
         console.log(error.response)
       })
-    }
+    },
+    facebookToken() {
+      var FB = window.FB;
+      var scopes = 'email,public_profile';
+      FB.login(function (response) {
+        if (response.status === 'connected') {
+          console.log('The user has logged in!');
+          FB.api('/me', function (response) {
+            console.log('페이스북 로그인 리스폰스', response);
+          });
+        }
+      }, { scope: scopes });
+      FB.getLoginStatus(function (response) {
+        if (response.status === 'connected') {
+          console.log('Logged in.');
+          this.$http.post(this.getUrlLogin + 'facebook/', {
+            'token': response.authResponse.accessToken
+          }).then((response) => {
+            console.log('페이스북 토큰 리스폰스', response);
+          }).catch(() => {
+
+         });
+          window.localStorage.setItem('facebook', response.authResponse.accessToken);
+        } else if (response.status === 'not_authorized') {
+          // 허가 받지 않은 사용자가 재접근 시 로그인페이지로 이동
+          window.location.replace('/login');
+          console.log('허가 받지 않음');
+        } else {
+          console.log('unknown');
+        }
+      });
+    },
   }
 }
 </script>
