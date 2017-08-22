@@ -119,6 +119,7 @@ const mutations = {
     console.log(state.post_keys);
   },
   showBefore(state) {
+    state.camera = true;
     state.empty = false;      
     state.before = true;
   },
@@ -347,7 +348,7 @@ const mutations = {
       state.modifyIndex = index;
       let editData = state.allDayData.splice(index, 1);
       state.post_keys = editData[0];
-      console.log('뭘까용용',state.post_keys);
+      state.camera = false;
       state.modify = true;
       state.before = false;
       state.after = false;      
