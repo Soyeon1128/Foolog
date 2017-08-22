@@ -16,56 +16,57 @@ transition(name='signup')
             legend 로그인 및 회원가입 폼
             fieldset
               label(for='signup-email')
-                input(v-model.trim='email' 
+                input(
+                  v-model.trim='email' 
                   id='signup-email' 
-                  type='email' 
+                  type='email'
+                  ref='email' 
+                  @input.lazy='emailValidation'
                   placeholder='이메일을 입력해 주세요.' 
-                  @input.lazy='validateEmail'
                   aria-label='회원가입 이메일'
                   autofocus
-                  required
-                  )
+                  required)
                 div.email-valid-false(v-show='email_valid_false')
-                  span.fa.fa-exclamation-circle(aria-hidden="true")  이미 등록된 이메일입니다.
-                div.email-valid-empty(v-show='email_valid_empty')
-                  span.fa.fa-exclamation-circle(aria-hidden="true")  빈칸 없이 작성해 주세요.
+                  span.fa.fa-exclamation-circle(aria-hidden="true")  {{ email_valid_warning }}
               label(for='signup-nickname')
-                input(v-model.trim='nickname' 
+                input(
+                  v-model.trim='nickname' 
                   id='signup-nickname' 
                   type='text' 
+                  ref='nickname'
+                  @input.lazy='nicknameValidation'
                   placeholder='닉네임을 입력해 주세요.' 
-                  @input.lazy='validateNickname'
                   aria-label='회원가입 닉네임'                  
-                  required
-                  )
+                  required)
                 div.nickname-valid-false(v-show='nickname_valid_false')
-                  span.fa.fa-exclamation-circle(aria-hidden="true")  이미 등록된 닉네임입니다.
-                div.nickname-valid-empty(v-show='nickname_valid_empty')
-                  span.fa.fa-exclamation-circle(aria-hidden="true")  빈칸 없이 작성해 주세요
+                  span.fa.fa-exclamation-circle(aria-hidden="true")  {{ nickname_valid_warning }}
               label(for='signup-password')
-                input(v-model.trim='password'
+                input(
+                  v-model.trim='password'
                   id='signup-password'
                   type='password'
+                  ref='password'
+                  @input.lazy='passwordValidation'
+                  @keydown.enter='joinValid'
                   placeholder='비밀번호는 8자 이상, 영어와 숫자를 혼용해서 입력해 주세요.' 
-                  @keydown.enter='submitSignUp'
                   aria-label='회원가입 비밀번호'                  
-                  required                  
-                  )
+                  required)
+                div.password-valid-false(v-show='password_valid_false')
+                  span.fa.fa-exclamation-circle(aria-hidden="true")  {{ password_valid_warning }}
           .signup-buttons-signup
             button.signup-btn(
               type='button'
-              @click='submitSignUp')
+              @click='joinValid')
               span 회원가입
           hr
           p.signup-notice-facebook Facebook아이디로 간편하게 로그인 할 수 있습니다.
 </template>
 
 <script>
-import {mapGetters} from 'vuex' 
-import {mapMutations} from 'vuex'
+import {mapGetters, mapMutations} from 'vuex' 
  
 let emailRegex = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
-let passwordRegex = /^[A-Za-z0-9]{8,20}$/;
+let passwordRegex = /^.*(?=.{8,20})(?=.*[0-9])(?=.*[a-zA-Z]).*$/;
 
 export default {
   name: 'SignUp',
@@ -79,13 +80,14 @@ export default {
   data() {
     return{
       email:    '',
-      nickname: '',
-      password: '',
+      email_valid_warning: '',
       email_valid_false: false,
-      // email_valid_true: false,
-      email_valid_empty: false,
+      nickname: '',
+      nickname_valid_warning: '',
       nickname_valid_false: false,
-      nickname_valid_empty: false,
+      password: '',
+      password_valid_warning: '',
+      password_valid_false: false,
     }
   },
   computed: {
@@ -100,61 +102,127 @@ export default {
     ...mapMutations([
       'openSignIn',
       'closeSignUp',
-      'submitSignUp'
     ]),
-    validateEmail() {
-      this.$http.get(this.getUrlValid, {
-        params: { 
-          email: this.email 
-        }
-      })
-      .then(response => {
-        console.log(response)
-        let error_valid = response.data;
-        let props = Object.values(error_valid);
-        console.log(props);
-        
-        if ( props[0] === false ) {
-          this.email_valid_false = true
-          this.email = ''
-        } else if ( props[0] === true ) {
-          this.email_valid_false = false          
-          this.email_valid_empty = false
-          // this.email_valid_true = true
-        } else if ( props[0] === null ) {
-          this.email_valid_empty = true
-        } 
-      })
-      .catch(error => {
-        console.log(error)
-      })
+    emailValidation() {
+      if( !emailRegex.test(this.email) ) {
+        this.email_valid_false = true
+        this.email_valid_warning = '잘못된 이메일 형식입니다.'
+        this.$refs.email.focus()
+        return false
+      } else if ( emailRegex.test(this.email) ) {
+        this.email_valid_false = false  
+        return true
+      }
     },
-    validateNickname() {
+    nicknameValidation() {
       this.$http.get(this.$store.state.url_valid, {
         params: { 
           nickname: this.nickname 
         }
       })
       .then(response => {
-        console.log(response)
         let error_valid = response.data;
         let props = Object.values(error_valid);
         console.log(props);
         if ( props[1] === false ) {
           this.nickname_valid_false = true
-          // this.nickname = ''
-        } else if ( props[1] === true ) {
+          this.nickname_valid_warning = '이미 등록된 닉네임입니다.'
+          this.$refs.nickname.focus()
+        } else if ( props[1] === true) {
           this.nickname_valid_false = false
-          this.nickname_valid_empty = false
-        } else if ( props[0] === null) {
-          this.nickname_valid_empty = true
         }
       })
       .catch(error => {
         console.log(error)
       })
     },
+    passwordValidation() {
+      if ( !passwordRegex.test(this.password) ) {
+        this.password_valid_false = true
+        this.password_valid_warning = '비밀번호는 8자 이상, 영어와 숫자를 혼합해서 입력해 주세요.'
+        this.$refs.password.focus();     
+        return false
+      } else if ( passwordRegex.test(this.password) ) {
+        this.password_valid_false = false
+        return true
+      }
+    },
+    joinValid() {
+      this.submitSignUp()
+      this.$http.get(this.getUrlValid, {
+        params: { 
+          email: this.email 
+        }
+      })
+      .then(response => {
+        let error_valid = response.data;
+        let props = Object.values(error_valid);
+        console.log(props);
+        
+        if ( props[0] === false ) {
+          window.alert('이미 등록된 회원입니다.')
+          this.$refs.email.focus();         
+        } 
+      })
+      .catch(error => {
+        console.log(error)
+      })
+    },
+    // validateEmail() {
+    //   this.$http.get(this.getUrlValid, {
+    //     params: { 
+    //       email: this.email 
+    //     }
+    //   })
+    //   .then(response => {
+    //     let error_valid = response.data;
+    //     let props = Object.values(error_valid);
+    //     console.log(props);
+        
+    //     if ( props[0] === false ) {
+    //       this.email_valid_false = true
+    //       this.email = ''
+    //     } else if ( props[0] === true ) {
+    //       this.email_valid_false = false          
+    //       this.email_valid_empty = false
+    //       // this.email_valid_true = true
+    //     } else if ( props[0] === null ) {
+    //       this.email_valid_empty = true
+    //     } 
+    //   })
+    //   .catch(error => {
+    //     console.log(error)
+    //   })
+    // },
+    // validateNickname() {
+    //   this.$http.get(this.$store.state.url_valid, {
+    //     params: { 
+    //       nickname: this.nickname 
+    //     }
+    //   })
+    //   .then(response => {
+    //     console.log(response)
+    //     let error_valid = response.data;
+    //     let props = Object.values(error_valid);
+    //     console.log(props);
+    //     if ( props[1] === false ) {
+    //       this.nickname_valid_false = true
+    //       // this.nickname = ''
+    //     } else if ( props[1] === true ) {
+    //       this.nickname_valid_false = false
+    //       this.nickname_valid_empty = false
+    //     } else if ( props[0] === null) {
+    //       this.nickname_valid_empty = true
+    //     }
+    //   })
+    //   .catch(error => {
+    //     console.log(error)
+    //   })
+    // },
     submitSignUp() {
+      if(!this.emailValidation()) return
+      if(!this.nicknameValidation()) return
+      if(!this.passwordValidation()) return
       this.$http.post(this.$store.state.url_users, {
         email:     this.email,
         nickname:  this.nickname,
@@ -169,17 +237,13 @@ export default {
         let error_data = error.response.data;
         let props      = Object.keys(error_data);
         console.log(props);
-        for (let i = 0, length = props.length; i < length; i++) {
-          console.log(props[i] + ' : ' + error_data[props[i]][0]);
-          window.alert(props[i] + ' : ' + error_data[props[i]][0]);
-          break;
-        }
-        console.log(error_data)
+        // for (let i = 0, length = props.length; i < length; i++) {
+        //   console.log(props[i] + ' : ' + error_data[props[i]][0]);
+        //   window.alert(props[i] + ' : ' + error_data[props[i]][0]);
+        //   break;
+        // }
         console.log(error.response);
       });
-      this.email    = '', 
-      this.nickname = '', 
-      this.password = '';
     }
   }
 }
