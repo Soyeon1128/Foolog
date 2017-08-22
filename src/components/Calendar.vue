@@ -26,11 +26,17 @@ transition(name='calendar')
               td(v-for="day in arrDay") {{ day }}
           tbody(v-for="n in 5")
             tr
-              td.cal-date(v-for="m in 7" :class="arrIsThisMonth[ (n-1)*7 + m-1 ]") 
-                a.cal-date-link(href @click.prevent="clickTargetDate(arrTargetDate[ (n-1)*7 + m-1 ])") {{ arrTargetDate[ (n-1)*7 + m-1 ].getDate() }}
+              td.cal-date(v-for="m in 7" :class="arrIsThisMonth[ (n-1)*7 + m-1 ]")
+
+                a.date-has-data(v-if="dataSet && dataSet.has(arrTargetDate[(n-1)*7 + m-1].toISOString().split('T')[0])" @click.prevent="clickTargetDate(arrTargetDate[ (n-1)*7 + m-1 ])") {{ arrTargetDate[ (n-1)*7 + m-1 ].getDate() }}
+                
+                a.date-no-data(href v-else="dataSet && dataSet.has(arrTargetDate[(n-1)*7 + m-1].toISOString().split('T')[0])" @click.prevent="clickTargetDate(arrTargetDate[ (n-1)*7 + m-1 ])") {{ arrTargetDate[ (n-1)*7 + m-1 ].getDate() }}
+                  
 </template>
 
 <script>
+import {mapGetters, mapMutations, mapActions} from 'vuex'
+
 import HeaderLogo from './Header'
 import SideMenu from './SideMenu'
 
@@ -40,8 +46,10 @@ export default {
     HeaderLogo, SideMenu
   },
   created() {
+    this.getPhoto();
+    
+    // this.showAllDayData();
     this.makeCalendar();
-    // this.getUserToken();
   },
   data() {
     return {
@@ -52,9 +60,16 @@ export default {
       arrTargetDate: [],
       targetFullDate: '',
       dayListUrl: '',
+      dataSet: null,
+      datedatedate: [],
+      hasDate: []
     }
   },
   methods: {
+    ...mapMutations([
+      // 'showAllDayData',
+      // 'getCalPhoto'
+    ]),
     // 매달의 달력 생성 함수
     makeCalendar() {
       // 기준 일
@@ -186,6 +201,44 @@ export default {
       //       date: this.targetFullDate,
       //     }
       // });
+    },
+    getPhoto() {
+      let list_url = this.$store.state.url_post;
+      let user_token = window.localStorage.getItem('token');
+      console.log('1111',list_url);
+      console.log('22222',user_token);
+      this.$http.get(list_url, {
+        headers: { 'Authorization' : `Token ${user_token}` }  
+      })
+      .then(response => {
+        // console.log("뭐임");
+        let all_data = response.data;
+        this.dataSet = new Set();
+        all_data.forEach((item) => {
+          this.dataSet.add(item.date.split(' ')[0]);
+        });
+
+        
+        // for(var i = 0; i < 42; i++) {
+        //   let target = this.arrTargetDate[i].toISOString().split('T')[0] + " 00:00";
+        //   this.datedatedate.push(target);
+        // }
+
+        // for(var i = 0, l = all_data_length; i < l; i ++) {
+        //   if ( this.datedatedate.includes(data_set[i]) ) {
+        //     this.hasData.push(true);
+        //   } else {
+        //     this.hasData.push(false);
+        //   }
+        // }
+        
+        // console.log("제발~~~~~~~~~~~~",this.hasData);
+        
+      })
+      .catch(error => {
+        // console.log("에러임!!!!!!에러에러에러!!!!!!!!1")
+        console.log('에러',error);
+      })
     }
   }
 }

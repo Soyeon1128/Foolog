@@ -283,27 +283,6 @@ const mutations = {
       })
     }
   },
-  // closeBefore() {
-  //   let user_token = window.localStorage.getItem('token');
-  //   let daylist_url = "http://api.foolog.xyz/post/day/" + date + "/"
-  //   axios.get(daylist_url, {
-  //     headers: { 'Authorization' : `Token ${user_token}` }
-  //   })
-  //   .then(response => {
-  //     state.dayListLength = response.data.length;
-  //     state.before = false;
-  //     if ( state.dayListLength === 0 ) {
-  //       state.empty = true;
-  //     }
-  //     else if ( state.dayListLength > 0 ) {
-  //       state.empty = false;
-  //       state.after = true;
-  //     }
-  //   })
-  //   .catch(error => {
-  //     console.log(error);
-  //   })
-  // },
   deleteList(state, index) {
     let user_token = window.localStorage.getItem('token');      
     let confirmDelete = confirm("일기를 삭제 하시겠습니까?");
@@ -353,6 +332,10 @@ const mutations = {
       state.before = false;
       state.after = false;      
   },
+  getCalPhoto(state) {
+    let photo = state.allDayData[0].photo;
+    console.log('photo src', photo);
+  } 
 }
 
 const actions = {

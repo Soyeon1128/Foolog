@@ -125,10 +125,7 @@ export default {
       })
       .then(response => {
         let token = response.data.key;
-        if ( !window.localStorage.getItem('token') ) {
-          window.localStorage.setItem('token', token);
-        }
-        console.log('success token:', window.localStorage.getItem('token'));
+        window.localStorage.setItem('token', token);
         this.$router.push({
           path: '/calendar',
           // name: 'Calendar',
