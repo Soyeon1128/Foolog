@@ -46,6 +46,7 @@ export default {
     HeaderLogo, SideMenu, Search
   },
   created() {
+    this.showSearchBtn();
     this.getAllData();
     this.makeCalendar();
   },
@@ -65,6 +66,7 @@ export default {
   },
   methods: {
     ...mapMutations([
+      'showSearchBtn'
       // 'showAllDayData',
       // 'getCalPhoto'
     ]),

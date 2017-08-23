@@ -4,7 +4,6 @@ import Post from './components/Post/Post'
 import PostBefore from './components/Post/PostBefore.vue'
 import PostAfter from './components/Post/PostAfter.vue'
 import Search from './components/Search'
-import Statistics from './components/Statistics'
 
 // routes setting
 export const routes = [

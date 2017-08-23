@@ -31,6 +31,7 @@ export default {
     PostMap,
   },
   created() {
+    this.showSearchBtn();
     this.changeDateFormat(this.$route.params.date);    
     this.showAllDayData();
   },
@@ -51,6 +52,7 @@ export default {
   },
   methods: {
     ...mapMutations([
+      'showSearchBtn',
       'changeDateFormat',
       'showAllDayData',
       'imgUpload',

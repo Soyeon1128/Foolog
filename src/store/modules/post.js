@@ -332,20 +332,6 @@ const mutations = {
       state.before = false;
       state.after = false;      
   },
-  // getSearchData(state) {
-  //   let user_token = window.localStorage.getItem('token');
-  //   let search_url = 'http://api.foolog.xyz/search/'
-  //   axios.get(search_url, {
-  //       headers: { 'Authorization' : `Token ${user_token}`}
-  //   })
-  //   .then(response => {
-  //     console.log(response.data);
-  //   })
-  //   .catch(error => {
-  //     console.log(error);
-  //   })
-  // }
-
 }
 
 const actions = {

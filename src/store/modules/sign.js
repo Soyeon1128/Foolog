@@ -61,6 +61,16 @@ const mutations = {
       state.main_view = true;
     }
   },
+  showSearchBtn(state) {
+    state.sign_up = false;
+    state.sign_in = false;
+    state.main_view = false;
+  },
+  hideSearchBtn(state) {
+    state.sign_up = false;
+    state.sign_in = false;
+    state.main_view = true;
+  }
 }
 
 export default {

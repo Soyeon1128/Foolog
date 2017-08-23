@@ -38,6 +38,9 @@ export default {
     VideoBg, HeaderLogo, SignIn, SignUp,
     Calendar, Post, Search
   },
+  created() {
+    this.hideSearchBtn();
+  },
   computed: {
     ...mapGetters([
       'signUp',
@@ -47,6 +50,7 @@ export default {
   },
   methods: {
     ...mapMutations([
+      'hideSearchBtn',
       'openSignUp',
       'openSignIn'
     ]),
