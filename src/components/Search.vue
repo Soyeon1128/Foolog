@@ -1,4 +1,5 @@
 <template lang="pug">
+transition(name="search")
   .search-container
     side-menu
     header-logo

@@ -1,4 +1,5 @@
 <template lang="pug">
+transition(name="empty")
   .post-empty-container.susy-main
     .post-empty
       p.post-empty-group-1
