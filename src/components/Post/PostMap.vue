@@ -1,54 +1,72 @@
 <template lang="pug">
-  .map-wrapper.susy-main
-    .map-dim
-    input(ref="input" id="pac-input" class="controls" type="text" placeholder="Search Box")
-    #map(ref="map")
+  .map.susy-header
+    .map-wrapper
+      input(ref="input" id="pac-input" class="controls" type="text" placeholder="Search Box")
+      #map(ref="mapBox")
+      button.map-add-location(type='button' @click='placeName') 추 가
+    .map-modal(@click='modalMap')
+
 </template>
 
 <script>
+import { mapGetters, mapMutations } from 'vuex'
+
 export default {
-  beforeMount () {
-    
-  },
+  name: 'PostMap',
+  // beforeMount () {
+  //   this.googleMap();
+  // },
   mounted() {
-    window.initMap = () => {  
-      this.initPosition = new google.maps.LatLng(37.516271, 127.020171);      
-      this.mapOptions = {
-        zoom: 18,
-        center: this.initPosition,
-        // types: ['food']
-      }
-      this.map = new google.maps.Map(this.$refs.map, this.mapOptions);
-      
-      console.log('mapmap:', this.map)
-      this.setMarker();
-      this.setSearchInput();
-      // this.setLocationDetail();
-    }
-    window.toggleBounce = () => {
-      if (marker.getAnimation() !== null) {
-        marker.setAnimation(null);
-      } else {
-        marker.setAnimation(google.maps.Animation.BOUNCE);
-      }
-    }
-    
+    // console.log('!!!mounted');    
+    this.googleMap();
+    // console.log('googleMap: ', this.googleMap())
   },
   data() {
     return {
-      map: null, 
+      initMap: this.map, 
       initPosition: null,
       mapOptions: null,
       markers: [],
+      place: {}
     };
   },
   methods: {
+    ...mapMutations([
+      'modalMap',
+    ]),
+    
+    placeName () {
+      this.$store.dispatch('placeName', this.place);
+    },
+
+    googleMap() {
+      window.initMap = () => {  
+        this.initPosition = new google.maps.LatLng(37.516271, 127.020171);      
+        this.mapOptions = {
+          zoom: 18,
+          center: this.initPosition,
+          // types: ['food']
+        }
+        console.log('')
+        this.map = new google.maps.Map(this.$refs.mapBox, this.mapOptions);
+        this.setMarker();
+        this.setSearchInput();
+        // this.setLocationDetail();
+      }
+      window.toggleBounce = () => {
+        if (marker.getAnimation() !== null) {
+          marker.setAnimation(null);
+        } else {
+          marker.setAnimation(google.maps.Animation.DROP);
+        }
+      }
+    },
     setMarker() {
       let marker = new google.maps.Marker({
         position: this.initPosition,
         title: 'Sinsa',
         draggable: true,
-        animation: google.maps.Animation.BOUNCE,
+        animation: google.maps.Animation.DROP,
       });
       marker.setMap(this.map)
       marker.addListener('click', toggleBounce);
@@ -69,6 +87,17 @@ export default {
         console.log(places[0].name);
         console.log(places[0].geometry.location.lat());
         console.log(places[0].geometry.location.lng());
+
+        let lat = places[0].geometry.location.lat()
+        let lng = places[0].geometry.location.lng()
+        
+        if (places[0].name) { 
+          this.place = {
+            place_name: places[0].name,
+            place_lat: lat,
+            place_lng: lng
+          }
+        } 
         if (places.length == 0) {
           return;
         }
@@ -115,8 +144,11 @@ export default {
   
 
 <style lang="sass" scoped>
-  
-  
+
+  body
+    height: 100vh
+    overflow: hidden
+
 </style>
       
 

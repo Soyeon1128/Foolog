@@ -39,8 +39,6 @@ import {mapGetters, mapMutations} from 'vuex'
 export default {
   name: 'SideMenu',
   created() {
-    // let user_pk = window.localStorage.getItem('user_pk', user_pk);
-    // window.localStorage.getItem('token')
     this.getUserPk();
     this.getUserData();
   },
@@ -141,7 +139,15 @@ export default {
         })
         .then(response => {
           console.log(response)
+          if ( window.localStorage.facebook ) {
+          window.localStorage.removeItem('facebook')
+          }
+          if ( window.localStorage.token ) {
           window.localStorage.removeItem('token')
+          }
+          if ( window.localStorage.user_pk ) {
+          window.localStorage.removeItem('user_pk')
+          }
           this.$router.push({
             path: '/',
           })
@@ -150,7 +156,7 @@ export default {
           console.log(error)
         })
       }
-    }
+    },
   },
 }
 </script>

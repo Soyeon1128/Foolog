@@ -12,6 +12,10 @@ const state = {
   dayListLength: 0,
   file: null,
   camera: true,
+  is_map: false,
+  map_change_class: '',
+  map_move: {},
+  map_style: {},
   post_keys: {
     text: '',
     photo: '',
@@ -20,10 +24,13 @@ const state = {
       { text: "" }
     ],
     date: '',
-    longitude: '',
-    latitude: '',
-    memo: '',
-    title: ''
+    location: {
+      longitude: '',
+      latitude: '',
+      memo: '',
+      title: ''
+    }
+    
   },
 }
 
@@ -60,7 +67,19 @@ const getters = {
   },
   isCamera(state) {
     return state.camera;
-  }
+  },
+  isMap(state) {
+    return state.is_map;
+  },
+  mapChangeClass(state) {
+    return state.map_change_class;
+  },
+  mapStyle(state) {
+    return state.map_style;
+  },
+  mapMove(state) {
+    return state.map_move;
+  },
 }
 
 const mutations = {
@@ -112,10 +131,10 @@ const mutations = {
     state.post_keys.photo = '';
     state.post_keys.tags[0].text = '';
     state.post_keys.tags[1].text = '';
-    state.post_keys.longitude = '';
-    state.post_keys.latitude = '';
-    state.post_keys.memo = '';
-    state.post_keys.title = '';
+    state.post_keys.location.longitude = '';
+    state.post_keys.location.latitude = '';
+    state.post_keys.location.memo = '';
+    state.post_keys.location.title = '';
     console.log(state.post_keys);
   },
   showBefore(state) {
@@ -154,17 +173,17 @@ const mutations = {
       if ( state.post_keys.date ) {
         form.append('date', state.post_keys.date);
       }
-      if ( state.post_keys.longitude ) {
-        form.append('longitude', state.post_keys.longitude);
+      if ( state.post_keys.location.longitude ) {
+        form.append('longitude', state.post_keys.location.longitude);
       }
-      if ( state.post_keys.latitude ) {
-        form.append('latitude', state.post_keys.latitude);
+      if ( state.post_keys.location.latitude ) {
+        form.append('latitude', state.post_keys.location.latitude);
       }
-      if ( state.post_keys.memo.trim() !== '' ) {
-        form.append('memo', state.post_keys.memo);
+      if ( state.post_keys.location.memo.trim() !== '' ) {
+        form.append('memo', state.post_keys.location.memo);
       }
-      if ( state.post_keys.title.trim() !== '' ) {
-        form.append('title', state.post_keys.title);
+      if ( state.post_keys.location.title.trim() !== '' ) {
+        form.append('title', state.post_keys.location.title);
       }
       let user_token = window.localStorage.getItem('token');
       let post_url = 'http://api.foolog.xyz/post/';
@@ -214,6 +233,7 @@ const mutations = {
       state.post_keys.tags[1].color = '';
       console.log('bbb',state.post_keys.tags);
 
+
       
       let form = new FormData();
       if ( state.post_keys.text !== '' ) {
@@ -228,17 +248,14 @@ const mutations = {
       if ( state.post_keys.date ) {
         form.append('date', state.post_keys.date);
       }
-      if ( state.post_keys.longitude ) {
-        form.append('longitude', state.post_keys.longitude);
+      if ( state.post_keys.location.longitude ) {
+        form.append('longitude', state.post_keys.location.longitude);
       }
-      if ( state.post_keys.latitude ) {
-        form.append('latitude', state.post_keys.latitude);
+      if ( state.post_keys.location.latitude ) {
+        form.append('latitude', state.post_keys.location.latitude);
       }
-      if ( state.post_keys.memo !== '' ) {
-        form.append('memo', state.post_keys.memo);
-      }
-      if ( state.post_keys.title !== '' ) {
-        form.append('title', state.post_keys.title);
+      if ( state.post_keys.location.title ) {
+        form.append('title', state.post_keys.location.title);
       }
       let user_token = window.localStorage.getItem('token');
       let modify_pk = state.post_keys.pk;
@@ -248,6 +265,7 @@ const mutations = {
       })
       .then(response => {
         console.log('수정 후', state.post_keys);
+        console.log('@@@@@@@',response.data);
         
         window.alert('일기가 수정되었습니다.');
 
@@ -256,7 +274,12 @@ const mutations = {
           headers: { 'Authorization' : `Token ${user_token}` }
         })
         .then(response => {
+          console.log('수정 후ㅇㄹㅇㄴㄹ', state.post_keys);
+          console.log('!!!!!!!!',response.data);
+          
           state.allDayData = response.data;
+
+          console.log('수정 후ㅇㄹㅁㄴㅇㄹ', state.allDayData);
           state.allDayData.sort((a, b) => {
             return a.pk > b.pk ? -1 : a.pk < b.pk ? 1 : 0;
           })
@@ -283,27 +306,6 @@ const mutations = {
       })
     }
   },
-  // closeBefore() {
-  //   let user_token = window.localStorage.getItem('token');
-  //   let daylist_url = "http://api.foolog.xyz/post/day/" + date + "/"
-  //   axios.get(daylist_url, {
-  //     headers: { 'Authorization' : `Token ${user_token}` }
-  //   })
-  //   .then(response => {
-  //     state.dayListLength = response.data.length;
-  //     state.before = false;
-  //     if ( state.dayListLength === 0 ) {
-  //       state.empty = true;
-  //     }
-  //     else if ( state.dayListLength > 0 ) {
-  //       state.empty = false;
-  //       state.after = true;
-  //     }
-  //   })
-  //   .catch(error => {
-  //     console.log(error);
-  //   })
-  // },
   deleteList(state, index) {
     let user_token = window.localStorage.getItem('token');      
     let confirmDelete = confirm("일기를 삭제 하시겠습니까?");
@@ -353,6 +355,22 @@ const mutations = {
       state.before = false;
       state.after = false;      
   },
+  modalMap(state) {
+    state.is_map = !state.is_map;
+    if (state.is_map === true) {
+      state.map_change_class = 'map-modal-visible'
+      state.map_style = {
+        height: 100+'vh',
+        overflow: 'hidden'
+      }
+      state.map_move = {
+        'margin-top': 0 
+      }
+    } else {
+      state.map_change_class = 'map-modal-hidden'
+      state.map_style = {}
+    }
+  },
 }
 
 const actions = {
@@ -360,6 +378,17 @@ const actions = {
     commit('resetPostKeys');
     commit('showBefore');
   },
+  placeName(store, place) {
+    console.log('place 콘솔: ', place);
+    
+    store.state.post_keys.location.latitude = place.place_lat
+    store.state.post_keys.location.longitude = place.place_lng
+    store.state.post_keys.location.title = place.place_name
+    store.state.map_change_class = 'map-modal-hidden'
+    store.state.map_style = {}
+    
+    console.log('포스트키 확인',store.state.post_keys.location.title);
+  }
 }
 
 export default {

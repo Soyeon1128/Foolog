@@ -16,11 +16,14 @@
               .post-img-wrapper
                 img.post-img(
                   :src='postKeys.photo'
-                  v-if='postKeys.photo')
+                  v-if='postKeys.photo')  
     .post-list-diary.susy-post-diary
       .post-list-diary-1
           span.fa.fa-calendar  {{ postDate }}
-          button.fa.fa-map-marker.fa-lg(type='button')  장소 추가하기
+          button.fa.fa-map-marker.fa-lg(
+            type='button'
+            @click="modalMap"
+            ) {{ postKeys.location.title || " 장소 추가하기" }}
       .post-list-diary-2
         form
           textarea.post-add-text(
@@ -87,7 +90,8 @@ export default {
     ...mapGetters([
       'postKeys',
       'postDate',
-      'isCamera'
+      'isCamera',
+      'isMap',
     ])
   },
   methods: {
@@ -98,7 +102,11 @@ export default {
       'saveList',
       'imgUpload',
       // 'setPhoto'
+      'modalMap',
     ]),
+    // ...mapActions([
+    //   'placeName'
+    // ])
     // imgUpload(e) {
     //   let file = e.target.files[0];
     //   let reader = new FileReader();
