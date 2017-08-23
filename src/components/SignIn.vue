@@ -125,10 +125,7 @@ export default {
       })
       .then(response => {
         let token = response.data.key;
-        if ( !window.localStorage.getItem('token') ) {
-          window.localStorage.setItem('token', token);
-        }
-        console.log('success token:', window.localStorage.getItem('token'));
+        window.localStorage.setItem('token', token);
         this.$router.push({
           path: '/calendar',
           // name: 'Calendar',
@@ -175,13 +172,21 @@ export default {
         }
       }, { scope: scopes });
       FB.getLoginStatus( (response) => {
+        
         if (response.status === 'connected') {
           console.log('Logged in.');
           console.log('response.authResponse.accessToken:', response.authResponse.accessToken);
+          let access_token = response.authResponse.accessToken;
           this.$http.post(this.getUrlLogin + 'facebook/', {
-            'token': response.authResponse.accessToken
+            'token': access_token
           }).then((response) => {
-            window.localStorage.setItem('facebook', response.authResponse.accessToken);
+            console.log('response.data.key:', response.data.key);
+            console.log('response.data.user:', response.data.user);
+            window.localStorage.setItem('token', response.data.key);
+            window.localStorage.setItem('facebook', access_token);
+            window.localStorage.setItem('user_pk', response.data.user.pk);
+            console.log('access_token', access_token);
+            
             console.log('페이스북 토큰 리스폰스', response);
             this.$router.push({
               path: '/calendar'
