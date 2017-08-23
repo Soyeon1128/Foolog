@@ -9,6 +9,7 @@ transition(name="post")
     post-before(v-if="isModify")
     post-empty(v-if="isEmpty")
     post-after(v-if="isAfter")
+    spinner(v-if="isLoading")
 </template>
 
 <script>
@@ -22,13 +23,14 @@ import PostEmpty from './PostEmpty'
 import PostBefore from './PostBefore'
 import PostAfter from './PostAfter'
 import PostMap from '../Post/PostMap'
+import Spinner from '../Spinner'
 
 export default {
   name: 'Post',
   components: {
     HeaderLogo, SideMenu, HeaderSlogan, PostAddButton,
     PostEmpty, PostBefore, PostAfter,
-    PostMap,
+    PostMap, Spinner
   },
   created() {
     this.showSearchBtn();
@@ -48,6 +50,7 @@ export default {
       'allDayData',
       'postKeys',
       'postDate',
+      'isLoading'
     ])
   },
   methods: {
