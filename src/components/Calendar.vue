@@ -31,7 +31,6 @@ transition(name='calendar')
                 a.date-has-data(v-if="dataSet && dataSet.has(arrTargetDate[(n-1)*7 + m-1].toISOString().split('T')[0])" @click.prevent="clickTargetDate(arrTargetDate[ (n-1)*7 + m-1 ])") {{ arrTargetDate[ (n-1)*7 + m-1 ].getDate() }}
                 
                 a.date-no-data(href v-else="dataSet && dataSet.has(arrTargetDate[(n-1)*7 + m-1].toISOString().split('T')[0])" @click.prevent="clickTargetDate(arrTargetDate[ (n-1)*7 + m-1 ])") {{ arrTargetDate[ (n-1)*7 + m-1 ].getDate() }}
-                  
 </template>
 
 <script>
@@ -39,11 +38,12 @@ import {mapGetters, mapMutations, mapActions} from 'vuex'
 
 import HeaderLogo from './Header'
 import SideMenu from './SideMenu'
+import Search from './Search'
 
 export default {
   name: 'Calendar',
   components: {
-    HeaderLogo, SideMenu
+    HeaderLogo, SideMenu, Search
   },
   created() {
     this.getAllData();

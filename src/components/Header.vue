@@ -8,7 +8,8 @@
         span.header-icon-bars.fa.fa-bars.fa-2x
       .header-logo
         img.header-logo-img(src='../assets/Foolog-color.svg')
-        a.header-logo-button(@click='goToHome') Foolog 
+        a.header-logo-button(@click='goToHome') Foolog
+        button.search-button.fa.fa-search(@click="goToSearch")
 </template>
 
 <script>
@@ -23,7 +24,9 @@ export default {
     goToHome() {
       this.$router.push( {name: 'Home'} );
     },
-
+    goToSearch() {
+      this.$router.push( {name: 'Search'} );
+    }
   },
 }
 </script>

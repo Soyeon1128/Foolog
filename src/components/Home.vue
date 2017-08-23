@@ -1,5 +1,4 @@
 <template lang="pug">
-  //- post
   .home-container
     header-logo
     sign-in( v-show='signIn' )
@@ -31,12 +30,13 @@ import SignIn from './SignIn'
 import SignUp from './SignUp'
 import Calendar from './Calendar'
 import Post from './Post/Post'
+import Search from './Search'
 
 export default {
   name: 'Home',
   components: {
     VideoBg, HeaderLogo, SignIn, SignUp,
-    Calendar, Post,
+    Calendar, Post, Search
   },
   computed: {
     ...mapGetters([

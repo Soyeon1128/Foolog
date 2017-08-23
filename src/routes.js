@@ -7,7 +7,6 @@ import Search from './components/Search'
 import Statistics from './components/Statistics'
 
 // routes setting
-
 export const routes = [
   {
     path: '/',
@@ -37,22 +36,16 @@ export const routes = [
   },
   {
     name: 'Post',
-    // path: '/post',
     path: '/post',
     components: {
       default: Post
     },
   },
   {
+    name: 'Search',
     path: '/search',
     components: {
       default: Search
     }
-  },
-  {
-    path: '/statistics',
-    components: {
-      default: Statistics
-    }
-  },
+  }
 ]
