@@ -36,24 +36,12 @@ export const routes = [
     }
   },
   {
-    name: 'post',
+    name: 'Post',
     // path: '/post',
     path: '/post',
     components: {
       default: Post
     },
-    children: [
-      {
-        path: ':date/before',
-        name: 'PostBefore',
-        component: PostBefore
-      },
-      {
-        path: ':date/after',
-        name: 'PostAfter',
-        component: PostAfter
-      }
-    ]
   },
   {
     path: '/search',

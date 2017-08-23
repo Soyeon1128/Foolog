@@ -46,9 +46,7 @@ export default {
     HeaderLogo, SideMenu
   },
   created() {
-    this.getPhoto();
-    
-    // this.showAllDayData();
+    this.getAllData();
     this.makeCalendar();
   },
   data() {
@@ -175,69 +173,32 @@ export default {
         headers: { 'Authorization' : `Token ${user_token}` }  
       })
       .then(response => {
-        if ( response.data.length === 0 ) {
-          this.$router.push({
-            name: 'PostBefore',
-            params: {
-              date: this.targetFullDate
-            }
-          })
-        }
-        else if ( response.data.length > 0 ) {
-          this.$router.push({
-            name: 'PostAfter',
-            params: {
-              date: this.targetFullDate
-            }
-          })
-        }
+        this.$router.push({
+          name: 'Post',
+          params: {
+            date: this.targetFullDate
+          }
+        })
       })
       .catch(error => {
         console.log(error);
       })
-      // this.$router.push({
-      //     name: 'post', 
-      //     params: {
-      //       date: this.targetFullDate,
-      //     }
-      // });
     },
-    getPhoto() {
+    getAllData() {
       let list_url = this.$store.state.url_post;
       let user_token = window.localStorage.getItem('token');
-      console.log('1111',list_url);
-      console.log('22222',user_token);
       this.$http.get(list_url, {
         headers: { 'Authorization' : `Token ${user_token}` }  
       })
       .then(response => {
-        // console.log("뭐임");
         let all_data = response.data;
         this.dataSet = new Set();
         all_data.forEach((item) => {
           this.dataSet.add(item.date.split(' ')[0]);
         });
-
-        
-        // for(var i = 0; i < 42; i++) {
-        //   let target = this.arrTargetDate[i].toISOString().split('T')[0] + " 00:00";
-        //   this.datedatedate.push(target);
-        // }
-
-        // for(var i = 0, l = all_data_length; i < l; i ++) {
-        //   if ( this.datedatedate.includes(data_set[i]) ) {
-        //     this.hasData.push(true);
-        //   } else {
-        //     this.hasData.push(false);
-        //   }
-        // }
-        
-        // console.log("제발~~~~~~~~~~~~",this.hasData);
-        
       })
       .catch(error => {
-        // console.log("에러임!!!!!!에러에러에러!!!!!!!!1")
-        console.log('에러',error);
+        console.log(error);
       })
     }
   }
