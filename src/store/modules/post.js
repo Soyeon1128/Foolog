@@ -12,6 +12,7 @@ const state = {
   dayListLength: 0,
   file: null,
   camera: true,
+  spinner: false,
   is_map: false,
   map_change_class: '',
   map_move: {},
@@ -67,6 +68,9 @@ const getters = {
   },
   isCamera(state) {
     return state.camera;
+  },
+  isLoading(state) {
+    return state.spinner;
   },
   isMap(state) {
     return state.is_map;
@@ -157,8 +161,10 @@ const mutations = {
     console.log(state.post_keys.photo);
   },
   saveList(state) {
+    // 새 글 등록
 
-    // 새 글 등록    
+    state.spinner = true;
+    
     if ( state.before === true ) {
       let form = new FormData();
       if ( state.post_keys.text.trim() !== '' ) {
@@ -212,19 +218,21 @@ const mutations = {
             state.before = false;
             state.empty = false;
             state.after = true;
-          }
+          }      
+          state.spinner = false;    
         })
         .catch(error => {
           console.log(error);
+          state.spinner = false;          
         })
       })
       .catch(err => {
         console.log(err);
         console.log(err.response);
       })
-    }
-
-    // 기존 글 수정    
+    }    
+    
+    // 기존 글 수정
     else if ( state.modify === true ) {
     console.log('기존 글 수정일때', state.post_keys);
 
@@ -233,8 +241,6 @@ const mutations = {
       state.post_keys.tags[1].color = '';
       console.log('bbb',state.post_keys.tags);
 
-
-      
       let form = new FormData();
       if ( state.post_keys.text !== '' ) {
         form.append('text', state.post_keys.text);
@@ -295,9 +301,11 @@ const mutations = {
             state.empty = false;
             state.after = true;
           }
+          state.spinner = false;                    
         })
         .catch(error => {
           console.log(error);
+          state.spinner = false;                    
         })
       })
       .catch(err => {

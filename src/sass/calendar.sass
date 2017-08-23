@@ -2,22 +2,7 @@
 .calendar-enter, .calendar-leave-to
   opacity: 0
 .calendar-enter-active
-  transition: opacity 1s ease
-
-// .calendar-enter
-//   transform: translateX(-1028px)
-
-// .calendar-enter, .calendar-leave-to
-//   opacity: 0
-// .calendar-enter-active
-//   animation: slide-in .4s ease forwards
-//   transition: opacity .4s
-
-// @keyframes slide-in
-//   from
-//     transform: translateX(-1280px)
-//   to
-//     transform: translateX(0px)
+  transition: opacity 0.7s ease
 
 // calendar 전체 영역
 .calendar
@@ -64,6 +49,7 @@
 table 
   border-collapse: collapse
   border-top: 1px solid #666
+  // border-bottom: 1px solid #666
   margin: 0 auto
 
   &-thead
@@ -71,22 +57,48 @@ table
 
   &-tbody
   font-size: 20px  
-  
   font-weight: 100
-  text-align: center  
+  // text-align: center 
+  // border: 1px solid #666   
 
 thead td 
   height: 80px
   vertical-align: middle
+  text-align: center
 
-.cal-date-link
-  text-decoration: none
-  cursor: pointer
-  width: 100%
+tbody td
+  // border: 1px solid #ccc
   height: 80px
   line-height: 80px
+  text-align: center
+
+.date-has-data
+  display: inline-block
+  width: 30px
+  height: 30px
+  border-radius : 30px
+  background: rgba(254, 131, 109, 0.8)
+  line-height: 30px
+  text-align: center
+  color: #fff
+  cursor: pointer
+  // border: 30px solid #fff
+
+.date-no-data
+  text-decoration: none
+  cursor: pointer
+  width: 30px
+  height: 30px
+  // height: 80px
+  line-height: 30px
+  // padding: 5px 0 0 5px
+  // padding-bottom: 30px
   display: inline-block
   color: $color-text-icon
   
-.not-this-month .cal-date-link
+.not-this-month .date-has-data
+  color: #fff
+  background: rgba(254, 131, 109, 0.3)
+
+.not-this-month .date-no-data
   color: #ddd

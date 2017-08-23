@@ -1,4 +1,5 @@
 <template lang="pug">
+transition(name="post")
   .post
     side-menu
     header-logo 
@@ -8,6 +9,7 @@
     post-before(v-if="isModify")
     post-empty(v-if="isEmpty")
     post-after(v-if="isAfter")
+    spinner(v-if="isLoading")
     post-map(:class="mapChangeClass")
 </template>
 
@@ -21,6 +23,7 @@ import PostAddButton from './PostAddButton'
 import PostEmpty from './PostEmpty'
 import PostBefore from './PostBefore'
 import PostAfter from './PostAfter'
+import Spinner from '../Spinner'
 import PostMap from './PostMap'
 
 export default {
@@ -28,9 +31,10 @@ export default {
   components: {
     HeaderLogo, SideMenu, HeaderSlogan, PostAddButton,
     PostEmpty, PostBefore, PostAfter,
-    PostMap,
+    PostMap, Spinner
   },
   created() {
+    this.showSearchBtn();
     this.changeDateFormat(this.$route.params.date);    
     this.showAllDayData();
   },
@@ -47,6 +51,7 @@ export default {
       'allDayData',
       'postKeys',
       'postDate',
+      'isLoading'
       'isMap',
       'mapChangeClass',
       'mapStyle',
@@ -54,6 +59,7 @@ export default {
   },
   methods: {
     ...mapMutations([
+      'showSearchBtn',
       'changeDateFormat',
       'showAllDayData',
       'imgUpload',
@@ -70,6 +76,12 @@ export default {
 </script>
 
 <style lang="sass">
+
+// post 애니메이션
+.post-enter, .post-leave-top
+  opacity: 0
+.post-enter-active
+  transition: opacity 0.7s ease
 
 .post-area-container
   margin-top: 12%
