@@ -24,8 +24,8 @@ new Vue({
 
 window.fbAsyncInit = function() {
   FB.init({
-    appId      : '125700354733414',
-    // appId      : '857035937788675',
+    // appId      : '125700354733414',
+    appId      : '857035937788675',
     cookie     : true,
     xfbml      : true,
     version    : 'v2.10',

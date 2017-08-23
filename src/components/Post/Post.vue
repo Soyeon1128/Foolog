@@ -10,6 +10,7 @@ transition(name="post")
     post-empty(v-if="isEmpty")
     post-after(v-if="isAfter")
     spinner(v-if="isLoading")
+    post-map(:class="mapChangeClass")
 </template>
 
 <script>
@@ -22,8 +23,8 @@ import PostAddButton from './PostAddButton'
 import PostEmpty from './PostEmpty'
 import PostBefore from './PostBefore'
 import PostAfter from './PostAfter'
-import PostMap from '../Post/PostMap'
 import Spinner from '../Spinner'
+import PostMap from './PostMap'
 
 export default {
   name: 'Post',
@@ -51,6 +52,9 @@ export default {
       'postKeys',
       'postDate',
       'isLoading'
+      'isMap',
+      'mapChangeClass',
+      'mapStyle',
     ])
   },
   methods: {
@@ -63,6 +67,9 @@ export default {
       'getTasteTagValue',
       'showAllDayData',      
       'postList',
+      'modalMap'
+    ]),
+    ...mapActions([
     ]),
   }
 }
