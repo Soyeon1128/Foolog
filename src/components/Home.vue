@@ -75,8 +75,8 @@ export default {
   .project-info
     position: absolute
     bottom: 2%
-    left: 50%
-    transform: translateX(-50%)
+    left: 47%
+    transform: translateX(-47%)
     color: #444
 
   .project-info a
