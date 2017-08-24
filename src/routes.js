@@ -35,7 +35,7 @@ export const routes = [
   },
   {
     name: 'Post',
-    path: '/post',
+    path: '/post/:date',
     components: {
       default: Post
     },

@@ -51,7 +51,7 @@ export default {
       'allDayData',
       'postKeys',
       'postDate',
-      'isLoading'
+      'isLoading',
       'isMap',
       'mapChangeClass',
       'mapStyle',
@@ -67,7 +67,7 @@ export default {
       'getTasteTagValue',
       'showAllDayData',      
       'postList',
-      'modalMap'
+      // 'modalMap'
     ]),
     ...mapActions([
     ]),
