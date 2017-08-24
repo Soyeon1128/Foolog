@@ -30,6 +30,7 @@
           span.fa.fa-user
         button.register-img(@click='registerProfileImg') 프로필 사진 등록하기
         .side-menu-calendar
+          img(src="../assets/Foolog-color.png")
     .side-dim( v-if='side_menu' @click='closeSideMenu')
 </template>
 

@@ -34,6 +34,7 @@ export default {
     PostMap, Spinner
   },
   created() {
+    this.resetMap();
     this.showSearchBtn();
     this.changeDateFormat(this.$route.params.date);    
     this.showAllDayData();
@@ -67,6 +68,7 @@ export default {
       'getTasteTagValue',
       'showAllDayData',      
       'postList',
+      'resetMap'
       // 'modalMap'
     ]),
     ...mapActions([
