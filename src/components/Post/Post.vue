@@ -67,7 +67,7 @@ export default {
       'getTasteTagValue',
       'showAllDayData',      
       'postList',
-      'modalMap'
+      // 'modalMap'
     ]),
     ...mapActions([
     ]),

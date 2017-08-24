@@ -8,7 +8,7 @@ transition(name="after")
       .post-save-diary.susy-post-diary
         .post-save-diary-1
           span.fa.fa-calendar  {{ postDate }}
-          .fa.fa-map-marker.fa-lg  {{ item.location.title }}
+          .fa.fa-map-marker.fa-lg  {{ item.location && item.location.title }}
         .post-save-diary-2
           textarea.post-save-text(type="text" name="posttext" readonly="readonly") {{ item.text }}
         .post-save-diary-3   
@@ -33,6 +33,10 @@ export default {
   created() {
     this.changeDateFormat(this.$route.params.date); 
     this.showAllDayData();
+  },
+  data() {
+    return {
+    };
   },
   computed: {
     ...mapGetters([

@@ -1,5 +1,6 @@
 <template lang="pug">
-  .map
+transition(name='map')
+  .map.susy-header
     .map-wrapper
       input(ref="input" id="pac-input" class="controls" type="text" placeholder="Search Box")
       #map(ref="mapBox")
@@ -13,13 +14,9 @@ import { mapGetters, mapMutations } from 'vuex'
 
 export default {
   name: 'PostMap',
-  // beforeMount () {
-  //   this.googleMap();
-  // },
-  mounted() {
-    // console.log('!!!mounted');    
+  mounted() {   
     this.googleMap();
-    // console.log('googleMap: ', this.googleMap())
+    console.log('this.googleMap():', this.googleMap());
   },
   data() {
     return {
@@ -27,7 +24,7 @@ export default {
       initPosition: null,
       mapOptions: null,
       markers: [],
-      place: {}
+      place: {},
     };
   },
   methods: {
@@ -47,8 +44,8 @@ export default {
           center: this.initPosition,
           // types: ['food']
         }
-        console.log('')
         this.map = new google.maps.Map(this.$refs.mapBox, this.mapOptions);
+        google.maps.event.trigger(this.map, 'resize');
         this.setMarker();
         this.setSearchInput();
         // this.setLocationDetail();
@@ -60,6 +57,7 @@ export default {
           marker.setAnimation(google.maps.Animation.DROP);
         }
       }
+      window.initMap();
     },
     setMarker() {
       let marker = new google.maps.Marker({
@@ -145,15 +143,13 @@ export default {
 
 <style lang="sass" scoped>
 
-  body
-    height: 100vh
-    overflow: hidden
+.map-enter, .map-leave-top
+  opacity: 0
+.map-enter-active
+  transition: opacity 0.7s ease
+
+.map-area-container
+  margin-top: 12%
 
 </style>
-      
-
-     
-      
-
-
       
