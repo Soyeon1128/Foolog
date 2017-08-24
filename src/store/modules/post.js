@@ -109,7 +109,18 @@ const mutations = {
       headers: { 'Authorization' : `Token ${user_token}` }
     })
     .then(response => {
+      console.log(response.data);
       state.allDayData = response.data;
+
+      if ( state.allDayData.location === null ) {
+        state.allDayData.location = {
+          title: '',
+          memo: '',
+          longitude: '',
+          latitud: ''
+        }
+      }
+
       state.allDayData.sort((a, b) => {
         return a.pk > b.pk ? -1 : a.pk < b.pk ? 1 : 0;
       })

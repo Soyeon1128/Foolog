@@ -22,6 +22,7 @@ export default {
   methods: {
     // 슬로건 영역에서 쓰이는 DD MMM 형식의 날짜 (cf. 19 Jul)
     changeSloganDate() {
+      console.log('??????????',this.$route.params.date);
       // 전달받은 YYYYMMDD 형식의 날짜 데이터
       let original_date = this.$route.params.date;
 
