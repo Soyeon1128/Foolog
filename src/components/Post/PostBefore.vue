@@ -24,7 +24,7 @@ transition(name="before")
             button.fa.fa-map-marker.fa-lg(
               type='button'
               @click="modalMap"
-              ) {{ postKeys.location.title || " 장소 추가하기" }}
+              )  {{ postKeys.location.title || " 장소 추가하기" }}
         .post-list-diary-2
           form
             textarea.post-add-text(
@@ -105,38 +105,6 @@ export default {
       // 'setPhoto'
       'modalMap',
     ]),
-    // ...mapActions([
-    //   'placeName'
-    // ])
-    // imgUpload(e) {
-    //   let file = e.target.files[0];
-    //   let reader = new FileReader();
-    //   reader.readAsDataURL(file);
-    //   reader.onload = (f) => {
-    //     this.setPhoto(f.srcElement.result);
-    //   };
-    //   this.isCamera = false;
-    // },
-    // imageLoadHandler(e) {
-    //   let target = e.target;
-    //   let natural_width = target.naturalWidth;
-    //   let natural_height = target.naturalHeight;
-    //   let client_width = target.width;
-    //   let client_height = target.height;
-
-    //   console.log('ref!!!!!!',this.$refs.postImg.attributes);
-
-    //   if ( natural_height < natural_width ) {
-    //     natural_height = client_height;
-    //   }
-    //   else if ( natural_width < natural_height ) {
-    //     natural_width = client_width;
-    //   }
-    //   // console.log(natural_height);
-    //   // console.log(natural_width);
-    //   // console.log(client_height);
-    //   // console.log(client_width);
-    // }
   }
 
 }

@@ -112,14 +112,15 @@ const mutations = {
       console.log(response.data);
       state.allDayData = response.data;
 
-      if ( state.allDayData.location === null ) {
-        state.allDayData.location = {
-          title: '',
-          memo: '',
-          longitude: '',
-          latitud: ''
-        }
-      }
+      state.is_map = false;
+      // if ( state.allDayData.location === null ) {
+      //   state.allDayData.location = {
+      //     title: '',
+      //     memo: '',
+      //     longitude: '',
+      //     latitud: ''
+      //   }
+      // }
 
       state.allDayData.sort((a, b) => {
         return a.pk > b.pk ? -1 : a.pk < b.pk ? 1 : 0;
@@ -375,8 +376,10 @@ const mutations = {
       state.before = false;
       state.after = false;      
   },
+  resetMap(state) {
+    state.map_change_class = 'map-modal-hidden'
+  },
   modalMap(state) {
-    console.log('asdfsad');
     state.is_map = !state.is_map;
     if (state.is_map === true) {
       state.map_change_class = 'map-modal-visible'
@@ -392,6 +395,17 @@ const mutations = {
       state.map_style = {}
     }
   },
+  // assignTasteClass(taste) {
+  //   switch(taste) {
+  //     case 'Good':
+  //       return 'fa-smile-o';
+  //     case 'Soso':
+  //       return 'fa-meh-o';
+  //     case 'Bad':
+  //       return 'fa-frown-o';
+  //   }
+  // },
+
 }
 
 const actions = {

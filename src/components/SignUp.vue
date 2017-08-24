@@ -168,57 +168,6 @@ export default {
         console.log(error)
       })
     },
-    // validateEmail() {
-    //   this.$http.get(this.getUrlValid, {
-    //     params: { 
-    //       email: this.email 
-    //     }
-    //   })
-    //   .then(response => {
-    //     let error_valid = response.data;
-    //     let props = Object.values(error_valid);
-    //     console.log(props);
-        
-    //     if ( props[0] === false ) {
-    //       this.email_valid_false = true
-    //       this.email = ''
-    //     } else if ( props[0] === true ) {
-    //       this.email_valid_false = false          
-    //       this.email_valid_empty = false
-    //       // this.email_valid_true = true
-    //     } else if ( props[0] === null ) {
-    //       this.email_valid_empty = true
-    //     } 
-    //   })
-    //   .catch(error => {
-    //     console.log(error)
-    //   })
-    // },
-    // validateNickname() {
-    //   this.$http.get(this.$store.state.url_valid, {
-    //     params: { 
-    //       nickname: this.nickname 
-    //     }
-    //   })
-    //   .then(response => {
-    //     console.log(response)
-    //     let error_valid = response.data;
-    //     let props = Object.values(error_valid);
-    //     console.log(props);
-    //     if ( props[1] === false ) {
-    //       this.nickname_valid_false = true
-    //       // this.nickname = ''
-    //     } else if ( props[1] === true ) {
-    //       this.nickname_valid_false = false
-    //       this.nickname_valid_empty = false
-    //     } else if ( props[0] === null) {
-    //       this.nickname_valid_empty = true
-    //     }
-    //   })
-    //   .catch(error => {
-    //     console.log(error)
-    //   })
-    // },
     submitSignUp() {
       if(!this.emailValidation()) return
       if(!this.nicknameValidation()) return

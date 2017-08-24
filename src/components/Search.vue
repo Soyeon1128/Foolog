@@ -31,8 +31,8 @@ transition(name="search")
             img(:src="item.photo")
         .search-diary-wrapper
           .search-diary-1
-            span.fa.fa-calendar  날짜 아직 안함 !
-            button.fa.fa-map-marker.fa-lg(type='button')  잠원동 신선횟집
+            span.fa.fa-calendar  {{ item.date.split(' ')[0] }}
+            button.fa.fa-map-marker.fa-lg(type='button')  {{ item.location && item.location.title }}
           .search-diary-2
             textarea.search-text(type="text" name="searchtext" readonly="readonly") {{ item.text }}
           .search-diary-3   
@@ -92,10 +92,6 @@ export default {
           this.searchData = data;
           this.isSearchData = true;
         }
-
-        console.log('this.searchData',this.searchData);
-        console.log('this.searchLength',this.searchLength);
-        console.log('this.isSearchData',this.isSearchData);
 
       })
       .catch(error => {
