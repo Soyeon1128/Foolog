@@ -15,7 +15,7 @@ const state = {
   spinner: false,
   is_map: false,
   map_change_class: '',
-  map_move: {},
+  // map_move: {},
   map_style: {},
   post_keys: {
     text: '',
@@ -89,6 +89,7 @@ const getters = {
 const mutations = {
   changeDateFormat(state, targetdate) {
     // 전달받은 YYYYMMDD 형식의 날짜 데이터 targetdate를 전달받음
+    console.log('targetdate', targetdate);
     state.targetDate = targetdate;
     // 연, 월, 일 추출
     let year = targetdate.substring(0,4);
@@ -364,6 +365,7 @@ const mutations = {
       state.after = false;      
   },
   modalMap(state) {
+    console.log('asdfsad');
     state.is_map = !state.is_map;
     if (state.is_map === true) {
       state.map_change_class = 'map-modal-visible'
@@ -371,9 +373,9 @@ const mutations = {
         height: 100+'vh',
         overflow: 'hidden'
       }
-      state.map_move = {
-        'margin-top': 0 
-      }
+      // state.map_move = {
+      //   'margin-top': 0 
+      // }
     } else {
       state.map_change_class = 'map-modal-hidden'
       state.map_style = {}
