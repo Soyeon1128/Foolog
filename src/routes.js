@@ -4,10 +4,8 @@ import Post from './components/Post/Post'
 import PostBefore from './components/Post/PostBefore.vue'
 import PostAfter from './components/Post/PostAfter.vue'
 import Search from './components/Search'
-import Statistics from './components/Statistics'
 
 // routes setting
-
 export const routes = [
   {
     path: '/',
@@ -36,35 +34,17 @@ export const routes = [
     }
   },
   {
-    name: 'post',
-    // path: '/post',
-    path: '/post',
+    name: 'Post',
+    path: '/post/:date',
     components: {
       default: Post
     },
-    children: [
-      {
-        path: ':date/before',
-        name: 'PostBefore',
-        component: PostBefore
-      },
-      {
-        path: ':date/after',
-        name: 'PostAfter',
-        component: PostAfter
-      }
-    ]
   },
   {
+    name: 'Search',
     path: '/search',
     components: {
       default: Search
     }
-  },
-  {
-    path: '/statistics',
-    components: {
-      default: Statistics
-    }
-  },
+  }
 ]

@@ -1,5 +1,4 @@
 ### USER ###
-dist/
 
 # Editor directories and files
 .idea
@@ -52,7 +51,6 @@ yarn.lock
 .LSOverride
 
 # Icon must end with two \r
-Icon
 
 # Thumbnails
 ._*

@@ -26,22 +26,29 @@ transition(name='calendar')
               td(v-for="day in arrDay") {{ day }}
           tbody(v-for="n in 5")
             tr
-              td.cal-date(v-for="m in 7" :class="arrIsThisMonth[ (n-1)*7 + m-1 ]") 
-                a.cal-date-link(href @click.prevent="clickTargetDate(arrTargetDate[ (n-1)*7 + m-1 ])") {{ arrTargetDate[ (n-1)*7 + m-1 ].getDate() }}
+              td.cal-date(v-for="m in 7" :class="arrIsThisMonth[ (n-1)*7 + m-1 ]")
+
+                a.date-has-data(v-if="dataSet && dataSet.has(arrTargetDate[(n-1)*7 + m-1].toISOString().split('T')[0])" @click.prevent="clickTargetDate(arrTargetDate[ (n-1)*7 + m-1 ])") {{ arrTargetDate[ (n-1)*7 + m-1 ].getDate() }}
+                
+                a.date-no-data(href v-else="dataSet && dataSet.has(arrTargetDate[(n-1)*7 + m-1].toISOString().split('T')[0])" @click.prevent="clickTargetDate(arrTargetDate[ (n-1)*7 + m-1 ])") {{ arrTargetDate[ (n-1)*7 + m-1 ].getDate() }}
 </template>
 
 <script>
+import {mapGetters, mapMutations, mapActions} from 'vuex'
+
 import HeaderLogo from './Header'
 import SideMenu from './SideMenu'
+import Search from './Search'
 
 export default {
   name: 'Calendar',
   components: {
-    HeaderLogo, SideMenu
+    HeaderLogo, SideMenu, Search
   },
   created() {
+    this.showSearchBtn();
+    this.getAllData();
     this.makeCalendar();
-    // this.getUserToken();
   },
   data() {
     return {
@@ -52,9 +59,17 @@ export default {
       arrTargetDate: [],
       targetFullDate: '',
       dayListUrl: '',
+      dataSet: null,
+      datedatedate: [],
+      hasDate: []
     }
   },
   methods: {
+    ...mapMutations([
+      'showSearchBtn'
+      // 'showAllDayData',
+      // 'getCalPhoto'
+    ]),
     // 매달의 달력 생성 함수
     makeCalendar() {
       // 기준 일
@@ -160,32 +175,33 @@ export default {
         headers: { 'Authorization' : `Token ${user_token}` }  
       })
       .then(response => {
-        if ( response.data.length === 0 ) {
-          this.$router.push({
-            name: 'PostBefore',
-            params: {
-              date: this.targetFullDate
-            }
-          })
-        }
-        else if ( response.data.length > 0 ) {
-          this.$router.push({
-            name: 'PostAfter',
-            params: {
-              date: this.targetFullDate
-            }
-          })
-        }
+        this.$router.push({
+          name: 'Post',
+          params: {
+            date: this.targetFullDate
+          }
+        })
       })
       .catch(error => {
         console.log(error);
       })
-      // this.$router.push({
-      //     name: 'post', 
-      //     params: {
-      //       date: this.targetFullDate,
-      //     }
-      // });
+    },
+    getAllData() {
+      let list_url = this.$store.state.url_post;
+      let user_token = window.localStorage.getItem('token');
+      this.$http.get(list_url, {
+        headers: { 'Authorization' : `Token ${user_token}` }  
+      })
+      .then(response => {
+        let all_data = response.data;
+        this.dataSet = new Set();
+        all_data.forEach((item) => {
+          this.dataSet.add(item.date.split(' ')[0]);
+        });
+      })
+      .catch(error => {
+        console.log(error);
+      })
     }
   }
 }

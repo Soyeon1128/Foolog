@@ -23,7 +23,7 @@
     border: none
     background: none
     cursor: pointer
-    z-index: 1000
+    z-index: 900
 
   .button-icon-bars
     color: #fff
@@ -86,6 +86,7 @@
   z-index: 100
 
 .side-menu-profile
+  cursor: pointer
   position: absolute
   top: 35px
   left: 80px
@@ -111,18 +112,16 @@
 
 .profile-img
   position: absolute
-  top: 0
-  left: 0
-  width: 200px
-  max-height: auto
-  margin-top: -25px
-  // width: 199px
-  // height: 199px
+  top: 50%
+  left: 50%
+  max-width: 180%
+  max-height: 180%
+  transform: translate(-50%, -50%)
   
 .profile-email
   font-family: 'Saira', sans-serif
   text-align: center
-  line-height: 25
+  line-height: 26
   width: 100%
   color: #fff
   font-weight: 100
@@ -131,7 +130,7 @@
 .register-img
   position: absolute
   top: 300px
-  left: 138px
+  left: 125px
   font-size: 12px
   font-weight: 200
   color: #fff
@@ -152,6 +151,10 @@
   top: 426px
   left: 0
   width: 350px
-  height: 250px
+  height: 80%
   background: #fff
+
+.side-menu-calendar img
+  margin-top: 22%;
+  margin-left: 27%;
 

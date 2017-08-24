@@ -1,5 +1,12 @@
+// after 애니메이션
+.after-enter, .after-leave-to
+  opacity: 0
+.after-enter-active
+  transition: opacity 0.7s ease
+
+
 .post-save-container
-  margin-top: 130px
+  margin-top: 115px
   // padding-top: 50px
   margin-bottom: 45px
   position: relative
@@ -9,36 +16,35 @@
 
 .post-save-container.susy-photo-diary-wrapper
   float: none
-  
+  min-height: 450px
 // photo 영역
 
 // .post-save-photo
-//   padding: 15px 10px 10px 10px
-// .post-save-photo img
-  width: 100%
+  heigth: 450px
 
 .post-save-photo-wrapper
   position: absolute
-  top: 25px
-  left: 25px
-  width: 385px
-  height: 315px
+  top: 6%
+  left: 3%
+  width: 46%
+  height: 88%
   overflow: hidden
 
 .post-save-photo-wrapper img
-  position: absolute
-  top: 0
-  left: 0
-  width: auto
-  max-height: 315px 
-  // margin-left: -55px
+  position: absolute;
+  top: 50%
+  left: 50%
+  max-height: 125%
+  max-width: 125%
+  transform: translate(-50%, -50%)
   z-index: 101
+
 
 // diary 영역
 .post-save-diary
   // height: 120%
   background-color: $color-main-post 
-  padding: 20px
+  padding: 3% 2% 3% 3%
   width: 48%
   
 // post-save-diary-1
@@ -46,8 +52,9 @@
   position: relative
   margin-top: 5px
 
-.fa-clock-o
+.fa-calendar
   color: $color-foolog
+  font-size: 18px
 
 .fa-map-marker
   color: $color-gray-icon
@@ -56,7 +63,7 @@
   position: absolute
   top: 0
   right: 0
-  cursor: pointer
+  // cursor: pointer
 
 // post-save-diary-2  
 .post-save-diary-2
@@ -66,35 +73,41 @@
   // position: relative
   // resize: none
   border: none
-  margin: 20px 0 20px 0
+  margin-top: 5%
   max-width: 100%
-  // height: 285px
-  padding: 5px 3px
+  height: 300px
+  width: 400px
+  background: $color-main-post
+  // resize: none
+  padding: 2%
   line-height: 22px
   z-index: 1200
   color: #666
-  min-height: 250px
+  // min-height: 200px
 
 // post-save-diary-3 
 .post-save-diary-3
   position: absolute
   top: 100%
   left: 50%
-  margin-top: -50px
+  transform: translateY(-200%)
+  width: 45%
+  // bottom: 10%
+  // left: 50%
+  // margin-top: -50px
   display: inline-block
-  height: 50px
+  margin-left: 4%
+  // height: 50px
 
 .save-tags-food
   // width: 100px
   display: inline-block
   color: $color-gray-icon
-  margin-left: 22px
   // position: absolute
   // top: 100%
   // left: 50%
   // margin-top: -5%
 
-.save-tags-food span
     
 .tag-food
   font-weight: 200
@@ -128,9 +141,8 @@
   border: 1px solid #824880
   
 .save-tags-taste
-  width: 150px
   display: inline-block
-  margin-left: 10px  
+  margin-left: 20px  
   // position: absolute
   // top: 100%
   // left: 50%
@@ -163,10 +175,11 @@
 .save-modify
   width: 60px
   display: inline-block
-  margin-left: 20px
-  // position: absolute
-  // top: 100%
-  // left: 50%
+  position: absolute
+  top: 0
+  right: 0
+  transform: translateX(-20%);
+  
   // margin-top: -5%
   // margin-left: 60% 
   color: $color-gray-icon

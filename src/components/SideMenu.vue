@@ -28,8 +28,9 @@
               )
           h1.profile-email {{ email }}
           span.fa.fa-user
-        button.register-img(@click='registerProfileImg') 프로필 등록하기
+        button.register-img(@click='registerProfileImg') 프로필 사진 등록하기
         .side-menu-calendar
+          img(src="../assets/Foolog-color.png")
     .side-dim( v-if='side_menu' @click='closeSideMenu')
 </template>
 
@@ -39,8 +40,6 @@ import {mapGetters, mapMutations} from 'vuex'
 export default {
   name: 'SideMenu',
   created() {
-    // let user_pk = window.localStorage.getItem('user_pk', user_pk);
-    // window.localStorage.getItem('token')
     this.getUserPk();
     this.getUserData();
   },
@@ -106,6 +105,7 @@ export default {
       })
       .catch(error => {
         console.log(error.response)
+        window.alert('프로필 사진을 추가 & 변경해주세요')
       })
     },
     getUserData() {
@@ -140,7 +140,15 @@ export default {
         })
         .then(response => {
           console.log(response)
+          if ( window.localStorage.facebook ) {
+          window.localStorage.removeItem('facebook')
+          }
+          if ( window.localStorage.token ) {
           window.localStorage.removeItem('token')
+          }
+          if ( window.localStorage.user_pk ) {
+          window.localStorage.removeItem('user_pk')
+          }
           this.$router.push({
             path: '/',
           })
@@ -149,7 +157,7 @@ export default {
           console.log(error)
         })
       }
-    }
+    },
   },
 }
 </script>

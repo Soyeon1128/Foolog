@@ -1,12 +1,45 @@
+
+.map-modal-visible
+  visibility: visible
+  //transition: opacity 0.7s ease
+
+.map-modal-hidden
+  visibility: hidden 
+  //transition: opacity 0.7s ease
+
+
 .map-wrapper
   // height: 530px
   // width: 530px
-  border: 15px solid $color-main-post
-  border-radius: 25px
+  // border: 8px solid $color-main-post
+  background: $color-foolog
+  border-radius: 15px
 
-.map-dim  
+.map-add-location
+  position: absolute
+  bottom: 2%
+  right: 3%
+  font-size: 18px
+  font-weight: 400
+  width: 60px
+  height: 25px
+  background: $color-main-post
+  color: $color-foolog
+  cursor: pointer
+  border: none
+  border-radius: 8px
 
-// #map 
+
+.map-modal
+  width: 100%
+  height: 100vh
+  position: absolute
+  top: 0
+  left: 0
+  z-index: 999
+  background: rgba(0, 0, 0, 0.7)
+
+#map 
 //   height: 500px
 //   width: 500px
 
