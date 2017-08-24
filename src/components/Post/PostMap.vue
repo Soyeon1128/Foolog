@@ -1,5 +1,5 @@
 <template lang="pug">
-  .map.susy-header
+  .map
     .map-wrapper
       input(ref="input" id="pac-input" class="controls" type="text" placeholder="Search Box")
       #map(ref="mapBox")

@@ -10,7 +10,7 @@ transition(name="post")
     post-empty(v-if="isEmpty")
     post-after(v-if="isAfter")
     spinner(v-if="isLoading")
-    post-map(:class="mapChangeClass")
+    post-map(:class="mapChangeClass") 
 </template>
 
 <script>
@@ -51,7 +51,7 @@ export default {
       'allDayData',
       'postKeys',
       'postDate',
-      'isLoading'
+      'isLoading',
       'isMap',
       'mapChangeClass',
       'mapStyle',
