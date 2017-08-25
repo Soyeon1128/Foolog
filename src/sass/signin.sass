@@ -1,0 +1,169 @@
+@import '../sass/config'
+
+.signin-enter-active 
+  transition: all .3s ease-in-out
+
+.signin-leave-active 
+  transition: all .3s cubic-bezier(1.0, 0.5, 0.8, 1.0)
+
+// .signin-enter, .signin-leave-to
+//   transfrom: translateY(-300px)
+//   opacity: 0
+.signin-enter, .signin-leave-to
+  transition: all .3s ease-in-out
+  opacity: 0.2
+
+fieldset
+  border: none
+
+
+.signin-content-wrapper
+  position: relative
+  top: 120px
+  height: 385px
+  border-radius: 5px
+  padding-top: 2.5%
+  background: rgba(255,255,255,0.4)
+  z-index: 1000
+
+  &-inside
+    margin: 0 auto
+    border-radius: 5px
+    width: 95%
+    height: 97%
+    background: #fff
+
+    &-delete
+      position: absolute
+      top: -2%
+      right: -1%
+      width: 24px
+      height: 24px
+      border: none
+      border-radius: 11px
+      font-size: 12px
+      color: #fe836d  
+      background: #fff
+      cursor: pointer
+
+.signin-content-buttons-signin
+  font-weight: 500 
+  float: left
+  font-size: 15px  
+  background-color: #fff  
+  border: none   
+  border-radius: 5px 0 0 0  
+  color: #303030  
+  width: 50%
+  height: 50px
+  cursor: pointer  
+
+.signin-content-buttons-signup
+  font-weight: 500  
+  float: right
+  font-size: 15px
+  background-color: #bbb
+  border: none
+  border-radius: 0 5px 0 0    
+  color: #303030  
+  width: 50%
+  height: 50px
+  cursor: pointer  
+
+#signin-email
+  padding-left: 10px
+  margin: 28px 0 5px 28px
+  font-size: 11px  
+  background-color: #eee  
+  border: none  
+  border-radius: 3px  
+  color: #303030  
+  width: 85%
+  height: 45px
+  cursor: pointer  
+
+#signin-password
+  padding-left: 10px
+  margin: 5px 0 5px 28px
+  font-size: 11px  
+  background-color: #eee  
+  border: none  
+  border-radius: 3px  
+  color: #303030  
+  width: 85%
+  height: 45px
+  cursor: pointer  
+
+.password-valid-false
+  font-size: 10px
+  color: red
+  margin-left: 30px
+
+.signin-login
+  font-weight: 300  
+  margin: 10px 0 5px 28px  
+  font-size: 18px  
+  background-color: #fe836d  
+  border: none  
+  border-radius: 3px  
+  color: #fff  
+  width: 85%
+  height: 45px
+  cursor: pointer  
+
+.signin-facebook
+  margin: 5px 0 10px 28px    
+  font-size: 18px  
+  font-weight: 300  
+  background-color: hsl(220, 46%, 48%) 
+  border: none  
+  border-radius: 3px  
+  color: #fff  
+  width: 85%
+  height: 45px
+  cursor: pointer
+
+.fa-facebook-official
+  margin-right: 15px
+  font-size: 33px
+  vertical-align: -5px
+// .fb-login-button
+//   margin: 5px 0 10px 28px    
+//   font-size: 15px  
+//   background-color: hsl(220, 46%, 48%) 
+//   border: none  
+//   border-radius: 3px  
+//   color: #fff  
+//   width: 85%
+//   height: 45px
+//   cursor: pointer
+
+iframe
+  margin: 2px 0 0 52px  
+
+hr
+  width: 85%
+  margin: 0 auto
+
+.signin-notice-facebook
+  color: #a6a6a6
+  font-size: 9px
+  padding-top: 10px
+  margin-left: 28px
+
+
+
+// .signin-facebook
+//   font-weight: 400  
+//   margin: 0 0 10px 28px    
+//   font-size: 15px  
+//   background-color: #4c68b1  
+//   border: none  
+//   border-radius: 3px  
+//   color: #fff  
+//   width: 85%
+//   height: 45px
+//   cursor: pointer  
+
+// .fa-facebook
+//   width: 20px

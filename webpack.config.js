@@ -39,13 +39,14 @@ module.exports = {
   },
   resolve: {
     // import / require() 시, 확장자 생략 가능
-    extensions: ['.js', '.vue', '.json'],
+    extensions: ['.js', '.vue', '.json', '.sass', '.scss'],
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
       // 외부 Sass 파일을 로드하고자 할 경우, 아래와 같이 경로를 입력한 후,
       // .vue 파일 <style lang="sass"> 내에 @import "~yamoo9" 를 호출하면 사용 가능합니다.
       'susy': path.resolve(__dirname, './src/lib/susy/_susy.scss'),
       'config': path.resolve(__dirname, './src/lib/config/_config.scss'),
+      'media': path.resolve(__dirname, './src/lib/config/media_query.scss'),
     }
   },
   devServer: {

@@ -1,0 +1,150 @@
+@import '../sass/config'
+
+.signup-enter-active 
+  transition: all .3s ease-in-out
+
+.signup-leave-active 
+  transition: all .3s cubic-bezier(1.0, 0.5, 0.8, 1.0)
+
+.signup-enter, .signup-leave-to
+  transition: all .3s ease-in-out
+  opacity: 0.2
+
+.signup-content-wrapper
+  position: relative
+  top: 120px
+  height: 385px
+  border-radius: 5px
+  padding-top: 2.5%
+  background: rgba(255,255,255,0.4)
+  z-index: 1000
+
+  &-inside
+    margin: 0 auto
+    border-radius: 5px
+    width: 95%
+    height: 97%
+    background: #fff
+
+    &-delete
+      position: absolute
+      top: -2%
+      right: -1%
+      width: 24px
+      height: 24px
+      border: none
+      border-radius: 11px
+      font-size: 12px
+      color: #fe836d  
+      background: #fff
+      cursor: pointer
+
+.signup-content-buttons-signin
+  font-weight: 500 
+  float: left
+  font-size: 15px  
+  background-color: #bbb  
+  border: none   
+  border-radius: 5px 0 0 0  
+  color: #303030  
+  width: 50%
+  height: 50px
+  cursor: pointer  
+
+.signup-content-buttons-signup
+  font-weight: 500  
+  float: right
+  font-size: 15px
+  background-color: #fff
+  border: none
+  border-radius: 0 5px 0 0    
+  color: #303030  
+  width: 50%
+  height: 50px
+  cursor: pointer  
+
+#signup-email
+  padding-left: 10px
+  margin: 28px 0 5px 28px
+  font-size: 11px  
+  background-color: #eee  
+  border: none  
+  border-radius: 3px  
+  color: #303030  
+  width: 85%
+  height: 45px
+  cursor: pointer  
+
+.email-valid-false
+  font-size: 10px
+  color: red
+  margin-left: 30px
+
+.email-valid-empty
+  font-size: 10px
+  color: red
+  margin-left: 30px
+  
+.email-valid-true
+  font-size: 10px
+  color: blue
+  margin-left: 30px
+
+#signup-nickname
+  padding-left: 10px
+  margin: 5px 0 5px 28px
+  font-size: 11px  
+  background-color: #eee  
+  border: none  
+  border-radius: 3px  
+  color: #303030  
+  width: 85%
+  height: 45px
+  cursor: pointer
+
+.nickname-valid-false
+  font-size: 10px
+  color: red
+  margin-left: 30px  
+
+.nickname-valid-empty
+  font-size: 10px
+  color: red
+  margin-left: 30px  
+
+.fa-exclamation-circle
+  margin-right: 3px
+
+#signup-password
+  padding-left: 10px
+  margin: 5px 0 8px 28px
+  font-size: 11px  
+  background-color: #eee  
+  border: none  
+  border-radius: 3px  
+  color: #303030  
+  width: 85%
+  height: 45px
+  cursor: pointer  
+
+.signup-btn
+  font-weight: 300  
+  margin: 8px 0 10px 28px  
+  font-size: 18px  
+  background-color: #fe836d  
+  border: none  
+  border-radius: 3px  
+  color: #fff  
+  width: 85%
+  height: 45px
+  cursor: pointer   
+
+.signup-notice-facebook
+  color: #a6a6a6
+  font-size: 9px
+  padding-top: 10px
+  margin-left: 28px
+
+hr
+  width: 84.5%
+  margin: 0 auto

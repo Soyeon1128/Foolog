@@ -1,0 +1,205 @@
+// after 애니메이션
+.after-enter, .after-leave-to
+  opacity: 0
+.after-enter-active
+  transition: opacity 0.7s ease
+
+
+.post-save-container
+  margin-top: 115px
+  // padding-top: 50px
+  margin-bottom: 45px
+  position: relative
+  // height: 100%
+  // padding-bottom: 20px
+  background-color: $color-main-post  
+
+.post-save-container.susy-photo-diary-wrapper
+  float: none
+  min-height: 450px
+// photo 영역
+
+// .post-save-photo
+  heigth: 450px
+
+.post-save-photo-wrapper
+  position: absolute
+  top: 6%
+  left: 3%
+  width: 46%
+  height: 88%
+  overflow: hidden
+
+.post-save-photo-wrapper img
+  position: absolute;
+  top: 50%
+  left: 50%
+  max-height: 125%
+  max-width: 125%
+  transform: translate(-50%, -50%)
+  z-index: 101
+
+
+// diary 영역
+.post-save-diary
+  // height: 120%
+  background-color: $color-main-post 
+  padding: 3% 2% 3% 3%
+  width: 48%
+  
+// post-save-diary-1
+.post-save-diary-1
+  position: relative
+  margin-top: 5px
+
+.fa-calendar
+  color: $color-foolog
+  font-size: 18px
+
+.fa-map-marker
+  color: $color-gray-icon
+  background: none
+  border: none
+  position: absolute
+  top: 0
+  right: 0
+  // cursor: pointer
+
+// post-save-diary-2  
+.post-save-diary-2
+  margin-bottom: 35px
+
+.post-save-text
+  // position: relative
+  // resize: none
+  border: none
+  margin-top: 5%
+  max-width: 100%
+  height: 300px
+  width: 400px
+  background: $color-main-post
+  // resize: none
+  padding: 2%
+  line-height: 22px
+  z-index: 1200
+  color: #666
+  // min-height: 200px
+
+// post-save-diary-3 
+.post-save-diary-3
+  position: absolute
+  top: 100%
+  left: 50%
+  transform: translateY(-200%)
+  width: 45%
+  // bottom: 10%
+  // left: 50%
+  // margin-top: -50px
+  display: inline-block
+  margin-left: 4%
+  // height: 50px
+
+.save-tags-food
+  // width: 100px
+  display: inline-block
+  color: $color-gray-icon
+  // position: absolute
+  // top: 100%
+  // left: 50%
+  // margin-top: -5%
+
+    
+.tag-food
+  font-weight: 200
+  cursor: pointer
+  border-radius: 30px
+  color: #fff
+  text-align: center
+  width: 58px
+  padding: 5px
+  display: inline-block
+  margin-left: 5px  
+
+.tag-food.tag-food-korean
+  background: #007bbb
+  border: 1px solid #007bbb
+  
+.tag-food.tag-food-chinese
+  background: #e83929
+  border: 1px solid #e83929
+  
+.tag-food.tag-food-japanese
+  background: #82ae46
+  border: 1px solid #82ae46
+  
+.tag-food.tag-food-western
+  background: #e6b422
+  border: 1px solid #e6b422
+  
+.tag-food.tag-food-etc
+  background: #824880
+  border: 1px solid #824880
+  
+.save-tags-taste
+  display: inline-block
+  margin-left: 20px  
+  // position: absolute
+  // top: 100%
+  // left: 50%
+  // margin-top: -5%
+  // margin-left: 20%  
+  color: $color-gray-icon
+  span
+    margin-left: 5px  
+    
+
+.tag-taste
+  color: #000
+  cursor: pointer
+  background: none
+  border: none
+
+.save-share
+  width: 150px
+  display: inline-block
+  margin-left: -90px
+  // padding-top: 20px
+  // position: absolute
+  // top: 100%
+  // left: 50%
+  // margin-top: -5%
+  // margin-left: 40%
+
+.fb-share-button
+  
+.save-modify
+  width: 60px
+  display: inline-block
+  position: absolute
+  top: 0
+  right: 0
+  transform: translateX(-20%);
+  
+  // margin-top: -5%
+  // margin-left: 60% 
+  color: $color-gray-icon
+
+.modify-button
+  border: none
+  background: none
+  font-size: 15px
+  color: $color-gray-icon
+  cursor: pointer
+  
+.delete-button
+  width: 30px
+  height: 30px
+  border: none
+  border-radius: 20px
+  background: #fe836d
+  color: #fff
+  cursor: pointer
+  font-size: 15px
+  position: absolute
+  top: -13px
+  right: -13px

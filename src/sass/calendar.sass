@@ -1,0 +1,104 @@
+// calendar 애니메이션
+.calendar-enter, .calendar-leave-to
+  opacity: 0
+.calendar-enter-active
+  transition: opacity 0.7s ease
+
+// calendar 전체 영역
+.calendar
+  margin-top: 15px
+  position: absolute
+  top: 50%
+  transform: translateY(-50%)
+
+// cal-header 영역
+.cal-header
+  height: 100px
+  text-align: center
+  font-size: 40px
+  font-weight: 100
+  box-sizing: border-box
+ 
+.current-cal-header 
+  margin: 0 20px
+  position: relative
+  top: 30px
+  left: 0
+
+.cal-header-button-group
+  position: relative
+  top: -17%
+  right: 0
+
+.prev-month-button, .next-month-button 
+  border: none
+  background: none
+  font-size: 20px
+  font-weight: 100
+  cursor: pointer
+  width: 40px
+  height: 40px
+
+.prev-month-button
+  margin-right: 100px
+
+.next-month-button
+  margin-left: 100px
+
+// cal-table 영역
+table 
+  border-collapse: collapse
+  border-top: 1px solid #666
+  // border-bottom: 1px solid #666
+  margin: 0 auto
+
+  &-thead
+  font-size: 20px
+
+  &-tbody
+  font-size: 20px  
+  font-weight: 100
+  // text-align: center 
+  // border: 1px solid #666   
+
+thead td 
+  height: 80px
+  vertical-align: middle
+  text-align: center
+
+tbody td
+  // border: 1px solid #ccc
+  height: 80px
+  line-height: 80px
+  text-align: center
+
+.date-has-data
+  display: inline-block
+  width: 30px
+  height: 30px
+  border-radius : 30px
+  background: rgba(254, 131, 109, 0.8)
+  line-height: 30px
+  text-align: center
+  color: #fff
+  cursor: pointer
+  // border: 30px solid #fff
+
+.date-no-data
+  text-decoration: none
+  cursor: pointer
+  width: 30px
+  height: 30px
+  // height: 80px
+  line-height: 30px
+  // padding: 5px 0 0 5px
+  // padding-bottom: 30px
+  display: inline-block
+  color: $color-text-icon
+  
+.not-this-month .date-has-data
+  color: #fff
+  background: rgba(254, 131, 109, 0.3)
+
+.not-this-month .date-no-data
+  color: #ddd

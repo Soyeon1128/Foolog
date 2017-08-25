@@ -1,27 +1,30 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
-
 import Home from './components/Home'
-import User from './components/User/User'
-import Calendar from './components/Calendar/Calendar'
+import Calendar from './components/Calendar'
 import Post from './components/Post/Post'
+import PostBefore from './components/Post/PostBefore.vue'
+import PostAfter from './components/Post/PostAfter.vue'
 import Search from './components/Search'
-import Statistics from './components/Statistics'
 
 // routes setting
-
 export const routes = [
   {
     path: '/',
     name: 'Home',
+    
+    // Navigation Guard 사용시 필요 코드
+    // 토큰값이 있으면(로그인에 성공하면) Calendar 뷰를 보여줌
+
+    // beforeEnter(to, from, next){
+    //   let tk = window.localStorage.getItem('token');
+    //   if (tk) {
+    //     next('/calendar');
+    //   } else {
+    //     next();
+    //   }
+    // },
+
     components: {
       default: Home
-    }
-  },
-  {
-    path: '/user',
-    components: {
-      default: User
     }
   },
   {
@@ -31,21 +34,17 @@ export const routes = [
     }
   },
   {
-    path: '/post',
+    name: 'Post',
+    path: '/post/:date',
     components: {
       default: Post
-    }
+    },
   },
   {
+    name: 'Search',
     path: '/search',
     components: {
       default: Search
     }
-  },
-  {
-    path: '/statistics',
-    components: {
-      default: Statistics
-    }
-  },
+  }
 ]

@@ -1,0 +1,93 @@
+
+.map-modal-visible
+  visibility: visible
+  //transition: opacity 0.7s ease
+
+.map-modal-hidden
+  visibility: hidden 
+  //transition: opacity 0.7s ease
+
+
+.map-wrapper
+  // height: 530px
+  // width: 530px
+  // border: 8px solid $color-main-post
+  background: $color-foolog
+  border-radius: 15px
+
+.map-add-location
+  position: absolute
+  bottom: 2%
+  right: 3%
+  font-size: 18px
+  font-weight: 400
+  width: 60px
+  height: 25px
+  background: $color-main-post
+  color: $color-foolog
+  cursor: pointer
+  border: none
+  border-radius: 8px
+
+
+.map-modal
+  width: 100%
+  height: 100vh
+  position: absolute
+  top: 0
+  left: 0
+  z-index: 999
+  background: rgba(0, 0, 0, 0.7)
+
+#map 
+//   height: 500px
+//   width: 500px
+
+html, body 
+  height: 100%
+  margin: 0
+  padding: 0
+
+.controls 
+  margin-top: 10px
+  border: 1px solid transparent
+  border-radius: 2px 0 0 2px
+  box-sizing: border-box
+  -moz-box-sizing: border-box
+  height: 32px
+  outline: none
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3)    
+
+
+#pac-input 
+  background-color: #fff
+  font-family: Roboto
+  font-size: 15px
+  font-weight: 300
+  margin-left: 12px
+  padding: 0 11px 0 13px
+  text-overflow: ellipsis
+  width: 300px
+
+
+#pac-input:focus 
+  border-color: #4d90fe
+
+
+.pac-container 
+  font-family: Roboto
+
+
+#type-selector 
+  color: #fff
+  background-color: #4d90fe
+  padding: 5px 11px 0px 11px
+
+
+#type-selector label 
+  font-family: Roboto
+  font-size: 13px
+  font-weight: 300
+
+#target 
+  width: 345px
