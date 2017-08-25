@@ -169,9 +169,9 @@ export default {
       })
     },
     submitSignUp() {
-      if(!this.emailValidation()) return
-      if(!this.nicknameValidation()) return
-      if(!this.passwordValidation()) return
+      // if(!this.emailValidation()) return
+      // if(!this.nicknameValidation()) return
+      // if(!this.passwordValidation()) return
       this.$http.post(this.$store.state.url_users, {
         email:     this.email,
         nickname:  this.nickname,
@@ -179,8 +179,14 @@ export default {
         password2: this.password
       })    
       .then(response => {            
-        console.log(response)
+        console.log('회원가입완료: ', response)
         window.alert('회원가입이 완료되었습니다');
+        this.email = '',
+        this.nickname = '',
+        this.password = '',
+        this.$router.push({
+          path: '/'
+        })
       })
       .catch(error => {
         let error_data = error.response.data;
