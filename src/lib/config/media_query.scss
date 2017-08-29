@@ -180,6 +180,70 @@
   .delete-button {
     right: -2px;
   }
+  .search-input {
+    height: 48px;
+    width: 60%;
+    margin-left: 20%;
+    font-size: 17px;
+    padding-left: 10px;
+  }
+  .search-input-button {
+    right: 23%;
+  }
+  .search-no-result-area {
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 43px;
+    font-size: 25px;
+    font-weight: 100;
+    text-align: center;
+    line-height: 34px;
+  }
+  .search-index-area {
+    margin-top: 45px;
+    margin-left: 10%;
+    font-size: 28px;
+    line-height: 28px;
+  }
+  .result-index {
+    font-size: 35px;
+  }
+  .search-result-area {
+    width: 100%;
+    margin-left: 0;
+    margin-top: 40px
+  }
+  .search-post-area {
+    width: 100%;
+    height: 660px;
+    margin-left: 0;
+  }
+  .search-photo-wrapper {
+    height: 300px;
+    width: 329px;
+    top: 2%;
+    left: 3%;
+  }
+  .search-diary-wrapper {
+    width: 100%;
+    margin-top: 50px;
+    height: 290px;
+  }
+  .search-diary-2 {
+    margin-left: 0;
+  }
+  .search-diary-2 textarea {
+    width: 89%;
+    height: 200px;
+    font-size: 16px    
+  }
+  .search-diary-3 {
+    top: 250px
+  }
+  .search-photo img {
+    max-width: 125%;
+    max-height: 125%;
+  }
 }
 
 // 태블릿 뷰포트
@@ -312,6 +376,12 @@
   }
   .susy-main {
     @include span(isolate 8 at 3);
+  }
+  .calendar {
+    margin-top: 15px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
   }
   .home-slogan-first {
     width: 100%;
@@ -499,5 +569,69 @@
   }
   .delete-button {
     right: -13px;
+  }
+  .search-input {
+    height: 50px;
+    width: 50%;
+    margin-left: 25%;
+    font-size: 17px;
+    padding-left: 15px;
+  }
+  .search-input-button {
+    right: 26.5%;
+  }
+  .search-no-result-area {
+    width: 50%;
+    margin-left: 25%;
+    margin-top: 50px;
+    font-size: 35px;
+    font-weight: 100;
+    text-align: center;
+    line-height: 45px;
+  }
+  .search-index-area {
+    margin-top: 50px;
+    margin-left: 10%;
+    font-size: 37px;
+    line-height: 37px;
+  }
+  .result-index {
+    font-size: 43px;
+  }
+  .search-result-area {
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 50px
+  }
+  .search-post-area {
+    width: 80%;
+    height: 460px;
+    margin-left: 10%;
+  }
+  .search-photo-wrapper {
+    width: 50%;
+    height: 400px;
+    top: 0;
+    left: 0;
+  }
+  .search-diary-wrapper {
+    width: 50%;
+    margin-top: 0;  
+    height: 400px  
+  }
+  .search-diary-2 {
+    margin-left: 3%;
+  }
+  .search-diary-2 textarea {
+    width: 92%;
+    height: 330px;
+    font-size: 15px;
+  }
+  .search-diary-3 {
+    top: 390px;
+  }
+  .search-photo img {
+    max-width: 125%;
+    max-height: 125%;
   }
 }
