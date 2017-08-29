@@ -65,17 +65,30 @@
   }
   .susy-post-photo {
     @include span(4);
+    // background: yellow;
+    height: 300px;
   }
   .susy-post-diary {
     @include span(4);
-    margin-top: 30px
+    margin-top: 30px;
+    // background: blue;
+    height: 300px;
   }
-  .fa-clock-o {
-    font-size: 18px;
+  .post-save-container {
+    margin-top: 90px;
+  }
+  // diary 1
+  .post-save-diary-1 {
+    width: 330px;
+  }
+  .fa-calendar {
+    font-size: 20px;
   }
   .fa-map-marker {
     font-size: 17px;
+    // margin-top: 4px;
   }
+  //diary 3
   .diary-tags-food{
     font-size: 19px;
   }
@@ -92,12 +105,21 @@
   }
   .post-add-text {
     @include span(5);
+    font-size: 18px;
+    padding: 10px;
   }
   .post-delete {
     position: absolute;
-    top: -395px;
-    right: -10px;
+    top: -340px;
+    right: -5px;
     z-index: 100;
+  }
+  .post-save-diary-3 {
+    position: absolute;
+    top: 94%;
+    left: 6%;
+    width: 94%;
+    display: inline-block;
   }
   .map-wrapper {
     @include span(4);
@@ -115,6 +137,48 @@
     left: 13px;
     width: 320px;
     height: 370px;
+  }
+  .fa-camera {
+    position: absolute;
+    top: 31%;
+    left: 38%;
+  }
+  .add-photo-text {
+    position: absolute;
+    top: 61%;
+    left: 27%;
+  }
+  .post-save-photo-wrapper {
+    position: absolute;
+    top: 4%;
+    left: 6%;
+    height: 46%;
+    width: 88%;
+    overflow: hidden;
+  }
+  .post-save-text {
+    height: 210px;
+    width: 200%;
+    font-size: 17px;
+  }
+  .post-list-container {
+    height: 900px;
+  }
+  .post-img-wrapper {
+    top: 5%;
+    left: 3%;
+    width: 335px;
+    height: 315px;
+  }
+  .post-img {
+    max-height: 100%;
+    max-width: 100%;
+  }
+  .fa-smile-o, .fa-meh-o, .fa-frown-o {
+    font-size: 30px;
+  }
+  .delete-button {
+    right: -2px;
   }
 }
 
@@ -305,12 +369,18 @@
     @include span(isolate 6 at 7 nest);
     margin-top: 0;
   }
+  .post-save-container {
+    margin-top: 115px;
+  }
   // diary 1. 날짜 & 장소
-  .fa-clock-o {
-    font-size: 18px;
+  .fa-calendar {
+    font-size: 18px
   }
   .fa-map-marker {
     font-size: 17px;
+  }
+  .post-save-diary-1 {
+    width: 386px;
   }
   // diary 2. 텍스트
   .post-add-text {
@@ -359,6 +429,15 @@
     top: -13px;
     right: -13px;
   }
+  .post-save-diary-3 {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateY(-200%);
+    width: 45%;
+    display: inline-block;
+    margin-left: 4%;
+  }
   .map-wrapper {
     @include span(isolate 8 at 4);
     position: absolute;
@@ -376,5 +455,49 @@
     z-index: 9999;
     height: 500px;
     width: 500px;
+  }
+  .fa-camera {
+    position: absolute;
+    top: 52%;
+    left: 41%;
+  }
+  .add-photo-text {
+    position: absolute;
+    top: 83%;
+    left: 32%;
+  }
+  .post-img-wrapper {
+    height: 128%;
+  }
+  .post-save-photo-wrapper {
+    position: absolute;
+    top: 6%;
+    left: 3%;
+    width: 46%;
+    height: 88%;
+    overflow: hidden;
+  }
+  .post-save-text {
+    max-width: 100%;
+    height: 300px;
+    width: 400px;
+  }
+  .post-list-container {
+    height: 510px;
+  }
+  .post-img-wrapper {
+    top: 7%;
+    left: 5%;
+    width: 91%;
+  }
+  .post-img {
+    max-height: 125%;
+    max-width: 125%;
+  }
+  .fa-smile-o, .fa-meh-o, .fa-frown-o {
+    font-size: 28px;
+  }
+  .delete-button {
+    right: -13px;
   }
 }
