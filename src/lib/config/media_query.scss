@@ -47,6 +47,29 @@
     font-size: 42px;
     transform: translateX(0)     
   }
+  .project-info {
+    // @include span(isolate 1 at 3);
+    position: absolute;
+    width: 97%;
+    text-align: center;
+    bottom: 2%;
+    left: 47%;
+    color: #444; 
+    transform: translateX(-47%);
+  }
+  .project-info a {
+    text-decoration: none;   
+    color: #444;  
+  }
+  .project-info .name {
+    font-size: 12px;
+  }
+  .fa-github-square {
+    font-size: 14px;
+    margin-left: 10px;
+    margin-right: 7px;
+    cursor: pointer;
+  }
   .susy-slogan-1 {
     @include span(4);
     font-size: 33px;
@@ -59,10 +82,6 @@
     position: absolute;
     top: 28px;
     margin-top: -35px;
-  }
-  .project-info {
-    @include span(4);
-    font-size: 12px
   }
   .susy-add-button {
     @include span(isolate 2 at 2);
@@ -198,6 +217,28 @@
     top: 55px;
     margin-top: -95px;
   }
+  .project-info {
+    @include span(isolate 4 at 2);
+    font-size: 12px;
+    position: absolute;
+    bottom: 2%;
+    left: 35%;
+    color: #444; 
+    transform: translateX(-47%);
+  }
+  .project-info a {
+    text-decoration: none;   
+    color: #444;  
+  }
+  .project-info .name {
+    font-size: 12px;
+  }
+  .fa-github-square {
+    font-size: 14px;
+    margin-left: 10px;
+    margin-right: 7px;
+    cursor: pointer;
+  }
   .susy-add-button {
     @include span(isolate 2 at 4);
     font-size: 22px;
@@ -298,8 +339,11 @@
     @include span(isolate 8 at 3);
   }
   .video-container video {
+    visibility: hidden;
+  }
+  .video-container video{
     visibility: visible;
-    position: fixed;
+    position: absolute;
     top: 50%;
     left: 50%;
     min-width: 100%;
@@ -332,6 +376,28 @@
     position: absolute;
     top: 80px;
     margin-top: -138px;
+  }
+  .project-info {
+    font-size: 15px;
+    position: absolute;
+    bottom: 2%;
+    width: 56%;
+    left: 35%;
+    color: #444; 
+    transform: translateX(-47%);
+  }
+  .project-info a {
+    text-decoration: none;   
+    color: #444;  
+  }
+  .project-info .name {
+    font-size: 15px;
+  }
+  .fa-github-square {
+    font-size: 17px;
+    margin-left: 10px;
+    margin-right: 7px;
+    cursor: pointer;
   }
   .susy-add-button {
     @include span(isolate 2 at 6);

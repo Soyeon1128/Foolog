@@ -21,8 +21,7 @@
           @click='openSignIn') 로그인
     p.project-info
       span.info-1 Fastcampus Team Project 2017 2Q - Team1 Foolog
-      span.info-2 Front-end Developer
-    .project-info-name
+      span.info-2  Front-end Developer
       a(href="https://github.com/Soyeon1128" target="_blank")
         span.fa.fa-github-square
         span.name 강소연
@@ -73,32 +72,32 @@ export default {
   body
     overlfow: hidden
 
-  .project-info
-    position: absolute
-    bottom: 2%
-    left: 47%
-    transform: translateX(-47%)
-    color: #444
+  // .project-info
+  //   position: absolute
+  //   bottom: 2%
+  //   left: 47%
+  //   transform: translateX(-47%)
+  //   color: #444
 
-  .project-info a
-    text-decoration: none
-    color: #444
-    // font-size: 30px
+  // .project-info a
+  //   text-decoration: none
+  //   color: #444
+  //   // font-size: 30px
   
-  .info-1
-    margin-right: 15px
+  // .info-1
+  //   margin-right: 15px
   
-  .info-2
-    margin-right: 3px
+  // .info-2
+  //   margin-right: 3px
 
-  .fa-github-square
-    font-size: 20px
-    margin-left: 10px
-    margin-right: 7px
-    cursor: pointer
+  // .fa-github-square
+  //   font-size: 20px
+  //   margin-left: 10px
+  //   margin-right: 7px
+  //   cursor: pointer
   
-  .name
-    font-size: 15px
+  // .name
+  //   font-size: 15px
 
 </style>
 
