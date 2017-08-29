@@ -1,9 +1,9 @@
 <template lang="pug">
   .home-container
     header-logo
+    video-bg
     sign-in( v-show='signIn' )
     sign-up( v-show='signUp' )
-    video-bg
     .home-slogan.susy-home( v-show='mainView' )
       main.home-slogan-first
         p Love, Eat, and 

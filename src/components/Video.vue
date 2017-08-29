@@ -13,17 +13,17 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-  video
-    position: fixed
-    top: 50%
-    left: 50%
-    min-width: 100%
-    min-height: 100%
-    width: auto
-    height: auto
-    z-index: -100
-    transform: translate(-50%, -50%)
-    background-size: cover
-    background-position: center
+  // video
+  //   position: fixed
+  //   top: 50%
+  //   left: 50%
+  //   min-width: 100%
+  //   min-height: 100%
+  //   width: auto
+  //   height: auto
+  //   z-index: -100
+  //   transform: translate(-50%, -50%)
+  //   background-size: cover
+  //   background-position: center
 </style>
 
