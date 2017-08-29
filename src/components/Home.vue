@@ -22,6 +22,7 @@
     p.project-info
       span.info-1 Fastcampus Team Project 2017 2Q - Team1 Foolog
       span.info-2 Front-end Developer
+    .project-info-name
       a(href="https://github.com/Soyeon1128" target="_blank")
         span.fa.fa-github-square
         span.name 강소연
@@ -82,7 +83,7 @@ export default {
   .project-info a
     text-decoration: none
     color: #444
-    font-size: 30px
+    // font-size: 30px
   
   .info-1
     margin-right: 15px
