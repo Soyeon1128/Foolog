@@ -195,14 +195,23 @@ const mutations = {
       if ( state.post_keys.location.longitude ) {
         form.append('longitude', state.post_keys.location.longitude);
       }
+      else {
+        form.append('longitude', 127.020171);
+      }
       if ( state.post_keys.location.latitude ) {
         form.append('latitude', state.post_keys.location.latitude);
+      }
+      else {
+        form.append('latitude', 37.516271);
       }
       if ( state.post_keys.location.memo.trim() !== '' ) {
         form.append('memo', state.post_keys.location.memo);
       }
       if ( state.post_keys.location.title.trim() !== '' ) {
         form.append('title', state.post_keys.location.title);
+      }
+      else {
+        form.append('title', '장소추가 안함');
       }
       let user_token = window.localStorage.getItem('token');
       let post_url = 'http://api.foolog.xyz/post/';

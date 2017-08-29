@@ -23,8 +23,7 @@ transition(name="before")
             span.fa.fa-calendar  {{ postDate }}
             button.fa.fa-map-marker.fa-lg(
               type='button'
-              @click="modalMap"
-              )  {{ postKeys.location.title || " 장소 추가하기" }}
+              @click="modalMap")  {{ postKeys.location.title || " 장소 추가하기" }}
         .post-list-diary-2
           form
             textarea.post-add-text(
