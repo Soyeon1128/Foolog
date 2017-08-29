@@ -145,7 +145,7 @@ const mutations = {
   },
   resetPostKeys(state) {  
     state.post_keys.text = '';
-    state.post_keys.photo = '';
+    state.post_keys.photo = null;
     state.post_keys.tags[0].text = '';
     state.post_keys.tags[1].text = '';
     state.post_keys.location.longitude = '';
@@ -183,8 +183,13 @@ const mutations = {
       if ( state.post_keys.text.trim() !== '' ) {
         form.append('text', state.post_keys.text);
       }
-      if ( state.file ) {
+      if ( state.file !== null ) {
         form.append('photo', state.file);
+        console.log("1111111",state.file);
+      }
+      else {
+        console.log("22222222",state.file);        
+        form.append('photo', null);
       }
       if ( !!state.post_keys.tags[0].text && !!state.post_keys.tags[1].text ) {
         form.append('tags', state.post_keys.tags[0].text + ', ' + state.post_keys.tags[1].text);
@@ -269,6 +274,9 @@ const mutations = {
       if ( state.file ) {
         form.append('photo', state.file);
       }
+      // else {
+      //   form.append('photo', null);
+      // }
       if ( !!state.post_keys.tags[0].text && !!state.post_keys.tags[1].text ) {
         form.append('tags', state.post_keys.tags[0].text + ', ' + state.post_keys.tags[1].text);
       }
