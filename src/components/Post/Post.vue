@@ -5,12 +5,12 @@ transition(name="post")
     header-logo 
     header-slogan
     post-add-button
-    post-before(v-if="isBefore" style="margin-bottom: 735px")
+    post-map(:class="mapChangeClass")    
+    post-before(v-if="isBefore")
     post-before(v-if="isModify")
     post-empty(v-if="isEmpty")
     post-after(v-if="isAfter")
     spinner(v-if="isLoading")
-    post-map(:class="mapChangeClass") 
 </template>
 
 <script>
