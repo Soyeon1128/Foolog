@@ -253,11 +253,11 @@
   .search-index-area {
     margin-top: 45px;
     margin-left: 10%;
-    font-size: 28px;
+    font-size: 26px;
     line-height: 28px;
   }
   .result-index {
-    font-size: 35px;
+    font-size: 30px;
   }
   .search-result-area {
     width: 100%;
@@ -467,19 +467,26 @@
   .susy-main {
     @include span(isolate 8 at 3);
   }
+  .video-container {
+    position: fixed;
+    top: 1%;
+    left: 5.5%;
+    // margin-top: -5%;
+  }
   .video-container video{
     visibility: visible;
-    position: relative;
-    top: 50%;
-    left: 50%;
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    z-index: -1000;
-    transform: translate(-50%, 6.4%);
-    background-size: cover;
-    background-position: center;
+    width: 113%;
+    // position: relative;
+    // top: 50%;
+    // left: 50%;
+    // min-width: 100%;
+    // min-height: 100%;
+    // width: auto;
+    // height: auto;
+    // z-index: -1000;
+    // transform: translate(-50%, 6.4%);
+    // background-size: cover;
+    // background-position: center;
   }
   .video-container img {
     visibility: hidden;
