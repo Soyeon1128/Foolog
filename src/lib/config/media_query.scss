@@ -6,7 +6,7 @@
   .susy-header {
     @include container();
     position: relative;
-    z-index: 800;
+    // z-index: 700;
   }
   .susy-home {
     @include span(4);
@@ -28,7 +28,7 @@
   .video-container img {
     visibility: visible;
     position: absolute;
-    top: 0;
+    top: 6.4%;
     left: 0;
     // margin-left: 20%;
     max-width: 100vh;
@@ -311,17 +311,17 @@
   .susy-main {
     @include span(isolate 6 at 2);
   }
-  .video-container video {
+  .video-container video{
     visibility: visible;
-    position: fixed;
+    position: relative;
     top: 50%;
     left: 50%;
     min-width: 100%;
     min-height: 100%;
     width: auto;
     height: auto;
-    z-index: -100;
-    transform: translate(-50%, -50%);
+    z-index: -1000;
+    transform: translate(-50%, 6.4%);
     background-size: cover;
     background-position: center;
   }
@@ -467,12 +467,9 @@
   .susy-main {
     @include span(isolate 8 at 3);
   }
-  .video-container video {
-    visibility: hidden;
-  }
   .video-container video{
     visibility: visible;
-    position: absolute;
+    position: relative;
     top: 50%;
     left: 50%;
     min-width: 100%;
@@ -480,7 +477,7 @@
     width: auto;
     height: auto;
     z-index: -1000;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, 6.4%);
     background-size: cover;
     background-position: center;
   }
